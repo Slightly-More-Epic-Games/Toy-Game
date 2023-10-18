@@ -11,17 +11,35 @@ public class Game : MonoBehaviour
 
     private string currentScene = null;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public static Game instance;
+
+    private Queue<Context> eventsToProcess = new Queue<Context>();
+
+    public List<Creature> playerAllies = new List<Creature>();
+    public List<Creature> playerEnemies = new List<Creature>();
+
+    void Start() {
+        instance = this;
         playerData = Instantiate(classes[0]);
         LoadGameScene(GameScene.MAP);
+
+        playerAllies.Add(playerData);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ProcessEvents() {
+        while (eventsToProcess.Count > 0) {
+            Context context = eventsToProcess.Dequeue();
+            foreach (Creature creature in playerAllies) {
+                creature.OnEvent(context);
+            }
+            foreach (Creature creature in playerEnemies) {
+                creature.OnEvent(context);
+            }
+        }
+    }
+
+    public void AddEventToProcess(Context context) {
+        eventsToProcess.Enqueue(context);
     }
 
     public void Quit() {
