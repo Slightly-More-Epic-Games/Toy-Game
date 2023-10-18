@@ -41,6 +41,11 @@ public abstract class Creature : ScriptableObject {
     }
 
     protected void ProcessEvent(Context context) {
-
+        Debug.Log("creature "+name+" is processing event");
+        Debug.Log(context.action);
+        Debug.Log(context.source);
+        Debug.Log(context.target);
+        Debug.Log(context.value);
+        Debug.Log("-----------");
     }
 }
