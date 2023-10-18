@@ -46,6 +46,7 @@ public class Context
 
     public List<Creature> GetTargets(Target targetType, Creature owner) {
         List<Creature> targets = new List<Creature>();
+
         switch (targetType) {
             case Target.SELF:
                 targets.Add(owner);
@@ -62,6 +63,10 @@ public class Context
             case Target.ALL_ALLIES:
                 //
                 break;
+            case Target.RANDOM:
+            case Target.ALL:
+                //
+                break;
             case Target.SOURCE:
                 targets.Add(source);
                 break;
@@ -69,6 +74,10 @@ public class Context
                 targets.Add(target);
                 break;
         };
+
+        if (targetType == Target.RANDOM_NOT_SELF || targetType == Target.RANDOM_OPPONENTS || targetType == Target.RANDOM_ALLIES || targetType == Target.RANDOM) {
+            return new List<Creature>(){targets[Random.Range(0, targets.Count)]};
+        }
 
         return targets;
     }
