@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Condition : ScriptableObject
 {
-    public abstract bool Test(Context context, Creature owner, int[] parameters);
+    public abstract bool Test(Encounter.Context context, Creature owner, int[] parameters);
 }

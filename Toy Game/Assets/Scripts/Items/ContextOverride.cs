@@ -6,14 +6,14 @@ using NCalc;
 [System.Serializable]
 public class ContextOverride
 {
-    public Context.Action action;
-    public Context.Target source;
-    public Context.Target target;
+    public Encounter.Action action;
+    public Encounter.Target source;
+    public Encounter.Target target;
     public string valueOverride;
 
     private Expression expression = null;
 
-    public void Apply(Context context, Creature owner) {
+    public void Apply(Encounter.Context context, Creature owner) {
         int newValue;
         if (valueOverride == "" || valueOverride == "x") {
             newValue = context.value;
@@ -24,8 +24,8 @@ public class ContextOverride
             newValue = Mathf.RoundToInt(result);
         }
 
-        Context newContext = new Context(action, context.GetTargets(source, owner)[0], context.GetTargets(target, owner)[0], newValue);
+        Encounter.Context newContext = new Encounter.Context(action, context.GetTargets(source, owner)[0], context.GetTargets(target, owner)[0], newValue);
 
-        Encounter.instance.AddEventToProcess(newContext);
+        Encounter.Encounter.instance.AddEventToProcess(newContext);
     }
 }

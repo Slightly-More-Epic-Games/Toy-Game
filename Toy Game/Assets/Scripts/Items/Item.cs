@@ -10,7 +10,7 @@ public abstract class Item : ScriptableObject
     public int imaginationCost;
     public int healthCost;
 
-    public abstract void OnUse(Context context, Creature owner);
+    public abstract void OnUse(Encounter.Context context, Creature owner);
 
-    public abstract void OnEvent(Context context, Creature owner);
+    public abstract void OnEvent(Encounter.Context context, Creature owner);
 }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public abstract class Trigger : ScriptableObject
 {
-    public Context.Action activateOn;
-    public Context.Target target;
+    public Encounter.Action activateOn;
+    public Encounter.Target target;
     public List<ConditionData> conditions;
     public bool cancelEvent;
 
     protected bool activated = false;
 
-    public void OnEvent(Context context, Creature owner) {
+    public void OnEvent(Encounter.Context context, Creature owner) {
         if (activateOn != context.action) return;
 
         List<Creature> creatures = context.GetTargets(target, owner);
@@ -20,7 +20,7 @@ public abstract class Trigger : ScriptableObject
         }
     }
 
-    public Result RunTrigger(Context context, Creature owner) {
+    public Result RunTrigger(Encounter.Context context, Creature owner) {
         Result result = new Result();
 
         if (activated) return result;
@@ -53,7 +53,7 @@ public abstract class Trigger : ScriptableObject
         activated = false;
     }
 
-    protected abstract void Activate(Context context, Creature owner);
+    protected abstract void Activate(Encounter.Context context, Creature owner);
 
     public class Result {
         public bool activated = false;

@@ -7,13 +7,13 @@ public class TriggerItem : Item
 {
     public List<Trigger> triggers;
 
-    public override void OnEvent(Context context, Creature owner) {
+    public override void OnEvent(Encounter.Context context, Creature owner) {
         foreach (Trigger trigger in triggers) {
             trigger.OnEvent(context, owner);
         }
     }
 
-    public override void OnUse(Context context, Creature owner) {
+    public override void OnUse(Encounter.Context context, Creature owner) {
         foreach (Trigger trigger in triggers) {
             trigger.OnEvent(context, owner);
         }

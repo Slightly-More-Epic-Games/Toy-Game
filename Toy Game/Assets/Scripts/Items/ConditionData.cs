@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ConditionData
 {
-    public Context.Action actionMatch;
+    public Encounter.Action actionMatch;
     public OwnerMatch ownerMatch;
     public Condition condition;
     public int[] parameters;
@@ -26,7 +26,7 @@ public class ConditionData
         ACTIVATE_END
     }
 
-    public Result Test(Context context, Creature owner) {
+    public Result Test(Encounter.Context context, Creature owner) {
         if (context.action != actionMatch) return Result.PASS;
         if (ownerMatch == OwnerMatch.SOURCE && context.source != owner) return Result.PASS;
         if (ownerMatch == OwnerMatch.TARGET && context.target != owner) return Result.PASS;

@@ -7,7 +7,7 @@ public class OverrideTrigger : Trigger
 {
     public List<ContextOverride> overrides;
 
-    protected override void Activate(Context context, Creature owner) {
+    protected override void Activate(Encounter.Context context, Creature owner) {
         foreach (ContextOverride contextOverride in overrides) {
             contextOverride.Apply(context, owner);
         }

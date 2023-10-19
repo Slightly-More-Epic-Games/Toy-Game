@@ -19,16 +19,16 @@ public abstract class Creature : ScriptableObject {
 
     public void UseItem(int index, Creature target) {
         Item item = items[index];
-        Encounter.instance.AddEventToProcess(new Context(Context.Action.ANY_ITEM_USED, this, target, index));
+        Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.ANY_ITEM_USED, this, target, index));
 
-        if (item.imaginationCost > 0) Encounter.instance.AddEventToProcess(new Context(Context.Action.LOSE_IMAGINATION, this, this, item.imaginationCost));
-        if (item.healthCost > 0) Encounter.instance.AddEventToProcess(new Context(Context.Action.LOSE_HEALTH, this, this, item.healthCost));
+        if (item.imaginationCost > 0) Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_IMAGINATION, this, this, item.imaginationCost));
+        if (item.healthCost > 0) Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_HEALTH, this, this, item.healthCost));
 
-        item.OnUse(new Context(Context.Action.ITEM_USED, this, target, index), this);
-        Encounter.instance.ProcessEvents();
+        item.OnUse(new Encounter.Context(Encounter.Action.ITEM_USED, this, target, index), this);
+        Encounter.Encounter.instance.ProcessEvents();
     }
 
-    public void OnEvent(Context context) {
+    public void OnEvent(Encounter.Context context) {
         foreach (Item item in items) {
             item.OnEvent(context, this);
         }
@@ -55,37 +55,37 @@ public abstract class Creature : ScriptableObject {
         }
     }
 
-    protected void ProcessEvent(Context context) {
+    protected void ProcessEvent(Encounter.Context context) {
         switch (context.action) {
-            case Context.Action.ITEM_USED:
-            case Context.Action.ANY_ITEM_USED:
+            case Encounter.Action.ITEM_USED:
+            case Encounter.Action.ANY_ITEM_USED:
                 break;
-            case Context.Action.DEAL_DAMAGE:
+            case Encounter.Action.DEAL_DAMAGE:
                 if (context.source != this) return;
-                Encounter.instance.AddEventToProcess(new Context(Context.Action.LOSE_HEALTH, context.source, context.target, context.value));
+                Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_HEALTH, context.source, context.target, context.value));
                 break;
-            case Context.Action.GAIN_HEALTH:
-            case Context.Action.LOSE_HEALTH:
+            case Encounter.Action.GAIN_HEALTH:
+            case Encounter.Action.LOSE_HEALTH:
                 if (context.target != this) return;
-                HealthChange(context.action == Context.Action.GAIN_HEALTH ? context.value : -context.value, context.source);
+                HealthChange(context.action == Encounter.Action.GAIN_HEALTH ? context.value : -context.value, context.source);
                 break;
-            case Context.Action.GAIN_IMAGINATION:
-            case Context.Action.LOSE_IMAGINATION:
+            case Encounter.Action.GAIN_IMAGINATION:
+            case Encounter.Action.LOSE_IMAGINATION:
                 if (context.target != this) return;
-                ImaginationChange(context.action == Context.Action.GAIN_IMAGINATION ? context.value : -context.value);
+                ImaginationChange(context.action == Encounter.Action.GAIN_IMAGINATION ? context.value : -context.value);
                 break;
-            case Context.Action.TURN_START:
+            case Encounter.Action.TURN_START:
                 if (context.target != this) return;
                 OnTurnStart();
                 break;
-            case Context.Action.TURN_END:
+            case Encounter.Action.TURN_END:
                 if (context.source != this) return;
                 OnTurnEnd();
                 break;
-            case Context.Action.ENCOUNTER_START:
+            case Encounter.Action.ENCOUNTER_START:
                 OnEncounterStart();
                 break;
-            case Context.Action.ENCOUNTER_END:
+            case Encounter.Action.ENCOUNTER_END:
                 OnEncounterEnd();
                 break;
         }
@@ -111,16 +111,16 @@ public abstract class Creature : ScriptableObject {
     protected virtual void OnEncounterEnd() {}
 
     protected void EndTurn() {
-        Encounter.instance.AddEventToProcess(new Context(Context.Action.TURN_END, this, this, 0));
-        Encounter.instance.ProcessEvents();
+        Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.TURN_END, this, this, 0));
+        Encounter.Encounter.instance.ProcessEvents();
     }
 
     public bool UpdateDeadness() {
         if (isDead) return true;
         if (health > 0) return false;
-        OnEvent(new Context(Context.Action.LAST_STAND, this, this, health));
+        OnEvent(new Encounter.Context(Encounter.Action.LAST_STAND, this, this, health));
         if (health > 0) return false;
-        Encounter.instance.AddEventToProcess(new Context(Context.Action.ANY_DEATH, this, this, health));
+        Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.ANY_DEATH, this, this, health));
         OnDeath();
         isDead = true;
         Destroy(this);

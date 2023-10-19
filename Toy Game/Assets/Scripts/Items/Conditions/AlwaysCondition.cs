@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Always Condition", menuName = "Toy Game/AlwaysCondition", order = 0)]
 public class AlwaysCondition : Condition
 {
-    public override bool Test(Context context, Creature owner, int[] parameters) {
+    public override bool Test(Encounter.Context context, Creature owner, int[] parameters) {
         return true;
     }
 }
