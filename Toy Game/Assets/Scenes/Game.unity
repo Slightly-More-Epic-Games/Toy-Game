@@ -285,6 +285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classes:
   - {fileID: 11400000, guid: 15c62a473934a734aa9b3938519eb19f, type: 2}
+  enemies:
+  - {fileID: 11400000, guid: 402b993984976ed4e92ab1dadef7a4a8, type: 2}
 --- !u!4 &607926948
 Transform:
   m_ObjectHideFlags: 0
@@ -1143,6 +1145,6 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 607926948}
   - {fileID: 1122137927}
   - {fileID: 659247771}
-  - {fileID: 607926948}

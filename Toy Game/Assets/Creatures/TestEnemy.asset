@@ -15,5 +15,6 @@ MonoBehaviour:
   health: 5
   imagination: 0
   items:
-  - {fileID: 11400000, guid: 6c10c0880133d5548801df0a2dc3e140, type: 2}
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
+  - {fileID: 11400000, guid: 6c10c0880133d5548801df0a2dc3e140, type: 2}

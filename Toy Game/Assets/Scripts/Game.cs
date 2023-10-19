@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
     [SerializeField] private PlayerData[] classes;
+    [SerializeField] private Enemy[] enemies;
 
     [System.NonSerialized] public PlayerData playerData;
 
@@ -17,8 +18,6 @@ public class Game : MonoBehaviour
 
     [System.NonSerialized] public List<Creature> playerAllies = new List<Creature>();
     [System.NonSerialized] public List<Creature> playerEnemies = new List<Creature>();
-
-    [SerializeField] private Creature[] enemies;
 
     void Start() {
         instance = this;

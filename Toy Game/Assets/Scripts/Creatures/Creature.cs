@@ -7,7 +7,7 @@ public abstract class Creature : ScriptableObject {
     public int imagination;
     public List<Item> items;
 
-    protected List<Trigger> triggers;
+    protected List<Trigger> triggers = new List<Trigger>();
 
     public void AddTrigger(Trigger trigger) {
         triggers.Add(trigger);
@@ -16,6 +16,10 @@ public abstract class Creature : ScriptableObject {
     public void UseItem(int index, Creature target) {
         Item item = items[index];
         Game.instance.AddEventToProcess(new Context(Context.Action.ANY_ITEM_USED, this, target, index));
+
+        if (item.imaginationCost > 0) Game.instance.AddEventToProcess(new Context(Context.Action.LOSE_IMAGINATION, this, this, item.imaginationCost));
+        if (item.healthCost > 0) Game.instance.AddEventToProcess(new Context(Context.Action.LOSE_HEALTH, this, this, item.healthCost));
+
         item.OnUse(new Context(Context.Action.ITEM_USED, this, target, index), this);
         Game.instance.ProcessEvents();
     }
@@ -80,6 +84,8 @@ public abstract class Creature : ScriptableObject {
             case Context.Action.ENCOUNTER_END:
                 break;
         }
+
+        Debug.Log("new stats: health:"+health+" imagination:"+imagination);
     }
 
     protected void HealthChange(int delta) {

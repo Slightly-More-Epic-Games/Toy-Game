@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bc9384b0992e3d408972644676e6022, type: 3}
-  m_Name: GainImagination
+  m_Name: Umbrella
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: gain 4 imagination per turn
-  imaginationCost: -1
-  healthCost: -1
+  itemName: umbrella
+  itemDescription: 
+  imaginationCost: 4
+  healthCost: 0
   triggers:
-  - {fileID: 11400000, guid: f85dc08a417804b45823c37a9da3bcc1, type: 2}
+  - {fileID: 11400000, guid: 8e862897cf102394a9cbd4cc09d2538e, type: 2}
+  - {fileID: 11400000, guid: c34c20c9857d4614e996ac5e8d525e2b, type: 2}

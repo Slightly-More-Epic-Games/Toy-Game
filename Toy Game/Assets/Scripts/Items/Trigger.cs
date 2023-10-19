@@ -15,7 +15,9 @@ public abstract class Trigger : ScriptableObject
         if (activateOn != context.action) return;
 
         List<Creature> creatures = context.GetTargets(target, owner);
+        Debug.Log(creatures.Count);
         foreach (Creature creature in creatures) {
+            Debug.Log(creature);
             creature.AddTrigger(Instantiate(this));
         }
     }
