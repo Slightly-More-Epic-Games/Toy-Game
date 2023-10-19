@@ -31,8 +31,7 @@ public class ConditionData
         if (ownerMatch == OwnerMatch.SOURCE && context.source != owner) return Result.PASS;
         if (ownerMatch == OwnerMatch.TARGET && context.target != owner) return Result.PASS;
         if (ownerMatch == OwnerMatch.EITHER && context.source != owner && context.target != owner) return Result.PASS;
-
         bool success = condition.Test(context, owner, parameters);
-        return success ? Result.PASS : resultOnSuccess;
+        return success ? resultOnSuccess : Result.PASS;
     }
 }

@@ -15,9 +15,7 @@ public abstract class Trigger : ScriptableObject
         if (activateOn != context.action) return;
 
         List<Creature> creatures = context.GetTargets(target, owner);
-        Debug.Log(creatures.Count);
         foreach (Creature creature in creatures) {
-            Debug.Log(creature);
             creature.AddTrigger(Instantiate(this));
         }
     }
@@ -28,10 +26,10 @@ public abstract class Trigger : ScriptableObject
         if (activated) return result;
 
         foreach (ConditionData conditionData in conditions) {
-            ConditionData.Result newResult = conditionData.Test(context, owner);
-            if (newResult == ConditionData.Result.ACTIVATE) result.activated = true;
-            else if (newResult == ConditionData.Result.END) result.ended = true;
-            else if (newResult == ConditionData.Result.ACTIVATE_END) {
+            ConditionData.Result conditionResult = conditionData.Test(context, owner);;
+            if (conditionResult == ConditionData.Result.ACTIVATE) result.activated = true;
+            else if (conditionResult == ConditionData.Result.END) result.ended = true;
+            else if (conditionResult == ConditionData.Result.ACTIVATE_END) {
                 result.activated = true;
                 result.ended = true;
             }
@@ -42,13 +40,11 @@ public abstract class Trigger : ScriptableObject
             result.ended = true;
         }
 
-        activated = true;
-
         if (result.activated) {
+            activated = true;
+            result.cancelled = cancelEvent;
             Activate(context, owner);
         }
-
-        result.cancelled = cancelEvent;
 
         return result;
     }

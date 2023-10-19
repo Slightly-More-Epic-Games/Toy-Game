@@ -35,7 +35,6 @@ public abstract class Creature : ScriptableObject {
             Trigger.Result result = trigger.RunTrigger(context, this);
             if (result.ended) {
                 triggers.RemoveAt(i);
-                Destroy(trigger);
                 i--;
             }
             cancelled |= result.cancelled;
@@ -53,13 +52,6 @@ public abstract class Creature : ScriptableObject {
     }
 
     protected void ProcessEvent(Context context) {
-        Debug.Log("creature "+name+" is processing event");
-        Debug.Log(context.action);
-        Debug.Log(context.source);
-        Debug.Log(context.target);
-        Debug.Log(context.value);
-        Debug.Log("-----------");
-
         switch (context.action) {
             case Context.Action.ITEM_USED:
             case Context.Action.ANY_ITEM_USED:
@@ -85,7 +77,7 @@ public abstract class Creature : ScriptableObject {
                 break;
         }
 
-        Debug.Log("new stats: health:"+health+" imagination:"+imagination);
+        Debug.Log("new stats for "+name+": health:"+health+" imagination:"+imagination);
     }
 
     protected void HealthChange(int delta) {
