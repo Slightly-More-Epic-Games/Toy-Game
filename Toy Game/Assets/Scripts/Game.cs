@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Game : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class Game : MonoBehaviour
             foreach (Creature creature in playerEnemies) {
                 creature.OnEvent(context);
             }
+
+            if (context.action == Context.Action.TURN_END) {
+                TurnEnd(context.target);
+            }
         }
         foreach (Creature creature in playerAllies) {
             creature.EventFinished();
@@ -50,20 +55,32 @@ public class Game : MonoBehaviour
         }
     }
 
+    private void TurnEnd(Creature newCurrent) {
+        currentTurn = newCurrent;
+        turnNumber++;
+        playerAllies.RemoveAll(x => x.IsDead());
+        playerEnemies.RemoveAll(x => x.IsDead());
+
+        if (player.IsDead()) {
+            Debug.Log("GAME OVER");
+        }
+
+        if (playerEnemies.Count == 0) {
+            Debug.Log("ENCOUNTER WON");
+        }
+    }
+
     public void AddEventToProcess(Context context) {
         if (context.action == Context.Action.TURN_END) {
             context.source = currentTurn;
-            currentTurn = GetNextCreatureInTurnOrder(currentTurn);
             context.value = turnNumber;
-            turnNumber++;
-            context.target = currentTurn;
+            context.target = GetNextCreatureInTurnOrder(currentTurn);
             eventsToProcess.Enqueue(context);
-            eventsToProcess.Enqueue(new Context(Context.Action.TURN_START, context.source, currentTurn, turnNumber));
+            eventsToProcess.Enqueue(new Context(Context.Action.TURN_START, context.source, context.target, turnNumber+1));
         } else if (context.action == Context.Action.TURN_START) {
             if (currentTurn == context.target) return;
             eventsToProcess.Enqueue(new Context(Context.Action.TURN_END, currentTurn, context.target, turnNumber));
-            turnNumber++;
-            currentTurn = context.target;
+            context.value = turnNumber+1;
             eventsToProcess.Enqueue(context);
         } else {
             eventsToProcess.Enqueue(context);

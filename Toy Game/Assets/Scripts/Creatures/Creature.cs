@@ -9,6 +9,10 @@ public abstract class Creature : ScriptableObject {
 
     protected List<Trigger> triggers = new List<Trigger>();
 
+    public Creature lastAttacker;
+
+    protected bool isDead;
+
     public void AddTrigger(Trigger trigger) {
         triggers.Add(trigger);
     }
@@ -63,7 +67,7 @@ public abstract class Creature : ScriptableObject {
             case Context.Action.GAIN_HEALTH:
             case Context.Action.LOSE_HEALTH:
                 if (context.target != this) return;
-                HealthChange(context.action == Context.Action.GAIN_HEALTH ? context.value : -context.value);
+                HealthChange(context.action == Context.Action.GAIN_HEALTH ? context.value : -context.value, context.source);
                 break;
             case Context.Action.GAIN_IMAGINATION:
             case Context.Action.LOSE_IMAGINATION:
@@ -89,8 +93,9 @@ public abstract class Creature : ScriptableObject {
         Debug.Log("new stats for "+name+": health:"+health+" imagination:"+imagination);
     }
 
-    protected void HealthChange(int delta) {
+    protected void HealthChange(int delta, Creature source) {
         health += delta;
+        if (delta < 0) lastAttacker = source;
     }
 
     protected void ImaginationChange(int delta) {
@@ -109,4 +114,17 @@ public abstract class Creature : ScriptableObject {
         Game.instance.AddEventToProcess(new Context(Context.Action.TURN_END, this, this, 0));
         Game.instance.ProcessEvents();
     }
+
+    public bool IsDead() {
+        if (isDead) return true;
+        if (health > 0) return false;
+        OnEvent(new Context(Context.Action.LAST_STAND, this, this, health));
+        if (health > 0) return false;
+        Game.instance.AddEventToProcess(new Context(Context.Action.ANY_DEATH, this, this, health));
+        OnDeath();
+        isDead = true;
+        return true;
+    }
+
+    protected virtual void OnDeath() {}
 }
