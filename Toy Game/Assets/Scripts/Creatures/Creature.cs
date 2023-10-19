@@ -27,9 +27,11 @@ public abstract class Creature : ScriptableObject {
 
         bool cancelled = false;
         for (int i = 0; i < triggers.Count; i++) {
-            Trigger.Result result = triggers[i].RunTrigger(context, this);
+            Trigger trigger = triggers[i];
+            Trigger.Result result = trigger.RunTrigger(context, this);
             if (result.ended) {
                 triggers.RemoveAt(i);
+                Destroy(trigger);
                 i--;
             }
             cancelled |= result.cancelled;
