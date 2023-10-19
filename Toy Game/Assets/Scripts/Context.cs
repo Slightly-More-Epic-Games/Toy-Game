@@ -5,17 +5,17 @@ using UnityEngine;
 public class Context
 {
     public enum Target {
+        SOURCE,
+        TARGET,
         SELF,
-        ALL_NOT_SELF,
-        ALL_OPPONENTS,
-        ALL_ALLIES,
-        RANDOM_NOT_SELF,
-        RANDOM_OPPONENTS,
-        RANDOM_ALLIES,
         ALL,
         RANDOM,
-        SOURCE,
-        TARGET
+        ALL_NOT_SELF,
+        RANDOM_NOT_SELF,
+        ALL_OPPONENTS,
+        RANDOM_OPPONENTS,
+        ALL_ALLIES,
+        RANDOM_ALLIES
     }
 
     public enum Action {

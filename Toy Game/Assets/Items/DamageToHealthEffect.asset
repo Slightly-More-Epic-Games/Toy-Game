@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: DamageToHealthEffect
   m_EditorClassIdentifier: 
   activateOn: 0
-  target: 2
+  target: 7
   conditions:
   - actionMatch: 2
-    targetMatch: 0
+    ownerMatch: 1
     condition: {fileID: 11400000, guid: 6c48d86e282ddb84b877c199a7077d57, type: 2}
-    parameters: 
+    parameters: 02000000
     resultOnSuccess: 3
   cancelEvent: 1
   overrides:
   - action: 3
-    source: 9
-    target: 10
+    source: 0
+    target: 1
     valueOverride: 

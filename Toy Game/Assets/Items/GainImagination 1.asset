@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: GainImagination 1
   m_EditorClassIdentifier: 
   activateOn: 9
-  target: 0
+  target: 2
   conditions:
   - actionMatch: 7
-    targetMatch: 10
+    ownerMatch: 2
     condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
     parameters: 
     resultOnSuccess: 2
   cancelEvent: 0
   overrides:
   - action: 5
-    source: 0
-    target: 0
+    source: 2
+    target: 2
     valueOverride: 4

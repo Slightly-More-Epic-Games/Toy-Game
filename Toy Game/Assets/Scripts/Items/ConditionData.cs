@@ -6,11 +6,18 @@ using UnityEngine;
 public class ConditionData
 {
     public Context.Action actionMatch;
-    public Context.Target targetMatch;
+    public OwnerMatch ownerMatch;
     public Condition condition;
     public int[] parameters;
 
     public Result resultOnSuccess;
+
+    public enum OwnerMatch {
+        ANY,
+        SOURCE,
+        TARGET,
+        EITHER
+    }
 
     public enum Result {
         PASS,
@@ -21,9 +28,11 @@ public class ConditionData
 
     public Result Test(Context context, Creature owner) {
         if (context.action != actionMatch) return Result.PASS;
-        if (!context.GetTargets(targetMatch, owner).Contains(owner)) return Result.PASS;
+        if (ownerMatch == OwnerMatch.SOURCE && context.source != owner) return Result.PASS;
+        if (ownerMatch == OwnerMatch.TARGET && context.target != owner) return Result.PASS;
+        if (ownerMatch == OwnerMatch.EITHER && context.source != owner && context.target != owner) return Result.PASS;
 
-        bool success = condition.Test(context, owner, targetMatch, actionMatch, parameters);
+        bool success = condition.Test(context, owner, parameters);
         return success ? Result.PASS : resultOnSuccess;
     }
 }
