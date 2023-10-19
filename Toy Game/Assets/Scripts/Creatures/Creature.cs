@@ -19,13 +19,13 @@ public abstract class Creature : ScriptableObject {
 
     public void UseItem(int index, Creature target) {
         Item item = items[index];
-        Game.instance.AddEventToProcess(new Context(Context.Action.ANY_ITEM_USED, this, target, index));
+        Encounter.instance.AddEventToProcess(new Context(Context.Action.ANY_ITEM_USED, this, target, index));
 
-        if (item.imaginationCost > 0) Game.instance.AddEventToProcess(new Context(Context.Action.LOSE_IMAGINATION, this, this, item.imaginationCost));
-        if (item.healthCost > 0) Game.instance.AddEventToProcess(new Context(Context.Action.LOSE_HEALTH, this, this, item.healthCost));
+        if (item.imaginationCost > 0) Encounter.instance.AddEventToProcess(new Context(Context.Action.LOSE_IMAGINATION, this, this, item.imaginationCost));
+        if (item.healthCost > 0) Encounter.instance.AddEventToProcess(new Context(Context.Action.LOSE_HEALTH, this, this, item.healthCost));
 
         item.OnUse(new Context(Context.Action.ITEM_USED, this, target, index), this);
-        Game.instance.ProcessEvents();
+        Encounter.instance.ProcessEvents();
     }
 
     public void OnEvent(Context context) {
@@ -62,7 +62,7 @@ public abstract class Creature : ScriptableObject {
                 break;
             case Context.Action.DEAL_DAMAGE:
                 if (context.source != this) return;
-                Game.instance.AddEventToProcess(new Context(Context.Action.LOSE_HEALTH, context.source, context.target, context.value));
+                Encounter.instance.AddEventToProcess(new Context(Context.Action.LOSE_HEALTH, context.source, context.target, context.value));
                 break;
             case Context.Action.GAIN_HEALTH:
             case Context.Action.LOSE_HEALTH:
@@ -111,18 +111,19 @@ public abstract class Creature : ScriptableObject {
     protected virtual void OnEncounterEnd() {}
 
     protected void EndTurn() {
-        Game.instance.AddEventToProcess(new Context(Context.Action.TURN_END, this, this, 0));
-        Game.instance.ProcessEvents();
+        Encounter.instance.AddEventToProcess(new Context(Context.Action.TURN_END, this, this, 0));
+        Encounter.instance.ProcessEvents();
     }
 
-    public bool IsDead() {
+    public bool UpdateDeadness() {
         if (isDead) return true;
         if (health > 0) return false;
         OnEvent(new Context(Context.Action.LAST_STAND, this, this, health));
         if (health > 0) return false;
-        Game.instance.AddEventToProcess(new Context(Context.Action.ANY_DEATH, this, this, health));
+        Encounter.instance.AddEventToProcess(new Context(Context.Action.ANY_DEATH, this, this, health));
         OnDeath();
         isDead = true;
+        Destroy(this);
         return true;
     }
 

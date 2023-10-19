@@ -26,6 +26,6 @@ public class ContextOverride
 
         Context newContext = new Context(action, context.GetTargets(source, owner)[0], context.GetTargets(target, owner)[0], newValue);
 
-        Game.instance.AddEventToProcess(newContext);
+        Encounter.instance.AddEventToProcess(newContext);
     }
 }
