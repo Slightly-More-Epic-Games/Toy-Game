@@ -15,8 +15,10 @@ public class Game : MonoBehaviour
 
     private Queue<Context> eventsToProcess = new Queue<Context>();
 
-    public List<Creature> playerAllies = new List<Creature>();
-    public List<Creature> playerEnemies = new List<Creature>();
+    [System.NonSerialized] public List<Creature> playerAllies = new List<Creature>();
+    [System.NonSerialized] public List<Creature> playerEnemies = new List<Creature>();
+
+    [SerializeField] private Creature[] enemies;
 
     void Start() {
         instance = this;
@@ -24,6 +26,8 @@ public class Game : MonoBehaviour
         LoadGameScene(GameScene.MAP);
 
         playerAllies.Add(playerData);
+
+        playerEnemies.Add(Instantiate(enemies[Random.Range(0, enemies.Length)]));
     }
 
     public void ProcessEvents() {

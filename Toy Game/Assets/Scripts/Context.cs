@@ -53,19 +53,30 @@ public class Context
                 break;
             case Target.RANDOM_NOT_SELF:
             case Target.ALL_NOT_SELF:
-                //
+                targets.AddRange(Game.instance.playerAllies);
+                targets.AddRange(Game.instance.playerEnemies);
+                targets.Remove(owner);
                 break;
             case Target.RANDOM_OPPONENTS:
             case Target.ALL_OPPONENTS:
-                //
+                if (Game.instance.playerAllies.Contains(owner)) {
+                    targets.AddRange(Game.instance.playerEnemies);
+                } else {
+                    targets.AddRange(Game.instance.playerAllies);
+                }
                 break;
             case Target.RANDOM_ALLIES:
             case Target.ALL_ALLIES:
-                //
+                if (Game.instance.playerAllies.Contains(owner)) {
+                    targets.AddRange(Game.instance.playerAllies);
+                } else {
+                    targets.AddRange(Game.instance.playerEnemies);
+                }
                 break;
             case Target.RANDOM:
             case Target.ALL:
-                //
+                targets.AddRange(Game.instance.playerAllies);
+                targets.AddRange(Game.instance.playerEnemies);
                 break;
             case Target.SOURCE:
                 targets.Add(source);
