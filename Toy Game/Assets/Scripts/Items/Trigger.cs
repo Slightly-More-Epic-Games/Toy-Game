@@ -9,6 +9,8 @@ public abstract class Trigger : ScriptableObject
     public List<ConditionData> conditions;
     public bool cancelEvent;
 
+    protected bool activated = false;
+
     public void OnEvent(Context context, Creature owner) {
         if (activateOn != context.action) return;
 
@@ -20,6 +22,8 @@ public abstract class Trigger : ScriptableObject
 
     public Result RunTrigger(Context context, Creature owner) {
         Result result = new Result();
+
+        if (activated) return result;
 
         foreach (ConditionData conditionData in conditions) {
             ConditionData.Result newResult = conditionData.Test(context, owner);
@@ -36,6 +40,8 @@ public abstract class Trigger : ScriptableObject
             result.ended = true;
         }
 
+        activated = true;
+
         if (result.activated) {
             Activate(context, owner);
         }
@@ -43,6 +49,10 @@ public abstract class Trigger : ScriptableObject
         result.cancelled = cancelEvent;
 
         return result;
+    }
+
+    public void EventFinished() {
+        activated = false;
     }
 
     protected abstract void Activate(Context context, Creature owner);

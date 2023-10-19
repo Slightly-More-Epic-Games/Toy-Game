@@ -15,8 +15,8 @@ public abstract class Creature : ScriptableObject {
 
     public void UseItem(int index, Creature target) {
         Item item = items[index];
-        item.OnUse(new Context(Context.Action.ITEM_USED, this, target, index), this);
         Game.instance.AddEventToProcess(new Context(Context.Action.ANY_ITEM_USED, this, target, index));
+        item.OnUse(new Context(Context.Action.ITEM_USED, this, target, index), this);
         Game.instance.ProcessEvents();
     }
 
@@ -37,6 +37,12 @@ public abstract class Creature : ScriptableObject {
 
         if (!cancelled) {
             ProcessEvent(context);
+        }
+    }
+
+    public void EventFinished() {
+        foreach (Trigger trigger in triggers) {
+            trigger.EventFinished();
         }
     }
 

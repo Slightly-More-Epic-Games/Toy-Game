@@ -36,6 +36,12 @@ public class Game : MonoBehaviour
                 creature.OnEvent(context);
             }
         }
+        foreach (Creature creature in playerAllies) {
+            creature.EventFinished();
+        }
+        foreach (Creature creature in playerEnemies) {
+            creature.EventFinished();
+        }
     }
 
     public void AddEventToProcess(Context context) {
