@@ -55,5 +55,38 @@ public abstract class Creature : ScriptableObject {
         Debug.Log(context.target);
         Debug.Log(context.value);
         Debug.Log("-----------");
+
+        switch (context.action) {
+            case Context.Action.ITEM_USED:
+            case Context.Action.ANY_ITEM_USED:
+                break;
+            case Context.Action.DEAL_DAMAGE:
+                if (context.source != this) return;
+                Game.instance.AddEventToProcess(new Context(Context.Action.LOSE_HEALTH, context.source, context.target, context.value));
+                break;
+            case Context.Action.GAIN_HEALTH:
+            case Context.Action.LOSE_HEALTH:
+                if (context.target != this) return;
+                HealthChange(context.action == Context.Action.GAIN_HEALTH ? context.value : -context.value);
+                break;
+            case Context.Action.GAIN_IMAGINATION:
+            case Context.Action.LOSE_IMAGINATION:
+                if (context.target != this) return;
+                ImaginationChange(context.action == Context.Action.GAIN_IMAGINATION ? context.value : -context.value);
+                break;
+            case Context.Action.TURN_START:
+            case Context.Action.TURN_END:
+            case Context.Action.ENCOUNTER_START:
+            case Context.Action.ENCOUNTER_END:
+                break;
+        }
+    }
+
+    protected void HealthChange(int delta) {
+        health += delta;
+    }
+
+    protected void ImaginationChange(int delta) {
+        imagination += delta;
     }
 }
