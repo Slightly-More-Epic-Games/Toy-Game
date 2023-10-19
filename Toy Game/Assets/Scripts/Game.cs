@@ -52,6 +52,9 @@ public class Game : MonoBehaviour
             SceneManager.UnloadSceneAsync(currentScene);
         }
 
+        Map.Manager.instance = null;
+        Encounter.Manager.instance = null;
+
         SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
         currentScene = newScene;
     }

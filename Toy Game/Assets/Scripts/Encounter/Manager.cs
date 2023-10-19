@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Encounter {
-    public class Encounter : MonoBehaviour
+    public class Manager : MonoBehaviour
     {
         public void PlayerUseItemTest(int a) {
             playerAllies[0].UseItem(a, playerEnemies[0]);
@@ -13,7 +13,7 @@ namespace Encounter {
             playerEnemies[0].UseItem(a, playerAllies[0]);
         }
 
-        public static Encounter instance;
+        public static Manager instance;
 
         private Queue<Context> eventsToProcess = new Queue<Context>();
 

@@ -19,13 +19,13 @@ public abstract class Creature : ScriptableObject {
 
     public void UseItem(int index, Creature target) {
         Item item = items[index];
-        Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.ANY_ITEM_USED, this, target, index));
+        Encounter.Manager.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.ANY_ITEM_USED, this, target, index));
 
-        if (item.imaginationCost > 0) Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_IMAGINATION, this, this, item.imaginationCost));
-        if (item.healthCost > 0) Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_HEALTH, this, this, item.healthCost));
+        if (item.imaginationCost > 0) Encounter.Manager.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_IMAGINATION, this, this, item.imaginationCost));
+        if (item.healthCost > 0) Encounter.Manager.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_HEALTH, this, this, item.healthCost));
 
         item.OnUse(new Encounter.Context(Encounter.Action.ITEM_USED, this, target, index), this);
-        Encounter.Encounter.instance.ProcessEvents();
+        Encounter.Manager.instance.ProcessEvents();
     }
 
     public void OnEvent(Encounter.Context context) {
@@ -62,7 +62,7 @@ public abstract class Creature : ScriptableObject {
                 break;
             case Encounter.Action.DEAL_DAMAGE:
                 if (context.source != this) return;
-                Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_HEALTH, context.source, context.target, context.value));
+                Encounter.Manager.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.LOSE_HEALTH, context.source, context.target, context.value));
                 break;
             case Encounter.Action.GAIN_HEALTH:
             case Encounter.Action.LOSE_HEALTH:
@@ -111,8 +111,8 @@ public abstract class Creature : ScriptableObject {
     protected virtual void OnEncounterEnd() {}
 
     protected void EndTurn() {
-        Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.TURN_END, this, this, 0));
-        Encounter.Encounter.instance.ProcessEvents();
+        Encounter.Manager.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.TURN_END, this, this, 0));
+        Encounter.Manager.instance.ProcessEvents();
     }
 
     public bool UpdateDeadness() {
@@ -120,7 +120,7 @@ public abstract class Creature : ScriptableObject {
         if (health > 0) return false;
         OnEvent(new Encounter.Context(Encounter.Action.LAST_STAND, this, this, health));
         if (health > 0) return false;
-        Encounter.Encounter.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.ANY_DEATH, this, this, health));
+        Encounter.Manager.instance.AddEventToProcess(new Encounter.Context(Encounter.Action.ANY_DEATH, this, this, health));
         OnDeath();
         isDead = true;
         Destroy(this);

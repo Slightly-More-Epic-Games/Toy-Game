@@ -32,29 +32,29 @@ namespace Encounter {
                     break;
                 case Target.RANDOM:
                 case Target.ALL:
-                    targets.AddRange(Encounter.instance.playerAllies);
-                    targets.AddRange(Encounter.instance.playerEnemies);
+                    targets.AddRange(Manager.instance.playerAllies);
+                    targets.AddRange(Manager.instance.playerEnemies);
                     break;
                 case Target.RANDOM_NOT_SELF:
                 case Target.ALL_NOT_SELF:
-                    targets.AddRange(Encounter.instance.playerAllies);
-                    targets.AddRange(Encounter.instance.playerEnemies);
+                    targets.AddRange(Manager.instance.playerAllies);
+                    targets.AddRange(Manager.instance.playerEnemies);
                     targets.Remove(owner);
                     break;
                 case Target.RANDOM_OPPONENT:
                 case Target.ALL_OPPONENTS:
-                    if (Encounter.instance.playerAllies.Contains(owner)) {
-                        targets.AddRange(Encounter.instance.playerEnemies);
+                    if (Manager.instance.playerAllies.Contains(owner)) {
+                        targets.AddRange(Manager.instance.playerEnemies);
                     } else {
-                        targets.AddRange(Encounter.instance.playerAllies);
+                        targets.AddRange(Manager.instance.playerAllies);
                     }
                     break;
                 case Target.RANDOM_ALLY:
                 case Target.ALL_ALLIES:
-                    if (Encounter.instance.playerAllies.Contains(owner)) {
-                        targets.AddRange(Encounter.instance.playerAllies);
+                    if (Manager.instance.playerAllies.Contains(owner)) {
+                        targets.AddRange(Manager.instance.playerAllies);
                     } else {
-                        targets.AddRange(Encounter.instance.playerEnemies);
+                        targets.AddRange(Manager.instance.playerEnemies);
                     }
                     break;
                 case Target.LAST_ATTACKER:
