@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField] private PlayerData[] classes;
-    [SerializeField] private Enemy[] enemies;
+    [SerializeField] private PlayerCreature[] classes;
+    [SerializeField] private AutoCreature[] enemies;
 
-    [System.NonSerialized] public PlayerData playerData;
+    [System.NonSerialized] public PlayerCreature player;
 
     private string currentScene = null;
 
@@ -24,10 +24,10 @@ public class Game : MonoBehaviour
 
     void Start() {
         instance = this;
-        playerData = Instantiate(classes[0]);
+        player = Instantiate(classes[0]);
         LoadGameScene(GameScene.MAP);
 
-        playerAllies.Add(playerData);
+        playerAllies.Add(player);
 
         playerEnemies.Add(Instantiate(enemies[Random.Range(0, enemies.Length)]));
     }
@@ -59,17 +59,15 @@ public class Game : MonoBehaviour
             context.target = currentTurn;
             eventsToProcess.Enqueue(context);
             eventsToProcess.Enqueue(new Context(Context.Action.TURN_START, context.source, currentTurn, turnNumber));
-            return;
         } else if (context.action == Context.Action.TURN_START) {
             if (currentTurn == context.target) return;
             eventsToProcess.Enqueue(new Context(Context.Action.TURN_END, currentTurn, context.target, turnNumber));
             turnNumber++;
             currentTurn = context.target;
             eventsToProcess.Enqueue(context);
-            return;
+        } else {
+            eventsToProcess.Enqueue(context);
         }
-        
-        eventsToProcess.Enqueue(context);
     }
 
     private Creature GetNextCreatureInTurnOrder(Creature current) {
