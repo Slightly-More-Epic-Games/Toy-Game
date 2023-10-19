@@ -71,9 +71,18 @@ public abstract class Creature : ScriptableObject {
                 ImaginationChange(context.action == Context.Action.GAIN_IMAGINATION ? context.value : -context.value);
                 break;
             case Context.Action.TURN_START:
+                if (context.target != this) return;
+                OnTurnStart();
+                break;
             case Context.Action.TURN_END:
+                if (context.source != this) return;
+                OnTurnEnd();
+                break;
             case Context.Action.ENCOUNTER_START:
+                OnEncounterStart();
+                break;
             case Context.Action.ENCOUNTER_END:
+                OnEncounterEnd();
                 break;
         }
 
@@ -86,5 +95,18 @@ public abstract class Creature : ScriptableObject {
 
     protected void ImaginationChange(int delta) {
         imagination += delta;
+    }
+
+    protected virtual void OnTurnStart() {}
+
+    protected virtual void OnTurnEnd() {}
+
+    protected virtual void OnEncounterStart() {}
+
+    protected virtual void OnEncounterEnd() {}
+
+    protected void EndTurn() {
+        Game.instance.AddEventToProcess(new Context(Context.Action.TURN_END, this, this, 0));
+        Game.instance.ProcessEvents();
     }
 }

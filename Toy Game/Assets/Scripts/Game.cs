@@ -19,6 +19,9 @@ public class Game : MonoBehaviour
     [System.NonSerialized] public List<Creature> playerAllies = new List<Creature>();
     [System.NonSerialized] public List<Creature> playerEnemies = new List<Creature>();
 
+    private Creature currentTurn;
+    private int turnNumber;
+
     void Start() {
         instance = this;
         playerData = Instantiate(classes[0]);
@@ -48,7 +51,31 @@ public class Game : MonoBehaviour
     }
 
     public void AddEventToProcess(Context context) {
+        if (context.action == Context.Action.TURN_END) {
+            context.source = currentTurn;
+            currentTurn = GetNextCreatureInTurnOrder(currentTurn);
+            context.value = turnNumber;
+            turnNumber++;
+            context.target = currentTurn;
+            eventsToProcess.Enqueue(context);
+            eventsToProcess.Enqueue(new Context(Context.Action.TURN_START, context.source, currentTurn, turnNumber));
+            return;
+        } else if (context.action == Context.Action.TURN_START) {
+            if (currentTurn == context.target) return;
+            eventsToProcess.Enqueue(new Context(Context.Action.TURN_END, currentTurn, context.target, turnNumber));
+            turnNumber++;
+            currentTurn = context.target;
+            eventsToProcess.Enqueue(context);
+            return;
+        }
+        
         eventsToProcess.Enqueue(context);
+    }
+
+    private Creature GetNextCreatureInTurnOrder(Creature current) {
+        int index = playerAllies.Contains(current) ? playerAllies.IndexOf(current) : playerEnemies.IndexOf(current)+playerAllies.Count;
+        index = (index + 1)%(playerAllies.Count+playerEnemies.Count);
+        return index >= playerAllies.Count ? playerEnemies[index-playerAllies.Count] : playerAllies[index];
     }
 
     public void Quit() {
