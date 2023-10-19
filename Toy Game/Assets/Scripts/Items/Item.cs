@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Encounter;
 
-public abstract class Item : ScriptableObject
-{
-    public string itemName;
-    public string itemDescription;
+namespace Items {
+    public abstract class Item : ScriptableObject
+    {
+        public UIInfo UI;
 
-    public int imaginationCost;
-    public int healthCost;
+        public int imaginationCost;
+        public int healthCost;
 
-    public abstract void OnUse(Encounter.Context context, Creature owner);
+        public abstract void OnUse(Context context, Creature owner);
 
-    public abstract void OnEvent(Encounter.Context context, Creature owner);
+        public abstract void OnEvent(Context context, Creature owner);
+    }
 }

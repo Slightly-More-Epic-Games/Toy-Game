@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Encounter;
 
-[CreateAssetMenu(fileName = "OverrideTrigger", menuName = "Toy Game/Override Trigger", order = 0)]
-public class OverrideTrigger : Trigger
-{
-    public List<ContextOverride> overrides;
+namespace Items {
+    [CreateAssetMenu(fileName = "OverrideTrigger", menuName = "Toy Game/Override Trigger", order = 0)]
+    public class OverrideTrigger : Trigger
+    {
+        public List<ContextOverride> overrides;
 
-    protected override void Activate(Encounter.Context context, Creature owner) {
-        foreach (ContextOverride contextOverride in overrides) {
-            contextOverride.Apply(context, owner);
+        protected override void Activate(Context context, Creature owner) {
+            foreach (ContextOverride contextOverride in overrides) {
+                contextOverride.Apply(context, owner);
+            }
         }
     }
 }

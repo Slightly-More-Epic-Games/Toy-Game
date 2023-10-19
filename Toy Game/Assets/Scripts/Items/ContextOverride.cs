@@ -2,30 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NCalc;
+using Encounter;
 
-[System.Serializable]
-public class ContextOverride
-{
-    public Encounter.Action action;
-    public Encounter.Target source;
-    public Encounter.Target target;
-    public string valueOverride;
+namespace Items {
+    [System.Serializable]
+    public class ContextOverride
+    {
+        public Action action;
+        public Target source;
+        public Target target;
+        public string valueOverride;
 
-    private Expression expression = null;
+        private Expression expression = null;
 
-    public void Apply(Encounter.Context context, Creature owner) {
-        int newValue;
-        if (valueOverride == "" || valueOverride == "x") {
-            newValue = context.value;
-        } else {
-            expression ??= new Expression(valueOverride.Replace("x", "[X]"));
-            expression.Parameters["X"] = context.value;
-            float result = float.Parse(expression.Evaluate().ToString(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
-            newValue = Mathf.RoundToInt(result);
+        public void Apply(Context context, Creature owner) {
+            int newValue;
+            if (valueOverride == "" || valueOverride == "x") {
+                newValue = context.value;
+            } else {
+                expression ??= new Expression(valueOverride.Replace("x", "[X]"));
+                expression.Parameters["X"] = context.value;
+                float result = float.Parse(expression.Evaluate().ToString(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
+                newValue = Mathf.RoundToInt(result);
+            }
+
+            Context newContext = new Context(action, context.GetTargets(source, owner)[0], context.GetTargets(target, owner)[0], newValue);
+
+            Manager.instance.AddEventToProcess(newContext);
         }
-
-        Encounter.Context newContext = new Encounter.Context(action, context.GetTargets(source, owner)[0], context.GetTargets(target, owner)[0], newValue);
-
-        Encounter.Manager.instance.AddEventToProcess(newContext);
     }
 }
