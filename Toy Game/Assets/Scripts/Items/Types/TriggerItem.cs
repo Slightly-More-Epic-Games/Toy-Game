@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Encounter;
 
-namespace Items {
-    [CreateAssetMenu(fileName = "TriggerItem", menuName = "Toy Game/TriggerItem", order = 0)]
+namespace Items.Types {
+    [CreateAssetMenu(fileName = "TriggerItem", menuName = "Toy Game/Trigger Item", order = 0)]
     public class TriggerItem : Item
     {
         public List<Trigger> triggers;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Encounter;
 
-namespace Items {
+namespace Items.Triggers {
     [CreateAssetMenu(fileName = "OverrideTrigger", menuName = "Toy Game/Override Trigger", order = 0)]
     public class OverrideTrigger : Trigger
     {

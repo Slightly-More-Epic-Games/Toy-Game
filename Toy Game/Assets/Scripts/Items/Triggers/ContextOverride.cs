@@ -4,7 +4,7 @@ using UnityEngine;
 using NCalc;
 using Encounter;
 
-namespace Items {
+namespace Items.Triggers {
     [System.Serializable]
     public class ContextOverride
     {
