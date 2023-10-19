@@ -24,6 +24,7 @@ public class Game : MonoBehaviour
         LoadGameScene(GameScene.MAP);
 
         playerAllies.Add(playerData);
+        //wow a change
     }
 
     public void ProcessEvents() {
