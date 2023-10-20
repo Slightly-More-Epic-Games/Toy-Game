@@ -21,18 +21,26 @@ namespace Encounter {
             }
         }
 
-        public void SetInteractable(bool interactable) {
-
-        }
-
-        public void UpdateAllIcons() {
-            for (int i = 0; i < items.Length; i++) {
-                UpdateItemIcon(i);
+        public void SetInteractable(Creature owner, bool interactable) {
+            if (!interactable) {
+                foreach (HoverableUI hoverableUI in items) {
+                    hoverableUI.interactable = false;
+                }
+            } else {
+                UpdateAllIcons(owner);
             }
         }
 
-        public void UpdateItemIcon(int index) {
+        public void UpdateAllIcons(Creature owner) {
+            for (int i = 0; i < items.Length; i++) {
+                UpdateItemIcon(owner, i);
+            }
+        }
 
+        public void UpdateItemIcon(Creature owner, int index) {
+            HoverableUI hoverableUI = items[index];
+            Item item = owner.items[index];
+            hoverableUI.interactable = item.healthCost >= 0 && item.imaginationCost >= 0 && item.healthCost <= owner.health && item.imaginationCost <= owner.imagination;
         }
     }
 }

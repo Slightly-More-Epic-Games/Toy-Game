@@ -6,19 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AutoCreature", menuName = "Toy Game/Auto Creature", order = 0)]
 public class AutoCreature : Creature
 {
-    bool active;
-
-    protected override void OnTurnStart() {
-        active = true;
-    }
-
-    protected override void OnTurnEnd() {
-        active = false;
-    }
-
-    public void RunTurn() {
-        if (!active) return;
-
+    public override void UpdateTurn() {
         UseBestItem();
         EndTurn();
     }

@@ -10,12 +10,12 @@ public class PlayerCreature : Creature {
 
     protected override void OnTurnStart() {
         playerController.gameObject.SetActive(true);
-        itemTab.SetInteractable(true);
+        itemTab.SetInteractable(this, true);
     }
 
     protected override void OnTurnEnd() {
         playerController.gameObject.SetActive(false);
-        itemTab.SetInteractable(true);
+        itemTab.SetInteractable(this, true);
     }
 
     protected override void OnEncounterStart() {
@@ -25,6 +25,6 @@ public class PlayerCreature : Creature {
 
     public override void EventFinished() {
         base.EventFinished();
-        itemTab.UpdateAllIcons();
+        itemTab.UpdateAllIcons(this);
     }
 }
