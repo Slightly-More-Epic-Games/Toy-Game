@@ -6,13 +6,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AutoCreature", menuName = "Toy Game/Auto Creature", order = 0)]
 public class AutoCreature : Creature
 {
+    bool active;
+
     protected override void OnTurnStart() {
-        base.OnTurnStart();
-        UseItem(0, Game.instance.player);
-        EndTurn();
+        active = true;
     }
 
     protected override void OnTurnEnd() {
-        base.OnTurnEnd();
+        active = false;
+    }
+
+    public void RunTurn() {
+        if (!active) return;
+
+        UseBestItem();
+        EndTurn();
+    }
+
+    private void UseBestItem() {
+        UseItem(1, Game.instance.player);
     }
 }

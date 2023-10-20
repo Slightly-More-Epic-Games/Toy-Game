@@ -11,17 +11,14 @@ public class PlayerCreature : Creature {
     protected override void OnTurnStart() {
         playerController.gameObject.SetActive(true);
         itemTab.SetInteractable(true);
-        base.OnTurnStart();
     }
 
     protected override void OnTurnEnd() {
         playerController.gameObject.SetActive(false);
         itemTab.SetInteractable(true);
-        base.OnTurnEnd();
     }
 
     protected override void OnEncounterStart() {
-        base.OnEncounterStart();
         itemTab = Manager.instance.CreateItemTab();
         itemTab.Init(this, playerController);
     }

@@ -6,14 +6,11 @@ namespace Encounter {
     public class PlayerController : MonoBehaviour
     {
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.Return)) {
-                Manager.instance.AddEventToProcess(new Context(Action.TURN_END, Game.instance.player, Game.instance.player, 0));
-                Manager.instance.ProcessEvents();
-            }
+
         }
 
-        private int index;
-        private Creature target;
+        private int index = -1;
+        private Creature target = null;
 
         public void SelectItem(int index) {
             if (!gameObject.activeSelf) return;
@@ -30,7 +27,14 @@ namespace Encounter {
         public void UseItem(int index, Creature target) {
             Game.instance.player.UseItem(index, target);
             this.target = null;
-            this.index = 0;
+            this.index = -1;
+        }
+
+        public void EndTurn() {
+            if (Manager.instance.currentTurn != Game.instance.player) return;
+
+            Manager.instance.AddEventToProcess(new Context(Action.TURN_END, Game.instance.player, Game.instance.player, 0));
+            Manager.instance.ProcessEvents();
         }
     }
 }

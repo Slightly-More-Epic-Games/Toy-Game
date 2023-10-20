@@ -51,11 +51,13 @@ namespace Encounter {
         }
 
         private void CreateCreatureVisual(Creature creature, bool isAlly) {
-            CreatureVisual creatureVisual = Instantiate(creatureVisualPrefab, creatureVisuals.GetChild(isAlly ? 0 : 1));
-            creatureVisual.Init(creature);
+            creature.creatureVisual = Instantiate(creatureVisualPrefab, creatureVisuals.GetChild(isAlly ? 0 : 1));
+            creature.creatureVisual.Init(creature);
         }
 
         public void ProcessEvents() {
+            Creature turnStart = null;
+
             while (eventsToProcess.Count > 0) {
                 Context context = eventsToProcess.Dequeue();
                 foreach (Creature creature in playerAllies) {
@@ -68,12 +70,23 @@ namespace Encounter {
                 if (context.action == Action.TURN_END) {
                     TurnEnd(context.target);
                 }
+
+                if (context.action == Action.TURN_START) {
+                    turnStart = context.target;
+                }
             }
             foreach (Creature creature in playerAllies) {
                 creature.EventFinished();
             }
             foreach (Creature creature in playerEnemies) {
                 creature.EventFinished();
+            }
+
+            if (turnStart != null) {
+                AutoCreature autoCreature = turnStart as AutoCreature;
+                if (autoCreature != null) {
+                    autoCreature.RunTurn();
+                }
             }
         }
 

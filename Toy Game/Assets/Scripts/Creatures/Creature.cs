@@ -9,11 +9,13 @@ public abstract class Creature : ScriptableObject {
     public int imagination;
     public List<Item> items;
 
-    protected List<Trigger> triggers = new List<Trigger>();
+    [System.NonSerialized] public List<Trigger> triggers = new List<Trigger>();
 
     [System.NonSerialized] public Creature lastAttacker;
 
     protected bool isDead;
+
+    [System.NonSerialized] public CreatureVisual creatureVisual;
 
     public void AddTrigger(Trigger trigger) {
         triggers.Add(trigger);
@@ -55,6 +57,8 @@ public abstract class Creature : ScriptableObject {
         foreach (Trigger trigger in triggers) {
             trigger.EventFinished();
         }
+
+        creatureVisual.UpdateVisual(this);
     }
 
     protected void ProcessEvent(Context context) {
@@ -64,11 +68,13 @@ public abstract class Creature : ScriptableObject {
                 break;
             case Action.DEAL_DAMAGE:
                 if (context.source != this) return;
+                Debug.Log(name+" dealing damage to "+context.target);
                 Manager.instance.AddEventToProcess(new Context(Action.LOSE_HEALTH, context.source, context.target, context.value));
                 break;
             case Action.GAIN_HEALTH:
             case Action.LOSE_HEALTH:
                 if (context.target != this) return;
+                Debug.Log(name+" taking damage from "+context.source);
                 HealthChange(context.action == Action.GAIN_HEALTH ? context.value : -context.value, context.source);
                 break;
             case Action.GAIN_IMAGINATION:
@@ -91,8 +97,6 @@ public abstract class Creature : ScriptableObject {
                 OnEncounterEnd();
                 break;
         }
-
-        Debug.Log("new stats for "+name+": health:"+health+" imagination:"+imagination);
     }
 
     protected void HealthChange(int delta, Creature source) {
