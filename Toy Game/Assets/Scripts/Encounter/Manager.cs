@@ -18,9 +18,9 @@ namespace Encounter {
         [SerializeField] private ItemTab itemTabPrefab;
         [SerializeField] private Transform itemTabs;
 
-        public PlayerController playerController;
-        public EnemyController enemyController;
-        public AllyController allyController;
+        [SerializeField] private PlayerController playerController;
+        [SerializeField] private EnemyController enemyController;
+        [SerializeField] private AllyController allyController;
 
         [SerializeField] private CreatureVisual creatureVisualPrefab;
         [SerializeField] private Transform creatureVisuals;
@@ -28,23 +28,12 @@ namespace Encounter {
         public void Start() {
             instance = this;
 
-            playerAllies.Add(Game.instance.player);
-            Game.instance.player.controller = playerController;
+            CreateCreature(Game.instance.player, true);
 
             Map.Encounter node = (Map.Encounter)Game.instance.node;
 
             foreach (Creature creature in node.enemies) {
-                Creature instance = Instantiate(creature);
-                instance.controller = enemyController;
-                playerEnemies.Add(instance);
-            }
-
-            foreach (Creature creature in playerAllies) {
-                CreateCreatureVisual(creature, true);
-            }
-
-            foreach (Creature creature in playerEnemies) {
-                CreateCreatureVisual(creature, false);
+                CreateCreature(creature, false);
             }
 
             AddEventToProcess(new Context(Action.EncounterStart, Game.instance.player, Game.instance.player, 0));
@@ -55,12 +44,37 @@ namespace Encounter {
         }
 
         private void Update() {
-            currentTurn.UpdateTurn();
+            currentTurn.controller.UpdateTurn(currentTurn);
         }
 
-        private void CreateCreatureVisual(Creature creature, bool isAlly) {
-            creature.creatureVisual = Instantiate(creatureVisualPrefab, creatureVisuals.GetChild(isAlly ? 0 : 1));
-            creature.creatureVisual.Init(creature);
+        public bool CreateCreature(Creature template, bool isAlly) {
+            Transform position = GetFirstEmptyChild(creatureVisuals.GetChild(isAlly ? 0 : 1));
+            if (position == null) return false;
+            Creature instance;
+            if (template == Game.instance.player) {
+                instance = template;
+                instance.controller = playerController;
+                playerAllies.Add(instance);
+            } else {
+                instance = Instantiate(template);
+                if (isAlly) {
+                    instance.controller = allyController;
+                    playerAllies.Add(instance);
+                } else {
+                    instance.controller = enemyController;
+                    playerEnemies.Add(instance);
+                }
+            }
+            instance.creatureVisual = Instantiate(creatureVisualPrefab, position);
+            instance.creatureVisual.Init(instance, playerController);
+            return true;
+        }
+
+        private Transform GetFirstEmptyChild(Transform parent) {
+            foreach (Transform child in parent) {
+                if (child.childCount == 0) return child;
+            }
+            return null;
         }
 
         public void ProcessEvents() {

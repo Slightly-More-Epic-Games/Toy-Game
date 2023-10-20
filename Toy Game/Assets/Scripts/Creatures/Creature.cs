@@ -17,8 +17,6 @@ public abstract class Creature : ScriptableObject {
 
     [System.NonSerialized] public CreatureVisual creatureVisual;
 
-    public virtual void UpdateTurn() {}
-
     public CreatureController controller;
 
     public void AddTrigger(Trigger trigger) {
