@@ -23,6 +23,11 @@ public class PlayerCreature : Creature {
         itemTab.Init(this, playerController);
     }
 
+    protected override void OnEncounterEnd() {
+        imagination = 0;
+        triggers.Clear();
+    }
+
     public override void EventFinished() {
         base.EventFinished();
         itemTab.UpdateAllIcons(this);

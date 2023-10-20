@@ -70,13 +70,11 @@ public abstract class Creature : ScriptableObject {
                 break;
             case Action.DealDamage:
                 if (context.source != this) return;
-                Debug.Log(name+" dealing damage to "+context.target);
                 Manager.instance.AddEventToProcess(new Context(Action.LoseHealth, context.source, context.target, context.value));
                 break;
             case Action.GainHealth:
             case Action.LoseHealth:
                 if (context.target != this) return;
-                Debug.Log(name+" taking damage from "+context.source);
                 HealthChange(context.action == Action.GainHealth ? context.value : -context.value, context.source);
                 break;
             case Action.GainImagination:

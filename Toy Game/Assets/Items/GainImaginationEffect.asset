@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
   m_Name: GainImaginationEffect
   m_EditorClassIdentifier: 
+  UI:
+    name: 
+    description: 
+    icon: {fileID: 0}
   activateOn: 9
   target: 2
   conditions:

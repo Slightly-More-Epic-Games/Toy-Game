@@ -26,11 +26,13 @@ namespace Items.Triggers {
                 newValue = Mathf.RoundToInt(result);
             }
 
-            Debug.Log("making new context "+action+" from context "+context.action+" "+context.source+" "+context.target);
-            Context newContext = new Context(action, context.GetTargets(source, owner)[0], context.GetTargets(target, owner)[0], newValue);
-            Debug.Log("new context: "+newContext.source+" "+newContext.target);
-
-            Manager.instance.AddEventToProcess(newContext);
+            List<Creature> sources = context.GetTargets(source, owner);
+            List<Creature> targets = context.GetTargets(target, owner);
+            foreach (Creature sourceCreature in sources) {
+                foreach (Creature targetCreature in targets) {
+                    Manager.instance.AddEventToProcess(new Context(action, sourceCreature, targetCreature, newValue));
+                }
+            }
         }
     }
 }
