@@ -31,9 +31,9 @@ namespace Items {
 
             foreach (ConditionData conditionData in conditions) {
                 ConditionData.Result conditionResult = conditionData.Test(context, owner);;
-                if (conditionResult == ConditionData.Result.ACTIVATE) result.activated = true;
-                else if (conditionResult == ConditionData.Result.END) result.ended = true;
-                else if (conditionResult == ConditionData.Result.ACTIVATE_END) {
+                if (conditionResult == ConditionData.Result.Activate) result.activated = true;
+                else if (conditionResult == ConditionData.Result.End) result.ended = true;
+                else if (conditionResult == ConditionData.Result.ActivateEnd) {
                     result.activated = true;
                     result.ended = true;
                 }

@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace Encounter {
     public enum Action {
-        ITEM_USED,
-        ANY_ITEM_USED,
-        DEAL_DAMAGE,
-        GAIN_HEALTH,
-        LOSE_HEALTH,
-        GAIN_IMAGINATION,
-        LOSE_IMAGINATION,
-        TURN_START,
-        TURN_END,
-        ENCOUNTER_START,
-        ENCOUNTER_END,
-        LAST_STAND,
-        ANY_DEATH
+        ItemUsed,
+        AnyItemUsed,
+        DealDamage,
+        GainHealth,
+        LoseHealth,
+        GainImagination,
+        LoseImagination,
+        TurnStart,
+        TurnEnd,
+        EncounterStart,
+        EncounterEnd,
+        LastStand,
+        AnyDeath
     }
 }

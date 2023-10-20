@@ -22,7 +22,7 @@ public class Game : MonoBehaviour
         node = new Map.Encounter {
             enemies = new List<Creature>() { enemies[Random.Range(0, enemies.Length)] }
         };
-        LoadGameScene(GameScene.MAP);
+        LoadGameScene(GameScene.Map);
     }
 
     public void Quit() {
@@ -34,14 +34,14 @@ public class Game : MonoBehaviour
     }
 
     public void LoadSceneIntDontUseThisMethod(int scene) {
-        if (scene == 1) LoadGameScene(GameScene.ENCOUNTER);
-        else LoadGameScene(GameScene.MAP);
+        if (scene == 1) LoadGameScene(GameScene.Encounter);
+        else LoadGameScene(GameScene.Map);
     }
 
     public void LoadGameScene(GameScene scene) {
         string newScene = scene switch {
-            GameScene.ENCOUNTER => "Encounter",
-            GameScene.MAP => "Map",
+            GameScene.Encounter => "Encounter",
+            GameScene.Map => "Map",
             _ => "Map",
         };
 
@@ -59,7 +59,7 @@ public class Game : MonoBehaviour
     }
 
     public enum GameScene {
-        ENCOUNTER,
-        MAP
+        Encounter,
+        Map
     }
 }

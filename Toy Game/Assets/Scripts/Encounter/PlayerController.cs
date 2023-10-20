@@ -33,7 +33,7 @@ namespace Encounter {
         public void EndTurn() {
             if (Manager.instance.currentTurn != Game.instance.player) return;
 
-            Manager.instance.AddEventToProcess(new Context(Action.TURN_END, Game.instance.player, Game.instance.player, 0));
+            Manager.instance.AddEventToProcess(new Context(Action.TurnEnd, Game.instance.player, Game.instance.player, 0));
             Manager.instance.ProcessEvents();
         }
     }

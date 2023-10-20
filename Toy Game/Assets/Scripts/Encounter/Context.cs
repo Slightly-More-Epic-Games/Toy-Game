@@ -21,49 +21,49 @@ namespace Encounter {
             List<Creature> targets = new List<Creature>();
 
             switch (targetType) {
-                case Target.SOURCE:
+                case Target.Source:
                     targets.Add(source);
                     break;
-                case Target.TARGET:
+                case Target.Target:
                     targets.Add(target);
                     break;
-                case Target.SELF:
+                case Target.Self:
                     targets.Add(owner);
                     break;
-                case Target.RANDOM:
-                case Target.ALL:
+                case Target.Random:
+                case Target.All:
                     targets.AddRange(Manager.instance.playerAllies);
                     targets.AddRange(Manager.instance.playerEnemies);
                     break;
-                case Target.RANDOM_NOT_SELF:
-                case Target.ALL_NOT_SELF:
+                case Target.NotSelfRandom:
+                case Target.NotSelfAll:
                     targets.AddRange(Manager.instance.playerAllies);
                     targets.AddRange(Manager.instance.playerEnemies);
                     targets.Remove(owner);
                     break;
-                case Target.RANDOM_OPPONENT:
-                case Target.ALL_OPPONENTS:
+                case Target.OpponentsRandom:
+                case Target.OpponentsAll:
                     if (Manager.instance.playerAllies.Contains(owner)) {
                         targets.AddRange(Manager.instance.playerEnemies);
                     } else {
                         targets.AddRange(Manager.instance.playerAllies);
                     }
                     break;
-                case Target.RANDOM_ALLY:
-                case Target.ALL_ALLIES:
+                case Target.AlliesRandom:
+                case Target.AlliesAll:
                     if (Manager.instance.playerAllies.Contains(owner)) {
                         targets.AddRange(Manager.instance.playerAllies);
                     } else {
                         targets.AddRange(Manager.instance.playerEnemies);
                     }
                     break;
-                case Target.LAST_ATTACKER:
-                    if (owner.lastAttacker == null) return GetTargets(Target.RANDOM_OPPONENT, owner);
+                case Target.LastAttacker:
+                    if (owner.lastAttacker == null) return GetTargets(Target.OpponentsRandom, owner);
                     targets.Add(owner.lastAttacker);
                     break;
             };
 
-            if (targetType == Target.RANDOM_NOT_SELF || targetType == Target.RANDOM_OPPONENT || targetType == Target.RANDOM_ALLY || targetType == Target.RANDOM) {
+            if (targetType == Target.NotSelfRandom || targetType == Target.OpponentsRandom || targetType == Target.AlliesRandom || targetType == Target.Random) {
                 return new List<Creature>(){targets[Random.Range(0, targets.Count)]};
             }
 

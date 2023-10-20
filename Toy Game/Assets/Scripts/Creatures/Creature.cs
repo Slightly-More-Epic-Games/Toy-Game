@@ -25,12 +25,12 @@ public abstract class Creature : ScriptableObject {
 
     public void UseItem(int index, Creature target) {
         Item item = items[index];
-        Manager.instance.AddEventToProcess(new Context(Action.ANY_ITEM_USED, this, target, index));
+        Manager.instance.AddEventToProcess(new Context(Action.AnyItemUsed, this, target, index));
 
-        if (item.imaginationCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LOSE_IMAGINATION, this, this, item.imaginationCost));
-        if (item.healthCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LOSE_HEALTH, this, this, item.healthCost));
+        if (item.imaginationCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LoseImagination, this, this, item.imaginationCost));
+        if (item.healthCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LoseHealth, this, this, item.healthCost));
 
-        item.OnUse(new Context(Action.ITEM_USED, this, target, index), this);
+        item.OnUse(new Context(Action.ItemUsed, this, target, index), this);
         Manager.instance.ProcessEvents();
     }
 
@@ -65,37 +65,37 @@ public abstract class Creature : ScriptableObject {
 
     protected void ProcessEvent(Context context) {
         switch (context.action) {
-            case Action.ITEM_USED:
-            case Action.ANY_ITEM_USED:
+            case Action.ItemUsed:
+            case Action.AnyItemUsed:
                 break;
-            case Action.DEAL_DAMAGE:
+            case Action.DealDamage:
                 if (context.source != this) return;
                 Debug.Log(name+" dealing damage to "+context.target);
-                Manager.instance.AddEventToProcess(new Context(Action.LOSE_HEALTH, context.source, context.target, context.value));
+                Manager.instance.AddEventToProcess(new Context(Action.LoseHealth, context.source, context.target, context.value));
                 break;
-            case Action.GAIN_HEALTH:
-            case Action.LOSE_HEALTH:
+            case Action.GainHealth:
+            case Action.LoseHealth:
                 if (context.target != this) return;
                 Debug.Log(name+" taking damage from "+context.source);
-                HealthChange(context.action == Action.GAIN_HEALTH ? context.value : -context.value, context.source);
+                HealthChange(context.action == Action.GainHealth ? context.value : -context.value, context.source);
                 break;
-            case Action.GAIN_IMAGINATION:
-            case Action.LOSE_IMAGINATION:
+            case Action.GainImagination:
+            case Action.LoseImagination:
                 if (context.target != this) return;
-                ImaginationChange(context.action == Action.GAIN_IMAGINATION ? context.value : -context.value);
+                ImaginationChange(context.action == Action.GainImagination ? context.value : -context.value);
                 break;
-            case Action.TURN_START:
+            case Action.TurnStart:
                 if (context.target != this) return;
                 OnTurnStart();
                 break;
-            case Action.TURN_END:
+            case Action.TurnEnd:
                 if (context.source != this) return;
                 OnTurnEnd();
                 break;
-            case Action.ENCOUNTER_START:
+            case Action.EncounterStart:
                 OnEncounterStart();
                 break;
-            case Action.ENCOUNTER_END:
+            case Action.EncounterEnd:
                 OnEncounterEnd();
                 break;
         }
@@ -120,16 +120,16 @@ public abstract class Creature : ScriptableObject {
 
     protected void EndTurn() {
         if (Manager.instance.currentTurn != this) return;
-        Manager.instance.AddEventToProcess(new Context(Action.TURN_END, this, this, 0));
+        Manager.instance.AddEventToProcess(new Context(Action.TurnEnd, this, this, 0));
         Manager.instance.ProcessEvents();
     }
 
     public bool UpdateDeadness() {
         if (isDead) return true;
         if (health > 0) return false;
-        OnEvent(new Context(Action.LAST_STAND, this, this, health));
+        OnEvent(new Context(Action.LastStand, this, this, health));
         if (health > 0) return false;
-        Manager.instance.AddEventToProcess(new Context(Action.ANY_DEATH, this, this, health));
+        Manager.instance.AddEventToProcess(new Context(Action.AnyDeath, this, this, health));
         OnDeath();
         isDead = true;
         Destroy(this);

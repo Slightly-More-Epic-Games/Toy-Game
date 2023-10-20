@@ -16,26 +16,26 @@ namespace Items {
         public Result resultOnSuccess;
 
         public enum OwnerMatch {
-            ANY,
-            SOURCE,
-            TARGET,
-            EITHER
+            Any,
+            Source,
+            Target,
+            Either
         }
 
         public enum Result {
-            PASS,
-            END,
-            ACTIVATE,
-            ACTIVATE_END
+            Pass,
+            End,
+            Activate,
+            ActivateEnd
         }
 
         public Result Test(Context context, Creature owner) {
-            if (context.action != actionMatch) return Result.PASS;
-            if (ownerMatch == OwnerMatch.SOURCE && context.source != owner) return Result.PASS;
-            if (ownerMatch == OwnerMatch.TARGET && context.target != owner) return Result.PASS;
-            if (ownerMatch == OwnerMatch.EITHER && context.source != owner && context.target != owner) return Result.PASS;
+            if (context.action != actionMatch) return Result.Pass;
+            if (ownerMatch == OwnerMatch.Source && context.source != owner) return Result.Pass;
+            if (ownerMatch == OwnerMatch.Target && context.target != owner) return Result.Pass;
+            if (ownerMatch == OwnerMatch.Either && context.source != owner && context.target != owner) return Result.Pass;
             bool success = condition.Test(context, owner, parameters);
-            return success ? resultOnSuccess : Result.PASS;
+            return success ? resultOnSuccess : Result.Pass;
         }
     }
 }

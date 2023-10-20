@@ -43,10 +43,10 @@ namespace Encounter {
                 CreateCreatureVisual(creature, false);
             }
 
-            AddEventToProcess(new Context(Action.ENCOUNTER_START, Game.instance.player, Game.instance.player, 0));
+            AddEventToProcess(new Context(Action.EncounterStart, Game.instance.player, Game.instance.player, 0));
             ProcessEvents();
 
-            AddEventToProcess(new Context(Action.TURN_START, Game.instance.player, Game.instance.player, 0));
+            AddEventToProcess(new Context(Action.TurnStart, Game.instance.player, Game.instance.player, 0));
             ProcessEvents();
         }
 
@@ -69,7 +69,7 @@ namespace Encounter {
                     creature.OnEvent(context);
                 }
 
-                if (context.action == Action.TURN_END) {
+                if (context.action == Action.TurnEnd) {
                     TurnEnd(context.target);
                 }
             }
@@ -97,15 +97,15 @@ namespace Encounter {
         }
 
         public void AddEventToProcess(Context context) {
-            if (context.action == Action.TURN_END) {
+            if (context.action == Action.TurnEnd) {
                 context.source = currentTurn;
                 context.value = turnNumber;
                 context.target = GetNextCreatureInTurnOrder(currentTurn);
                 eventsToProcess.Enqueue(context);
-                eventsToProcess.Enqueue(new Context(Action.TURN_START, context.source, context.target, turnNumber+1));
-            } else if (context.action == Action.TURN_START) {
+                eventsToProcess.Enqueue(new Context(Action.TurnStart, context.source, context.target, turnNumber+1));
+            } else if (context.action == Action.TurnStart) {
                 if (currentTurn == context.target) return;
-                eventsToProcess.Enqueue(new Context(Action.TURN_END, currentTurn, context.target, turnNumber));
+                eventsToProcess.Enqueue(new Context(Action.TurnEnd, currentTurn, context.target, turnNumber));
                 context.value = turnNumber+1;
                 eventsToProcess.Enqueue(context);
             } else {
