@@ -18,7 +18,9 @@ namespace Encounter {
         [SerializeField] private ItemTab itemTabPrefab;
         [SerializeField] private Transform itemTabs;
 
-        [SerializeField] private PlayerController playerController;
+        public PlayerController playerController;
+        public EnemyController enemyController;
+        public AllyController allyController;
 
         [SerializeField] private CreatureVisual creatureVisualPrefab;
         [SerializeField] private Transform creatureVisuals;
@@ -27,12 +29,14 @@ namespace Encounter {
             instance = this;
 
             playerAllies.Add(Game.instance.player);
-            Game.instance.player.playerController = playerController;
+            Game.instance.player.controller = playerController;
 
             Map.Encounter node = (Map.Encounter)Game.instance.node;
 
             foreach (Creature creature in node.enemies) {
-                playerEnemies.Add(Instantiate(creature));
+                Creature instance = Instantiate(creature);
+                instance.controller = enemyController;
+                playerEnemies.Add(instance);
             }
 
             foreach (Creature creature in playerAllies) {

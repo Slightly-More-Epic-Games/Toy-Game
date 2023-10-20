@@ -11,7 +11,7 @@ public class CreatureVisual : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
 
     public void Init(Creature owner) {
-        button.onClick.AddListener(delegate{Game.instance.player.playerController.SelectCreature(owner);});
+        button.onClick.AddListener(delegate{Manager.instance.playerController.SelectCreature(owner);});
     }
 
     public void UpdateVisual(Creature owner) {

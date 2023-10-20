@@ -19,6 +19,8 @@ public abstract class Creature : ScriptableObject {
 
     public virtual void UpdateTurn() {}
 
+    public CreatureController controller;
+
     public void AddTrigger(Trigger trigger) {
         triggers.Add(trigger);
     }
@@ -61,6 +63,7 @@ public abstract class Creature : ScriptableObject {
         }
 
         creatureVisual.UpdateVisual(this);
+        controller.OnEventsFinished(this);
     }
 
     protected void ProcessEvent(Context context) {
@@ -84,17 +87,17 @@ public abstract class Creature : ScriptableObject {
                 break;
             case Action.TurnStart:
                 if (context.target != this) return;
-                OnTurnStart();
+                controller.OnTurnStart(this);
                 break;
             case Action.TurnEnd:
                 if (context.source != this) return;
-                OnTurnEnd();
+                controller.OnTurnEnd(this);
                 break;
             case Action.EncounterStart:
-                OnEncounterStart();
+                controller.OnEncounterStart(this);
                 break;
             case Action.EncounterEnd:
-                OnEncounterEnd();
+                controller.OnEncounterEnd(this);
                 break;
         }
     }
@@ -108,15 +111,7 @@ public abstract class Creature : ScriptableObject {
         imagination += delta;
     }
 
-    protected virtual void OnTurnStart() {}
-
-    protected virtual void OnTurnEnd() {}
-
-    protected virtual void OnEncounterStart() {}
-
-    protected virtual void OnEncounterEnd() {}
-
-    protected void EndTurn() {
+    public void EndTurn() {
         if (Manager.instance.currentTurn != this) return;
         Manager.instance.AddEventToProcess(new Context(Action.TurnEnd, this, this, 0));
         Manager.instance.ProcessEvents();

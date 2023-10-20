@@ -263,8 +263,10 @@ GameObject:
   m_Component:
   - component: {fileID: 662663428}
   - component: {fileID: 662663427}
+  - component: {fileID: 662663430}
+  - component: {fileID: 662663429}
   m_Layer: 0
-  m_Name: PlayerController
+  m_Name: CreatureControllers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,6 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94110fbc9ef5161418c43eb5f002338f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemTab: {fileID: 761678705}
 --- !u!4 &662663428
 Transform:
   m_ObjectHideFlags: 0
@@ -297,6 +300,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &662663429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662663426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820c4a3d31c90e24eb011d114eabddd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &662663430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662663426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957a4c6c016e72a478aa126286839ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &761678703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,6 +426,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6396240896464530555, guid: 4491c04dd19e0c04d8c8e336ec892b27, type: 3}
   m_PrefabInstance: {fileID: 761678703}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &761678705 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6655641045314057419, guid: 4491c04dd19e0c04d8c8e336ec892b27, type: 3}
+  m_PrefabInstance: {fileID: 761678703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf23ea2f020126f47ae4a9f5f89a34ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &805341068
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +506,8 @@ MonoBehaviour:
   itemTabPrefab: {fileID: 6655641045314057419, guid: 4491c04dd19e0c04d8c8e336ec892b27, type: 3}
   itemTabs: {fileID: 1719539547}
   playerController: {fileID: 662663427}
+  enemyController: {fileID: 662663430}
+  allyController: {fileID: 662663429}
   creatureVisualPrefab: {fileID: 1635177524471434399, guid: 3cc2358ed7a6627418d6e07d4c4454f2, type: 3}
   creatureVisuals: {fileID: 805341069}
 --- !u!4 &907720230

@@ -3,23 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Encounter {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : CreatureController
     {
-        private void Update() {
-
-        }
+        private bool turnActive;
 
         private int index = -1;
         private Creature target = null;
 
+        public ItemTab itemTab;
+
+        public override void OnTurnStart(Creature owner) {
+            turnActive = true;
+            this.target = null;
+            this.index = -1;
+            itemTab.SetInteractable(owner, true);
+        }
+
+        public override void OnTurnEnd(Creature owner) {
+            itemTab.SetInteractable(owner, true);
+            turnActive = false;
+        }
+
+        public override void OnEncounterStart(Creature owner) {
+            itemTab = Manager.instance.CreateItemTab();
+            itemTab.Init(owner, this);
+        }
+
+        public override void OnEncounterEnd(Creature owner) {
+            owner.imagination = 0;
+            owner.triggers.Clear();
+        }
+
+        public override void OnEventsFinished(Creature owner) {
+            itemTab.UpdateAllIcons(owner);
+        }
+
         public void SelectItem(int index) {
-            if (!gameObject.activeSelf) return;
+            if (!turnActive) return;
             this.index = index;
             if (this.target != null) UseItem(index, target);
         }
 
         public void SelectCreature(Creature target) {
-            if (!gameObject.activeSelf) return;
+            if (!turnActive) return;
             this.target = target;
             if (this.index != -1) UseItem(index, target);
         }

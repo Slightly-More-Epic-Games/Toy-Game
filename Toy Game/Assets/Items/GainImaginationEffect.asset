@@ -16,7 +16,7 @@ MonoBehaviour:
     name: 
     description: 
     icon: {fileID: 0}
-  activateOn: 9
+  activateOn: 7
   target: 2
   conditions:
   - actionMatch: 7
@@ -24,6 +24,11 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
     parameters: 
     resultOnSuccess: 2
+  - actionMatch: 7
+    ownerMatch: 0
+    condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
+    parameters: 
+    resultOnSuccess: 1
   cancelEvent: 0
   overrides:
   - action: 5
