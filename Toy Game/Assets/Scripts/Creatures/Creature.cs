@@ -51,7 +51,7 @@ public abstract class Creature : ScriptableObject {
         }
     }
 
-    public void EventFinished() {
+    public virtual void EventFinished() {
         foreach (Trigger trigger in triggers) {
             trigger.EventFinished();
         }
@@ -113,6 +113,7 @@ public abstract class Creature : ScriptableObject {
     protected virtual void OnEncounterEnd() {}
 
     protected void EndTurn() {
+        if (Manager.instance.currentTurn != this) return;
         Manager.instance.AddEventToProcess(new Context(Action.TURN_END, this, this, 0));
         Manager.instance.ProcessEvents();
     }

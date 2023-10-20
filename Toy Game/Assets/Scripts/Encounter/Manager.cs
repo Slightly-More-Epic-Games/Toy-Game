@@ -5,14 +5,6 @@ using UnityEngine;
 namespace Encounter {
     public class Manager : MonoBehaviour
     {
-        public void PlayerUseItemTest(int a) {
-            playerAllies[0].UseItem(a, playerEnemies[0]);
-        }
-
-        public void CreatureUseItemTest(int a) {
-            playerEnemies[0].UseItem(a, playerAllies[0]);
-        }
-
         public static Manager instance;
 
         private Queue<Context> eventsToProcess = new Queue<Context>();
@@ -20,11 +12,22 @@ namespace Encounter {
         [System.NonSerialized] public List<Creature> playerAllies = new List<Creature>();
         [System.NonSerialized] public List<Creature> playerEnemies = new List<Creature>();
 
-        private Creature currentTurn;
+        [System.NonSerialized] public Creature currentTurn;
         private int turnNumber;
 
+        [SerializeField] private ItemTab itemTabPrefab;
+        [SerializeField] private Transform itemTabs;
+
+        [SerializeField] private PlayerController playerController;
+
+        [SerializeField] private CreatureVisual creatureVisualPrefab;
+        [SerializeField] private Transform creatureVisuals;
+
         public void Start() {
+            instance = this;
+
             playerAllies.Add(Game.instance.player);
+            Game.instance.player.playerController = playerController;
 
             Map.Encounter node = (Map.Encounter)Game.instance.node;
 
@@ -32,7 +35,24 @@ namespace Encounter {
                 playerEnemies.Add(Instantiate(creature));
             }
 
-            instance = this;
+            foreach (Creature creature in playerAllies) {
+                CreateCreatureVisual(creature, true);
+            }
+
+            foreach (Creature creature in playerEnemies) {
+                CreateCreatureVisual(creature, false);
+            }
+
+            AddEventToProcess(new Context(Action.ENCOUNTER_START, Game.instance.player, Game.instance.player, 0));
+            ProcessEvents();
+
+            AddEventToProcess(new Context(Action.TURN_START, Game.instance.player, Game.instance.player, 0));
+            ProcessEvents();
+        }
+
+        private void CreateCreatureVisual(Creature creature, bool isAlly) {
+            CreatureVisual creatureVisual = Instantiate(creatureVisualPrefab, creatureVisuals.GetChild(isAlly ? 0 : 1));
+            creatureVisual.Init(creature);
         }
 
         public void ProcessEvents() {
@@ -93,6 +113,10 @@ namespace Encounter {
             int index = playerAllies.Contains(current) ? playerAllies.IndexOf(current) : playerEnemies.IndexOf(current)+playerAllies.Count;
             index = (index + 1)%(playerAllies.Count+playerEnemies.Count);
             return index >= playerAllies.Count ? playerEnemies[index-playerAllies.Count] : playerAllies[index];
+        }
+
+        public ItemTab CreateItemTab() {
+            return Instantiate(itemTabPrefab, itemTabs);
         }
     }
 }
