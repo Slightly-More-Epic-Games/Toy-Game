@@ -6,7 +6,7 @@ using Encounter;
 namespace Items {
     public abstract class Item : ScriptableObject
     {
-        public UIInfo UI;
+        public UIInfo ui;
 
         public int imaginationCost;
         public int healthCost;

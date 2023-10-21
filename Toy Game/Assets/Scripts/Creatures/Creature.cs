@@ -5,6 +5,8 @@ using Items;
 using Encounter;
 
 public abstract class Creature : ScriptableObject {
+    public UIInfo ui;
+
     public int health;
     public int imagination;
     public List<Item> items;

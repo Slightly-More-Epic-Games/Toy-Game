@@ -6,7 +6,7 @@ using Encounter;
 namespace Items {
     public abstract class Trigger : ScriptableObject
     {
-        public UIInfo UI;
+        public UIInfo ui;
 
         public Action activateOn;
         public Target target;

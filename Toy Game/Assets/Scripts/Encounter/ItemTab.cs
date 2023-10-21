@@ -17,6 +17,7 @@ namespace Encounter {
                 int i2 = new int();
                 i2 = i;
                 button.onClick.AddListener(delegate {playerController.SelectItem(i2);});
+                button.image.sprite = owner.items[i].ui.icon;
                 items[i] = button;
             }
         }
