@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc9384b0992e3d408972644676e6022, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  itemName: sword
-  itemDescription: 
+  ui:
+    name: Sword
+    description: deal 3 damage to target
+    icon: {fileID: 0}
   imaginationCost: 1
   healthCost: 0
   triggers:

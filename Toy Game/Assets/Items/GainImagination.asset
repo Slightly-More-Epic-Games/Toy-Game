@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc9384b0992e3d408972644676e6022, type: 3}
   m_Name: GainImagination
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: gain 4 imagination per turn
+  ui:
+    name: Childish
+    description: gain 4 imagination at the start of each turun
+    icon: {fileID: 0}
   imaginationCost: -1
   healthCost: -1
   triggers:

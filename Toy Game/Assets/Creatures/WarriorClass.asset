@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce70211da4a104a42802513fe3d67aa8, type: 3}
   m_Name: WarriorClass
   m_EditorClassIdentifier: 
+  ui:
+    name: Warrior
+    description: Wow the player!
+    icon: {fileID: 0}
   health: 5
   imagination: 0
   items:

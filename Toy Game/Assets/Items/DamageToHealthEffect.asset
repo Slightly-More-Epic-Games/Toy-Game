@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
   m_Name: DamageToHealthEffect
   m_EditorClassIdentifier: 
+  ui:
+    name: something something
+    description: next time this creature takes damage, instead heal the damage amount
+    icon: {fileID: 0}
   activateOn: 0
   target: 7
   conditions:

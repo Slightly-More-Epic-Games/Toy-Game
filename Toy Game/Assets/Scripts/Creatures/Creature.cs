@@ -19,7 +19,7 @@ public abstract class Creature : ScriptableObject {
 
     [System.NonSerialized] public CreatureVisual creatureVisual;
 
-    public CreatureController controller;
+    [System.NonSerialized] public CreatureController controller;
 
     public void AddTrigger(Trigger trigger) {
         triggers.Add(trigger);

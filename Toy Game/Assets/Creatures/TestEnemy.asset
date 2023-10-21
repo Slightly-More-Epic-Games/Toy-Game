@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
+  ui:
+    name: Enemy
+    description: oh no!
+    icon: {fileID: 0}
   health: 5
   imagination: 0
   items:
