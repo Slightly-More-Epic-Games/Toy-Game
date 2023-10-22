@@ -12,9 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc9384b0992e3d408972644676e6022, type: 3}
   m_Name: DamageToHealthItem
   m_EditorClassIdentifier: 
-  itemName: test
-  itemDescription: wooo
+  ui:
+    name: ???
+    description: the next time the targeted enemy tries to deal 3 or more damage,
+      they will instead heal their target by the amount of damage they wouldve dealt
+    icon: {fileID: 0}
   imaginationCost: 1
   healthCost: 1
+  used: 0
+  priorities:
+    self:
+      heal: 0.5
+      damage: 0
+      buff: 0
+      debuff: 0
+    allies:
+      heal: 0.5
+      damage: 0
+      buff: 0
+      debuff: 0
+    enemies:
+      heal: 0
+      damage: 0
+      buff: 0
+      debuff: 1
   triggers:
   - {fileID: 11400000, guid: 96bb0462891010c4ba8dc2b998d79468, type: 2}

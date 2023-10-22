@@ -7,8 +7,10 @@ using Encounter;
 public abstract class Creature : ScriptableObject {
     public UIInfo ui;
 
-    public int health;
-    public int imagination;
+    public int maxHealth;
+    public int maxImagination;
+    [System.NonSerialized] public int health;
+    [System.NonSerialized] public int imagination;
     public List<Item> items;
 
     [System.NonSerialized] public List<Trigger> triggers = new List<Trigger>();
@@ -22,6 +24,13 @@ public abstract class Creature : ScriptableObject {
     [System.NonSerialized] public CreatureController controller;
 
     public float spawnCost = 1f;
+
+    public Priorities priorities;
+
+    public void Initialise() {
+        health = maxHealth;
+        imagination = maxImagination;
+    }
 
     public void AddTrigger(Trigger trigger) {
         triggers.Add(trigger);
@@ -62,6 +71,13 @@ public abstract class Creature : ScriptableObject {
     public virtual void EventFinished() {
         foreach (Trigger trigger in triggers) {
             trigger.EventFinished();
+        }
+
+        if (health > maxHealth) {
+            health = maxHealth;
+        }
+        if (imagination > maxImagination) {
+            imagination = maxImagination;
         }
 
         creatureVisual.UpdateVisual(this);

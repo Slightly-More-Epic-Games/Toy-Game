@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
 
 namespace Encounter {
     public class CreatureController : MonoBehaviour
     {
-        public virtual void UpdateTurn(Creature owner) {}
+        public virtual void UpdateTurn(Creature owner, int turnNumber) {}
 
         public virtual void OnTurnStart(Creature owner) {}
 

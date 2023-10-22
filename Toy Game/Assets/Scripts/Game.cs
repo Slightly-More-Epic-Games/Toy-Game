@@ -19,6 +19,7 @@ public class Game : MonoBehaviour
     void Start() {
         instance = this;
         player = Instantiate(classes[0]);
+        player.Initialise();
         //todo: cost should increase by the players spawncost each level
         node.Initialise(2f);
         LoadGameScene(GameScene.Map);

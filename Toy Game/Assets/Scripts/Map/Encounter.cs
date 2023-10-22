@@ -36,6 +36,7 @@ namespace Map {
                 if (enemy.spawnCost <= currentBudget) {
                     // first affordable creature has a 100% chance to be used, next has 50%, then 33%, then 25%...
                     // this means a uniformly random creature that can be afforded out of the list will be
+                    // since we dont know how many are affordable ahead of time, this is useful
                     if (Random.Range(0f,1f) <= 1f/affordable) {
                         current = enemy;
                     }

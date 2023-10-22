@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: something something
-    description: next time this creature takes damage, instead heal the damage amount
+    description: the next time this creature deals 3 or more damage, heal the target
+      that amount
     icon: {fileID: 0}
   activateOn: 0
   target: 7

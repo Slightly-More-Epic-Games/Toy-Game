@@ -19,8 +19,8 @@ namespace Encounter {
         [SerializeField] private Transform itemTabs;
 
         [SerializeField] private PlayerController playerController;
-        [SerializeField] private EnemyController enemyController;
-        [SerializeField] private AllyController allyController;
+        [SerializeField] private AutoController enemyController;
+        [SerializeField] private AutoController allyController;
 
         [SerializeField] private CreatureVisual creatureVisualPrefab;
         [SerializeField] private Transform creatureVisuals;
@@ -46,7 +46,7 @@ namespace Encounter {
         }
 
         private void Update() {
-            currentTurn.controller.UpdateTurn(currentTurn);
+            currentTurn.controller.UpdateTurn(currentTurn, turnNumber);
         }
 
         public bool CreateCreature(Creature template, bool isAlly) {
@@ -59,6 +59,7 @@ namespace Encounter {
                 playerAllies.Add(instance);
             } else {
                 instance = Instantiate(template);
+                instance.Initialise();
                 if (isAlly) {
                     instance.controller = allyController;
                     playerAllies.Add(instance);

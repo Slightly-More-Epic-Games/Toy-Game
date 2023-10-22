@@ -16,9 +16,25 @@ MonoBehaviour:
     name: Enemy
     description: oh no!
     icon: {fileID: 0}
-  health: 5
-  imagination: 0
+  maxHealth: 5
+  maxImagination: 5
   items:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
   spawnCost: 1
+  priorities:
+    self:
+      damage: 1
+      heal: 1
+      buff: 1
+      debuff: 1
+    allies:
+      damage: 1
+      heal: 1
+      buff: 1
+      debuff: 1
+    enemies:
+      damage: 1
+      heal: 1
+      buff: 1
+      debuff: 1

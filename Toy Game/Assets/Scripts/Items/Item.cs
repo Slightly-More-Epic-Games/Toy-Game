@@ -12,6 +12,8 @@ namespace Items {
         public int healthCost;
         public bool used;
 
+        public Priorities priorities;
+
         public void Use(Context context, Creature owner) {
             used = true;
             OnUse(context, owner);
