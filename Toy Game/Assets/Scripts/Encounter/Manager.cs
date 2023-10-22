@@ -34,7 +34,7 @@ namespace Encounter {
 
             Map.Encounter node = (Map.Encounter)Game.instance.node;
 
-            foreach (Creature creature in node.enemies) {
+            foreach (Creature creature in node.GetEnemies()) {
                 CreateCreature(creature, false);
             }
 

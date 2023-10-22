@@ -21,6 +21,8 @@ public abstract class Creature : ScriptableObject {
 
     [System.NonSerialized] public CreatureController controller;
 
+    public float spawnCost = 1f;
+
     public void AddTrigger(Trigger trigger) {
         triggers.Add(trigger);
     }

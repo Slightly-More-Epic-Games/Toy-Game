@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
     [SerializeField] private PlayerCreature[] classes;
-    [SerializeField] private AutoCreature[] enemies;
 
     [System.NonSerialized] public PlayerCreature player;
 
@@ -14,14 +13,14 @@ public class Game : MonoBehaviour
 
     public static Game instance;
 
-    [System.NonSerialized] public Map.Node node;
+    //todo: put this into map manager
+    public Map.Node node;
 
     void Start() {
         instance = this;
         player = Instantiate(classes[0]);
-        node = new Map.Encounter {
-            enemies = new List<Creature>() { enemies[Random.Range(0, enemies.Length)] }
-        };
+        //todo: cost should increase by the players spawncost each level
+        node.Initialise(2f);
         LoadGameScene(GameScene.Map);
     }
 
