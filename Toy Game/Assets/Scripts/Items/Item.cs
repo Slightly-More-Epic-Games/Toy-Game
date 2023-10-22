@@ -13,6 +13,7 @@ namespace Items {
         public bool used;
 
         public Priorities priorities;
+        public TargetWeights targetWeights;
 
         public void Use(Context context, Creature owner) {
             used = true;
@@ -34,5 +35,12 @@ namespace Items {
         protected abstract void OnUse(Context context, Creature owner);
 
         protected abstract void OnEvent(Context context, Creature owner);
+
+        [System.Serializable]
+        public class TargetWeights {
+            public float self = 1f;
+            public float ally = 1f;
+            public float enemy = 1f;
+        }
     }
 }

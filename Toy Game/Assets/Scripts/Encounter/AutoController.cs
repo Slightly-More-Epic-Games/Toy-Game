@@ -35,9 +35,9 @@ namespace Encounter {
         protected Creature GetBestTarget(Creature owner, List<Creature> allies, List<Creature> enemies, Item item) {
             Priorities priorities = Priorities.Multiply(item.priorities, owner.priorities);
 
-            float selfTarget = Mathf.Max(priorities.self.PositiveTotal(), 0);
-            float allyTarget = Mathf.Max(priorities.allies.PositiveTotal(), 0);
-            float enemyTarget = Mathf.Max(priorities.enemies.NegativeTotal(), 0);
+            float selfTarget = Mathf.Max(priorities.self.PositiveTotal(), 0) * item.targetWeights.self;
+            float allyTarget = Mathf.Max(priorities.allies.PositiveTotal(), 0) * item.targetWeights.ally;
+            float enemyTarget = Mathf.Max(priorities.enemies.NegativeTotal(), 0) * item.targetWeights.enemy;
 
             if (allies.Count == 0) allyTarget = 0;
             if (enemies.Count == 0) enemyTarget = 0;

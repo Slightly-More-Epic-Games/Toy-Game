@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bc9384b0992e3d408972644676e6022, type: 3}
-  m_Name: Umbrella
+  m_Name: Sword
   m_EditorClassIdentifier: 
   ui:
-    name: Umbrella
-    description: deal 3 damage to target, next
+    name: Sword
+    description: deal 3 damage to target
     icon: {fileID: 0}
-  imaginationCost: 4
+  imaginationCost: 1
   healthCost: 0
   used: 0
   priorities:
     self:
       heal: 0
       damage: 0
-      buff: 1
+      buff: 0
       debuff: 0
     allies:
       heal: 0
@@ -35,6 +35,9 @@ MonoBehaviour:
       damage: 1
       buff: 0
       debuff: 0
+  targetWeights:
+    self: 0
+    ally: 0
+    enemy: 1
   triggers:
-  - {fileID: 11400000, guid: 8e862897cf102394a9cbd4cc09d2538e, type: 2}
-  - {fileID: 11400000, guid: c34c20c9857d4614e996ac5e8d525e2b, type: 2}
+  - {fileID: 11400000, guid: 28d0f059c2668004bb24ee492db6d78e, type: 2}
