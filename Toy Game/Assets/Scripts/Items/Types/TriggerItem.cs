@@ -9,13 +9,13 @@ namespace Items.Types {
     {
         public List<Trigger> triggers;
 
-        public override void OnEvent(Context context, Creature owner) {
+        protected override void OnEvent(Context context, Creature owner) {
             foreach (Trigger trigger in triggers) {
                 trigger.OnEvent(context, owner);
             }
         }
 
-        public override void OnUse(Context context, Creature owner) {
+        protected override void OnUse(Context context, Creature owner) {
             foreach (Trigger trigger in triggers) {
                 trigger.OnEvent(context, owner);
             }

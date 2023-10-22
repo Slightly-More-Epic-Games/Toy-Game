@@ -10,9 +10,27 @@ namespace Items {
 
         public int imaginationCost;
         public int healthCost;
+        public bool used;
 
-        public abstract void OnUse(Context context, Creature owner);
+        public void Use(Context context, Creature owner) {
+            used = true;
+            OnUse(context, owner);
+        }
 
-        public abstract void OnEvent(Context context, Creature owner);
+        public void Event(Context context, Creature owner) {
+            if (context.action == Action.TurnEnd) {
+                used = false;
+            }
+
+            OnEvent(context, owner);
+        }
+
+        public bool CanUse(Creature owner) {
+            return !used && healthCost >= 0 && imaginationCost >= 0 && healthCost <= owner.health && imaginationCost <= owner.imagination;
+        }
+
+        protected abstract void OnUse(Context context, Creature owner);
+
+        protected abstract void OnEvent(Context context, Creature owner);
     }
 }

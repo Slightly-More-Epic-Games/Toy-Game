@@ -41,7 +41,7 @@ namespace Encounter {
         public void UpdateItemIcon(Creature owner, int index) {
             HoverableUI hoverableUI = items[index];
             Item item = owner.items[index];
-            hoverableUI.interactable = item.healthCost >= 0 && item.imaginationCost >= 0 && item.healthCost <= owner.health && item.imaginationCost <= owner.imagination;
+            hoverableUI.interactable = item.CanUse(owner);
         }
     }
 }
