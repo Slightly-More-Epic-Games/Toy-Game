@@ -4,13 +4,12 @@ using UnityEngine;
 
 namespace Map {
     public class Node : ScriptableObject {
+        public Sprite icon;
+        
         protected float budget;
 
-        public List<int> connections;
-
-        public Sprite icon;
-
-        public NodeVisual nodeVisual;
+        [System.NonSerialized] public List<int> connections;
+        [System.NonSerialized] public NodeVisual nodeVisual;
 
         public void Initialise(float budget) {
             this.budget = budget;

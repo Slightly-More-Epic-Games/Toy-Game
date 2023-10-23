@@ -12,6 +12,9 @@ namespace Map {
         private int rowCount = 1;
 
         [SerializeField] private List<Node> nodeTemplates;
+        [SerializeField] private List<Node> bossNodeTemplates;
+        [SerializeField] private Node startingNode;
+
 
         [SerializeField] private Transform nodeRowParents;
         [SerializeField] private Transform nodeRowPrefab;
@@ -35,11 +38,12 @@ namespace Map {
         }
 
         private void Start() {
-            CreateNextNodeRow(1);
+            CreateNextNodeRow(1, new List<Node>() {startingNode});
             for (int i = 0; i < 6; i++) {
-                CreateNextNodeRow(Random.Range(2,5));
+                CreateNextNodeRow(Random.Range(2,5), nodeTemplates);
             }
-            CreateNextNodeRow(1);
+            CreateNextNodeRow(1, bossNodeTemplates);
+            UpdateMap();
         }
 
         public void DestroyManager() {
@@ -50,9 +54,11 @@ namespace Map {
         public void SetManagerActive(bool active) {
             gameObject.SetActive(active);
             dontDestroy.SetActive(active);
+            if (!active) return;
+            UpdateMap();
         }
 
-        private void CreateNextNodeRow(int count) {
+        private void CreateNextNodeRow(int count, List<Node> nodeTemplates) {
             NodeRow nodeRow = new NodeRow(Game.instance.player.spawnCost*rowCount, nodeTemplates, count);
             rowCount++;
             nodeRow.CreateButtons(nodeRowPrefab, nodeRowParents, nodePrefab);
@@ -63,6 +69,10 @@ namespace Map {
                 prev.CreateConnections(nodeRow, linePrefab);
             }
             nodeRows.Add(nodeRow);
+        }
+
+        private void UpdateMap() {
+
         }
     }
 }

@@ -582,6 +582,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeTemplates:
   - {fileID: 11400000, guid: 0f809727684aa7b40b94b753b0928c6f, type: 2}
+  bossNodeTemplates:
+  - {fileID: 11400000, guid: 0f809727684aa7b40b94b753b0928c6f, type: 2}
+  startingNode: {fileID: 11400000, guid: 534204c682247e1408c6ba0d89bfb859, type: 2}
   nodeRowParents: {fileID: 760910849}
   nodeRowPrefab: {fileID: 979684017563516954, guid: 610ef0a7dc3fe504793b9b1495d598af, type: 3}
   nodePrefab: {fileID: 7460280612791508328, guid: 3c51835b6fbfeec47b90edfc8c5b315f, type: 3}
