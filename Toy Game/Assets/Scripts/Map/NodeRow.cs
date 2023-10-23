@@ -65,10 +65,11 @@ namespace Map {
 
         public void CreateConnections(NodeRow other, LineRenderer linePrefab) {
             foreach (Node node in nodes) {
+                Vector3 nodePos = node.nodeVisual.transform.GetChild(0).position;
                 foreach (int connection in node.connections) {
                     LineRenderer line = Object.Instantiate(linePrefab, node.nodeVisual.transform);
-                    line.transform.localPosition = Vector3.zero;
-                    line.SetPosition(1, other.nodes[connection].nodeVisual.transform.position - node.nodeVisual.transform.position + new Vector3(16,0,0));
+                    line.transform.localPosition = node.nodeVisual.transform.GetChild(0).localPosition;
+                    line.SetPosition(1, other.nodes[connection].nodeVisual.transform.GetChild(0).position - nodePos + new Vector3(16,0,0));
                 }
             }
         }

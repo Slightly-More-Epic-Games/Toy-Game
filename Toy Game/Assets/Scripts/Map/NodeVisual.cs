@@ -9,6 +9,8 @@ namespace Map {
     {
         [SerializeField] private Button button;
         [SerializeField] private Image image;
+        [SerializeField] private RectTransform child;
+        [SerializeField] private float spreadRange;
 
         private Node node;
         private NodeRow nodeRow;
@@ -23,6 +25,9 @@ namespace Map {
             button.onClick.AddListener(Play);
 
             node.nodeVisual = this;
+
+            Vector2 pos = Random.insideUnitCircle;
+            child.anchoredPosition = new Vector3(pos.x*spreadRange, pos.y*spreadRange, 0);
         }
 
         private void Play() {
