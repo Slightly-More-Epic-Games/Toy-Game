@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Umbrella
-    description: deal 3 damage to target, next
+    description: deal 3 damage to target, block next time you lose health
     icon: {fileID: 0}
   imaginationCost: 4
-  healthCost: 1
-  used: 0
+  healthCost: 0
+  used: 1
   priorities:
     self:
       heal: 0
-      damage: 0.5
+      damage: 0
       buff: 1
       debuff: 0
     allies:

@@ -120,6 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  offset: {x: 0, y: -32, z: 0}
 --- !u!1 &1011077944560753243
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,10 +9,11 @@ namespace Items {
     public class HoverableUI : Button
     {
         private UIInfo uIInfo;
+        [SerializeField] private Vector3 offset;
 
         public override void OnPointerEnter(PointerEventData eventData) {
             base.OnPointerEnter(eventData);
-            Manager.instance.hoverInfo.HoverEnter(uIInfo, transform);
+            Manager.instance.hoverInfo.HoverEnter(uIInfo, transform, offset);
         }
 
         public override void OnPointerExit(PointerEventData eventData) {
