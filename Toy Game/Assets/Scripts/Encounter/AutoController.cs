@@ -53,6 +53,7 @@ namespace Encounter {
             } else if (random < selfTarget+allyTarget) {
                 target = allies[0];
                 float maxNeed = 0f;
+                float maxMatch = 1f;
                 foreach (Creature ally in allies) {
                     float healthPercent = (float)ally.health/ally.maxHealth;
                     float need = 1f - (1f - itemPriorities.allies.heal*(1f-healthPercent)) * (1f - itemPriorities.allies.buff/((ally.triggers.Count*(1f-healthPercent))+1f));
@@ -60,11 +61,18 @@ namespace Encounter {
                     if (need > maxNeed) {
                         maxNeed = need;
                         target = ally;
+                        maxMatch = 1f;
+                    } else if (need == maxNeed) {
+                        maxMatch++;
+                        if (Random.Range(0f,1f) <= 1f/maxMatch) {
+                            target = ally;
+                        }
                     }
                 }
             } else {
                 target = enemies[0];
                 float maxNeed = 0f;
+                float maxMatch = 1f;
                 foreach (Creature enemy in enemies) {
                     float healthPercent = (float)enemy.health/enemy.maxHealth;
                     float need = 1f - (1f - itemPriorities.enemies.damage*(1f-healthPercent)) * (1f - itemPriorities.enemies.debuff*Mathf.Max(healthPercent, (float)owner.health/owner.maxHealth));
@@ -73,6 +81,12 @@ namespace Encounter {
                     if (need > maxNeed) {
                         maxNeed = need;
                         target = enemy;
+                        maxMatch = 1f;
+                    } else if (need == maxNeed) {
+                        maxMatch++;
+                        if (Random.Range(0f,1f) <= 1f/maxMatch) {
+                            target = enemy;
+                        }
                     }
                 }
             }
