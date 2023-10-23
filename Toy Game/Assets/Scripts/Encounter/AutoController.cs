@@ -45,7 +45,7 @@ namespace Encounter {
             if (enemies.Count == 0) enemyTarget = 0;
 
             float totalWeight = selfTarget+allyTarget+enemyTarget;
-            float random = Random.Range(0f, totalWeight);
+            float random = Random.value*totalWeight;
 
             Creature target;
             if (random < selfTarget || totalWeight == 0) {
@@ -64,7 +64,7 @@ namespace Encounter {
                         maxMatch = 1f;
                     } else if (need == maxNeed) {
                         maxMatch++;
-                        if (Random.Range(0f,1f) <= 1f/maxMatch) {
+                        if (Random.value <= 1f/maxMatch) {
                             target = ally;
                         }
                     }
@@ -84,7 +84,7 @@ namespace Encounter {
                         maxMatch = 1f;
                     } else if (need == maxNeed) {
                         maxMatch++;
-                        if (Random.Range(0f,1f) <= 1f/maxMatch) {
+                        if (Random.value <= 1f/maxMatch) {
                             target = enemy;
                         }
                     }
@@ -107,7 +107,7 @@ namespace Encounter {
             float chanceReduction = 1f;
             Item current = null;
             foreach (Item item in items) {
-                if (Random.Range(0f,1f) <= 1f/chanceReduction) {
+                if (Random.value <= 1f/chanceReduction) {
                     current = item;
                 }
                 chanceReduction += slope;

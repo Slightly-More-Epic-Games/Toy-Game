@@ -7,6 +7,8 @@ namespace Map {
     {
         public static Manager instance;
 
+        public List<NodeRow> nodeRows;
+
         public void Start() {
             instance = this;
         }
