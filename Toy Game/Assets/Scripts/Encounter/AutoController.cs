@@ -21,7 +21,7 @@ namespace Encounter {
 
             Debug.Log((isAlly ? "ally" : "enemy")+"\""+owner+"\" is trying to use best item...");
 
-            Item item = GetBestItem(owner, allies, enemies, turnNumber, 1f);
+            Item item = GetBestItem(owner, allies, enemies, turnNumber, 1.3f);
             Debug.Log("the best item is: "+item);
             if (item == null) return;
 
@@ -77,19 +77,19 @@ namespace Encounter {
             return target;
         }
 
-        protected Item GetBestItem(Creature owner, List<Creature> allies, List<Creature> enemies, int turnNumber, float linearity) {
+        protected Item GetBestItem(Creature owner, List<Creature> allies, List<Creature> enemies, int turnNumber, float slope) {
             List<Item> items = GetFavouredItems(owner, allies, enemies, turnNumber);
             if (items.Count == 0) return null;
 
-            //i think the weight here is equal to x^(1-linearity)?
-            //this means values < 1 will mean earlier items are more likely
+            //i think the weight for each index is equal to round(x+1)^(1-slope)?
+            //this means slope > 1 will make earlier items are more likely
             float chanceReduction = 1f;
             Item current = null;
             foreach (Item item in items) {
                 if (Random.Range(0f,1f) <= 1f/chanceReduction) {
                     current = item;
                 }
-                chanceReduction += linearity;
+                chanceReduction += slope;
             }
 
             return current;
