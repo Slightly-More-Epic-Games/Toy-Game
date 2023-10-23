@@ -10,6 +10,8 @@ namespace Map {
 
         public Sprite icon;
 
+        public NodeVisual nodeVisual;
+
         public void Initialise(float budget) {
             this.budget = budget;
             connections = new List<int>();

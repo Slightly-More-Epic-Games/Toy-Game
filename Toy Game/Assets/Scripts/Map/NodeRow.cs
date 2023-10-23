@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Map {
     public class NodeRow {
         public float budget;
 
         public List<Node> nodes;
+
+        public Transform row;
 
         public NodeRow(float budget, List<Node> nodeTemplates, int count) {
             this.budget = budget;
@@ -49,6 +52,25 @@ namespace Map {
 
         public void Play(int index) {
             Debug.Log(nodes[index]);
+        }
+
+        public void CreateButtons(Transform nodeRowPrefab, Transform nodeRowParents, NodeVisual nodePrefab) {
+            row = Object.Instantiate(nodeRowPrefab, nodeRowParents);
+            for (int i = 0; i < nodes.Count; i++) {
+                Node node = nodes[i];
+                NodeVisual nodeVisual = Object.Instantiate(nodePrefab, row);
+                nodeVisual.Initialise(node, this, i);
+            }
+        }
+
+        public void CreateConnections(NodeRow other, LineRenderer linePrefab) {
+            foreach (Node node in nodes) {
+                foreach (int connection in node.connections) {
+                    LineRenderer line = Object.Instantiate(linePrefab, node.nodeVisual.transform);
+                    line.transform.localPosition = Vector3.zero;
+                    line.SetPosition(1, other.nodes[connection].nodeVisual.transform.position - node.nodeVisual.transform.position + new Vector3(16,0,0));
+                }
+            }
         }
     }
 }

@@ -21,6 +21,8 @@ namespace Map {
 
         [SerializeField] private RectTransform rowLayoutGroup;
 
+        [SerializeField] private LineRenderer linePrefab;
+
         private void Awake() {
             if (instance != null) {
                 DestroyManager();
@@ -33,9 +35,11 @@ namespace Map {
         }
 
         private void Start() {
-            for (int i = 0; i < 5; i++) {
+            CreateNextNodeRow(1);
+            for (int i = 0; i < 6; i++) {
                 CreateNextNodeRow(Random.Range(2,5));
             }
+            CreateNextNodeRow(1);
         }
 
         public void DestroyManager() {
@@ -51,27 +55,14 @@ namespace Map {
         private void CreateNextNodeRow(int count) {
             NodeRow nodeRow = new NodeRow(Game.instance.player.spawnCost*rowCount, nodeTemplates, count);
             rowCount++;
-            CreateButtons(nodeRow);
+            nodeRow.CreateButtons(nodeRowPrefab, nodeRowParents, nodePrefab);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rowLayoutGroup);
             if (nodeRows.Count > 0) {
                 NodeRow prev = nodeRows[nodeRows.Count-1];
                 prev.Connect(nodeRow);
-                CreateConnections(prev, nodeRow);
+                prev.CreateConnections(nodeRow, linePrefab);
             }
             nodeRows.Add(nodeRow);
-        }
-
-        private void CreateButtons(NodeRow nodeRow) {
-            Transform row = Instantiate(nodeRowPrefab, nodeRowParents);
-            for (int i = 0; i < nodeRow.nodes.Count; i++) {
-                Node node = nodeRow.nodes[i];
-                NodeVisual nodeVisual = Instantiate(nodePrefab, row);
-                nodeVisual.Initialise(node, nodeRow, i);
-            }
-            LayoutRebuilder.ForceRebuildLayoutImmediate(rowLayoutGroup);
-        }
-
-        private void CreateConnections(NodeRow from, NodeRow to) {
-            //create lines
         }
     }
 }

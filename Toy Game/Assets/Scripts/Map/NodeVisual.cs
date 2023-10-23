@@ -21,6 +21,8 @@ namespace Map {
 
             image.sprite = node.icon;
             button.onClick.AddListener(Play);
+
+            node.nodeVisual = this;
         }
 
         private void Play() {
