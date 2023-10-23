@@ -96,6 +96,10 @@ namespace Encounter {
 
         protected Item GetBestItem(Creature owner, List<Creature> allies, List<Creature> enemies, Priorities priorities, float slope) {
             List<Item> items = GetFavouredItems(owner, allies, enemies, priorities);
+            return GetWeightedEarlyFromItemList(items, slope);
+        }
+
+        protected Item GetWeightedEarlyFromItemList(List<Item> items, float slope) {
             if (items.Count == 0) return null;
 
             //i think the weight for each index is equal to round(x+1)^(1-slope)?
@@ -109,7 +113,7 @@ namespace Encounter {
                 chanceReduction += slope;
             }
 
-            return current;
+            return current;   
         }
 
         protected List<Item> GetFavouredItems(Creature owner, List<Creature> allies, List<Creature> enemies, Priorities priorities) {
