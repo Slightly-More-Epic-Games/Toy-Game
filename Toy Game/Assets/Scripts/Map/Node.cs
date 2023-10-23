@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Map {
     public class Node : ScriptableObject {
         public Sprite icon;
+        public Game.GameScene scene;
         
         protected float budget;
 

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ac69860cacd5f45bc04812121177e4, type: 3}
   m_Name: Encounter
   m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  scene: 0
   enemyPool:
   - {fileID: 11400000, guid: 402b993984976ed4e92ab1dadef7a4a8, type: 2}
   costMultiplier: 1
