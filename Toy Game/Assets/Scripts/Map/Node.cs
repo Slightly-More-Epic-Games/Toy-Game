@@ -8,6 +8,8 @@ namespace Map {
 
         public List<int> connections;
 
+        public Sprite icon;
+
         public void Initialise(float budget) {
             this.budget = budget;
             connections = new List<int>();

@@ -46,5 +46,9 @@ namespace Map {
         public float CenteredPosition(int index) {
             return index-((nodes.Count-1)/2f);
         }
+
+        public void Play(int index) {
+            Debug.Log(nodes[index]);
+        }
     }
 }
