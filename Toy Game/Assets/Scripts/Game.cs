@@ -30,7 +30,7 @@ public class Game : MonoBehaviour
             SceneManager.UnloadSceneAsync(currentScene);
         }
 
-        Map.Manager.instance?.DestroyManager();
+        if (Map.Manager.instance != null) Map.Manager.instance.DestroyManager();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -46,7 +46,7 @@ public class Game : MonoBehaviour
             _ => "Map",
         };
 
-        Map.Manager.instance?.SetManagerActive(newScene == "Map");
+        if (Map.Manager.instance != null) Map.Manager.instance.SetManagerActive(newScene == "Map");
 
         if (currentScene == newScene) return;
 

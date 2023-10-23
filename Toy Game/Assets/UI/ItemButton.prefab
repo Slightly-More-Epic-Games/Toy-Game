@@ -141,4 +141,4 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 11, z: 0}

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 8, z: 0}
 --- !u!114 &5443130289916057285
 MonoBehaviour:
   m_ObjectHideFlags: 0
