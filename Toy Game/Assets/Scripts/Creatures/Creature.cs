@@ -38,11 +38,11 @@ public abstract class Creature : ScriptableObject {
 
     public void UseItem(int index, Creature target) {
         Item item = items[index];
-        Manager.instance.AddEventToProcess(new Context(Action.AnyItemUsed, this, target, index));
-
         if (item.imaginationCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LoseImagination, this, this, item.imaginationCost));
         if (item.healthCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LoseHealth, this, this, item.healthCost));
+        Manager.instance.ProcessEvents();
 
+        Manager.instance.AddEventToProcess(new Context(Action.AnyItemUsed, this, target, index));
         item.Use(new Context(Action.ItemUsed, this, target, index), this);
         Manager.instance.ProcessEvents();
     }
