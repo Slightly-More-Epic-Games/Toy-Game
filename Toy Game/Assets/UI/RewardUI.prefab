@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 6150587171732162994}
   - component: {fileID: 442415923116934026}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,10 +396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf54923655d43949bcf1da4c66819fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: {fileID: 0}
-  description: {fileID: 0}
-  image: {fileID: 0}
-  button: {fileID: 0}
+  title: {fileID: 442415923116934026}
+  description: {fileID: 5296856695314459231}
+  image: {fileID: 2973153656599384634}
+  button: {fileID: 7561973596005623581}
 --- !u!1 &6231180262577883086
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 3874980162284191945}
   - component: {fileID: 2973153656599384634}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 3624296254440626541}
   - component: {fileID: 5296856695314459231}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

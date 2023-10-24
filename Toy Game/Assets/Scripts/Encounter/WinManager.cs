@@ -19,7 +19,7 @@ namespace Encounter {
             Map.EncounterNode encounterNode = (Map.EncounterNode)Map.Manager.instance.currentNode;
 
             List<Item> pool = new List<Item>();
-            foreach (Creature creature in Manager.instance.killedEnemies) {
+            foreach (Creature creature in Manager.killedEnemies) {
                 foreach (Item item in creature.dropPool) {
                     if (!pool.Contains(item)) {
                         pool.Add(item);

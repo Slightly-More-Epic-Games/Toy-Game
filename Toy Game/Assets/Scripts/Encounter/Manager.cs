@@ -11,7 +11,7 @@ namespace Encounter {
 
         [System.NonSerialized] public List<Creature> playerAllies = new List<Creature>();
         [System.NonSerialized] public List<Creature> playerEnemies = new List<Creature>();
-        [System.NonSerialized] public List<Creature> killedEnemies = new List<Creature>();
+        public static List<Creature> killedEnemies = new List<Creature>();
 
         [System.NonSerialized] public Creature currentTurn;
         private int turnNumber;
@@ -30,6 +30,7 @@ namespace Encounter {
 
         public void Start() {
             instance = this;
+            killedEnemies.Clear();
 
             CreateCreature(Game.instance.player, true);
 
@@ -47,7 +48,9 @@ namespace Encounter {
         }
 
         private void Update() {
-            currentTurn.controller.UpdateTurn(currentTurn, turnNumber);
+            if (currentTurn != null && !currentTurn.isDead) {
+                currentTurn.controller.UpdateTurn(currentTurn, turnNumber);
+            }
         }
 
         public bool CreateCreature(Creature template, bool isAlly) {

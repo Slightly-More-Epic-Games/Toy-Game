@@ -17,7 +17,7 @@ public abstract class Creature : ScriptableObject {
 
     [System.NonSerialized] public Creature lastAttacker;
 
-    protected bool isDead;
+    [System.NonSerialized] public bool isDead;
 
     [System.NonSerialized] public CreatureVisual creatureVisual;
 
