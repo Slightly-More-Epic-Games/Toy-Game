@@ -18,7 +18,7 @@ MonoBehaviour:
       that amount
     icon: {fileID: 0}
   activateOn: 0
-  target: 7
+  target: 1
   conditions:
   - actionMatch: 2
     ownerMatch: 1

@@ -145,6 +145,7 @@ public abstract class Creature : ScriptableObject {
         OnDeath();
         isDead = true;
         Destroy(this);
+        Destroy(creatureVisual.gameObject);
         return true;
     }
 

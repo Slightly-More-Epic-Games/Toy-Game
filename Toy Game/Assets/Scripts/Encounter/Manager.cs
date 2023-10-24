@@ -107,10 +107,17 @@ namespace Encounter {
         }
 
         private void TurnEnd(Creature newCurrent) {
-            currentTurn = newCurrent;
-            turnNumber++;
             playerAllies.RemoveAll(x => x.UpdateDeadness());
             playerEnemies.RemoveAll(x => x.UpdateDeadness());
+
+            currentTurn = newCurrent;
+            while (currentTurn.isDead) {
+                currentTurn = GetNextCreatureInTurnOrder(currentTurn);
+                if (currentTurn == newCurrent) {
+                    break;
+                }
+            }
+            turnNumber++;
 
             if (Game.instance.player.UpdateDeadness()) {
                 Game.instance.LoadGameScene(Game.GameScene.GameOver);
