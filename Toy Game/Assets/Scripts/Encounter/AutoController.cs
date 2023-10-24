@@ -24,7 +24,7 @@ namespace Encounter {
             Priorities priorities = Priorities.Multiply(GetCurrentPriorities(owner, allies, enemies, turnNumber), owner.priorities);
 
             ItemSlot item = GetBestItem(owner, allies, enemies, priorities, 1.3f);
-            Debug.Log("the best item is: "+item);
+            Debug.Log("the best item is: "+item.GetUIInfo().name);
             if (item == null) return;
 
             Creature target = GetBestTarget(owner, allies, enemies, item, priorities);

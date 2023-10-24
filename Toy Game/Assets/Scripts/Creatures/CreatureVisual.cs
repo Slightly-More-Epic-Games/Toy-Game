@@ -10,7 +10,7 @@ public class CreatureVisual : MonoBehaviour
 {
     [SerializeField] private HoverableUI button;
     [SerializeField] private Image image;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private RectTransform healthBar;
     [SerializeField] private Transform triggerParent;
     [SerializeField] private HoverableUI triggerVisual;
 
@@ -20,7 +20,7 @@ public class CreatureVisual : MonoBehaviour
     }
 
     public void UpdateVisual(Creature owner) {
-        text.text = "health: "+owner.health+"\nimagination: "+owner.imagination+"\ntriggers: "+owner.triggers.Count;
+        healthBar.anchorMax = new Vector2(Mathf.Max(0f, owner.health/(float)owner.maxHealth), 1f);
         foreach (Transform child in triggerParent) {
             Destroy(child.gameObject);
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Items;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,9 @@ namespace Encounter {
     {
         [SerializeField] private HoverableUI buttonPrefab;
         private HoverableUI[] items;
+
+        [SerializeField] private Button endTurn;
+        [SerializeField] private TextMeshProUGUI imagination;
 
         public void Init(Creature owner, PlayerController playerController) {
             items = new HoverableUI[owner.items.Count];
@@ -20,6 +24,8 @@ namespace Encounter {
                 button.SetInfo(owner.items[i].GetUIInfo());
                 items[i] = button;
             }
+
+            endTurn.onClick.AddListener(playerController.EndTurn);
         }
 
         public void SetInteractable(Creature owner, bool interactable) {
@@ -36,6 +42,7 @@ namespace Encounter {
             for (int i = 0; i < items.Length; i++) {
                 UpdateItemIcon(owner, i);
             }
+            imagination.text = owner.imagination.ToString();
         }
 
         public void UpdateItemIcon(Creature owner, int index) {

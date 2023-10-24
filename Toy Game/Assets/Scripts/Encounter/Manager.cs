@@ -28,9 +28,12 @@ namespace Encounter {
 
         public HoverInfo hoverInfo;
 
+        private int endState;
+
         public void Start() {
             instance = this;
             killedEnemies.Clear();
+            endState = 0;
 
             CreateCreature(Game.instance.player, true);
 
@@ -50,6 +53,10 @@ namespace Encounter {
         private void Update() {
             if (currentTurn != null && !currentTurn.isDead) {
                 currentTurn.controller.UpdateTurn(currentTurn, turnNumber);
+            }
+
+            if (endState != 0) {
+                Game.instance.LoadGameScene(endState == 1 ? Game.GameScene.GameOver : Game.GameScene.EncounterWon);
             }
         }
 
@@ -120,11 +127,18 @@ namespace Encounter {
             turnNumber++;
 
             if (Game.instance.player.UpdateDeadness()) {
-                Game.instance.LoadGameScene(Game.GameScene.GameOver);
+                if (endState == 0) {
+                    AddEventToProcess(new Context(Action.EncounterEnd, newCurrent, newCurrent, turnNumber));
+                }
+                //losing takes priority over winning
+                endState = 1;
             }
 
             if (playerEnemies.Count == 0) {
-                Game.instance.LoadGameScene(Game.GameScene.EncounterWon);
+                if (endState == 0) {
+                    AddEventToProcess(new Context(Action.EncounterEnd, newCurrent, newCurrent, turnNumber));
+                    endState = 2;
+                }
             }
         }
 
@@ -153,8 +167,11 @@ namespace Encounter {
         }
 
         private Creature GetNextCreatureInTurnOrder(Creature current) {
+            int total = playerAllies.Count+playerEnemies.Count;
+            if (total == 0) return current;
+
             int index = playerAllies.Contains(current) ? playerAllies.IndexOf(current) : playerEnemies.IndexOf(current)+playerAllies.Count;
-            index = (index + 1)%(playerAllies.Count+playerEnemies.Count);
+            index = (index + 1)%total;
             return index >= playerAllies.Count ? playerEnemies[index-playerAllies.Count] : playerAllies[index];
         }
 
