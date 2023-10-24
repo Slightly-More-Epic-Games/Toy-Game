@@ -18,7 +18,7 @@ MonoBehaviour:
     icon: {fileID: 0}
   maxHealth: 5
   maxImagination: 5
-  items:
+  inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
   spawnCost: 1

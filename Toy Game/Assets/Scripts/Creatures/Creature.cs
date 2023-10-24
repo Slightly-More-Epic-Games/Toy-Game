@@ -11,7 +11,8 @@ public abstract class Creature : ScriptableObject {
     public int maxImagination;
     [System.NonSerialized] public int health;
     [System.NonSerialized] public int imagination;
-    public List<Item> items;
+    [SerializeField] protected List<Item> inventory;
+    [System.NonSerialized] public List<ItemSlot> items;
 
     [System.NonSerialized] public List<Trigger> triggers = new List<Trigger>();
 
@@ -31,7 +32,11 @@ public abstract class Creature : ScriptableObject {
 
     public void Initialise() {
         health = maxHealth;
-        imagination = maxImagination;
+        imagination = 0;
+        items = new List<ItemSlot>();
+        foreach (Item item in inventory) {
+            items.Add(new ItemSlot(item));
+        }
     }
 
     public void AddTrigger(Trigger trigger) {
@@ -39,18 +44,12 @@ public abstract class Creature : ScriptableObject {
     }
 
     public void UseItem(int index, Creature target) {
-        Item item = items[index];
-        if (item.imaginationCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LoseImagination, this, this, item.imaginationCost));
-        if (item.healthCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LoseHealth, this, this, item.healthCost));
-        Manager.instance.ProcessEvents();
-
-        Manager.instance.AddEventToProcess(new Context(Action.AnyItemUsed, this, target, index));
-        item.Use(new Context(Action.ItemUsed, this, target, index), this);
-        Manager.instance.ProcessEvents();
+        ItemSlot item = items[index];
+        item.Use(this, target, index);
     }
 
     public void OnEvent(Context context) {
-        foreach (Item item in items) {
+        foreach (ItemSlot item in items) {
             item.Event(context, this);
         }
 

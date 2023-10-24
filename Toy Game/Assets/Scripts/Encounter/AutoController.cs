@@ -23,7 +23,7 @@ namespace Encounter {
 
             Priorities priorities = Priorities.Multiply(GetCurrentPriorities(owner, allies, enemies, turnNumber), owner.priorities);
 
-            Item item = GetBestItem(owner, allies, enemies, priorities, 1.3f);
+            ItemSlot item = GetBestItem(owner, allies, enemies, priorities, 1.3f);
             Debug.Log("the best item is: "+item);
             if (item == null) return;
 
@@ -34,12 +34,12 @@ namespace Encounter {
             owner.UseItem(owner.items.IndexOf(item), target);
         }
 
-        protected Creature GetBestTarget(Creature owner, List<Creature> allies, List<Creature> enemies, Item item, Priorities priorities) {
-            Priorities itemPriorities = Priorities.Multiply(item.priorities, owner.priorities);
+        protected Creature GetBestTarget(Creature owner, List<Creature> allies, List<Creature> enemies, ItemSlot item, Priorities priorities) {
+            Priorities itemPriorities = Priorities.Multiply(item.GetPriorities(), owner.priorities);
 
-            float selfTarget = Mathf.Max(itemPriorities.self.PositiveTotal(), 0) * item.targetWeights.self;
-            float allyTarget = Mathf.Max(itemPriorities.allies.PositiveTotal(), 0) * item.targetWeights.ally;
-            float enemyTarget = Mathf.Max(itemPriorities.enemies.NegativeTotal(), 0) * item.targetWeights.enemy;
+            float selfTarget =  Mathf.Max(itemPriorities.self.PositiveTotal(),    0) * item.GetTargetWeights().self;
+            float allyTarget =  Mathf.Max(itemPriorities.allies.PositiveTotal(),  0) * item.GetTargetWeights().ally;
+            float enemyTarget = Mathf.Max(itemPriorities.enemies.NegativeTotal(), 0) * item.GetTargetWeights().enemy;
 
             if (allies.Count == 0) allyTarget = 0;
             if (enemies.Count == 0) enemyTarget = 0;
@@ -94,19 +94,19 @@ namespace Encounter {
             return target;
         }
 
-        protected Item GetBestItem(Creature owner, List<Creature> allies, List<Creature> enemies, Priorities priorities, float slope) {
-            List<Item> items = GetFavouredItems(owner, allies, enemies, priorities);
+        protected ItemSlot GetBestItem(Creature owner, List<Creature> allies, List<Creature> enemies, Priorities priorities, float slope) {
+            List<ItemSlot> items = GetFavouredItems(owner, allies, enemies, priorities);
             return GetWeightedEarlyFromItemList(items, slope);
         }
 
-        protected Item GetWeightedEarlyFromItemList(List<Item> items, float slope) {
+        protected ItemSlot GetWeightedEarlyFromItemList(List<ItemSlot> items, float slope) {
             if (items.Count == 0) return null;
 
             //i think the weight for each index is equal to round(x+1)^(1-slope)?
             //this means slope > 1 will make earlier items are more likely
             float chanceReduction = 1f;
-            Item current = null;
-            foreach (Item item in items) {
+            ItemSlot current = null;
+            foreach (ItemSlot item in items) {
                 if (Random.value <= 1f/chanceReduction) {
                     current = item;
                 }
@@ -116,27 +116,27 @@ namespace Encounter {
             return current;   
         }
 
-        protected List<Item> GetFavouredItems(Creature owner, List<Creature> allies, List<Creature> enemies, Priorities priorities) {
-            List<Item> usableItems = GetUsableItems(owner);
+        protected List<ItemSlot> GetFavouredItems(Creature owner, List<Creature> allies, List<Creature> enemies, Priorities priorities) {
+            List<ItemSlot> usableItems = GetUsableItems(owner);
 
             if (usableItems.Count == 0) return usableItems;
 
-            List<(Item, float)> itemScores = new List<(Item, float)>();
+            List<(ItemSlot, float)> itemScores = new List<(ItemSlot, float)>();
             float[] itemPreferences = new float[usableItems.Count];
             for (int i = 0; i < itemPreferences.Length; i++) {
-                Item item = usableItems[i];
-                Priorities itemPriorities = Priorities.Multiply(item.priorities, priorities);
+                ItemSlot item = usableItems[i];
+                Priorities itemPriorities = Priorities.Multiply(item.GetPriorities(), priorities);
                 float score = itemPriorities.Total();
                 itemScores.Add((item, score));
             }
 
             itemScores.OrderBy(s => s.Item2);
 
-            List<Item> favouredItems = new List<Item>();
+            List<ItemSlot> favouredItems = new List<ItemSlot>();
 
             bool wasPositive = false;
             float max = 1f;
-            foreach ((Item,float) itemScore in itemScores) {
+            foreach ((ItemSlot,float) itemScore in itemScores) {
                 if (itemScore.Item2 > 0) {
                     wasPositive = true;
                     favouredItems.Add(itemScore.Item1);
@@ -186,9 +186,9 @@ namespace Encounter {
             return priorities;
         }
 
-        protected List<Item> GetUsableItems(Creature owner) {
-            List<Item> items = new List<Item>();
-            foreach (Item item in owner.items) {
+        protected List<ItemSlot> GetUsableItems(Creature owner) {
+            List<ItemSlot> items = new List<ItemSlot>();
+            foreach (ItemSlot item in owner.items) {
                 if (item.CanUse(owner)) {
                     items.Add(item);
                 }

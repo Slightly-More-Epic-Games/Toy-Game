@@ -45,7 +45,7 @@ namespace Encounter {
         }
 
         public void ChooseItem(Item item, RewardUI rewardUI) {
-            Game.instance.player.items.Add(item);
+            Game.instance.player.items.Add(new ItemSlot(item));
             foreach (RewardUI ui in uis) {
                 ui.SetChosen(ui == rewardUI);
             }

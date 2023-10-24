@@ -17,7 +17,7 @@ namespace Encounter {
                 int i2 = new int();
                 i2 = i;
                 button.onClick.AddListener(delegate {playerController.SelectItem(i2);});
-                button.SetInfo(owner.items[i].ui);
+                button.SetInfo(owner.items[i].GetUIInfo());
                 items[i] = button;
             }
         }
@@ -40,7 +40,7 @@ namespace Encounter {
 
         public void UpdateItemIcon(Creature owner, int index) {
             HoverableUI hoverableUI = items[index];
-            Item item = owner.items[index];
+            ItemSlot item = owner.items[index];
             hoverableUI.interactable = item.CanUse(owner);
         }
     }

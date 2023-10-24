@@ -10,29 +10,20 @@ namespace Items {
 
         public int imaginationCost;
         public int healthCost;
-        public bool used;
 
         public Priorities priorities;
         public TargetWeights targetWeights;
 
         public void Use(Context context, Creature owner) {
-            // items are not instantiated, so setting this used value is somewhat dangerous
-            // todo: make the used check be per creature?
-            // this could be acheived by putting items into a wrapper class
-            used = true;
             OnUse(context, owner);
         }
 
         public void Event(Context context, Creature owner) {
-            if (context.action == Action.TurnEnd) {
-                used = false;
-            }
-
             OnEvent(context, owner);
         }
 
         public bool CanUse(Creature owner) {
-            return !used && healthCost >= 0 && imaginationCost >= 0 && healthCost <= owner.health && imaginationCost <= owner.imagination;
+            return healthCost >= 0 && imaginationCost >= 0 && healthCost <= owner.health && imaginationCost <= owner.imagination;
         }
 
         protected abstract void OnUse(Context context, Creature owner);
