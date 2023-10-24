@@ -16,7 +16,7 @@ MonoBehaviour:
   scene: 0
   enemyPool:
   - {fileID: 11400000, guid: 402b993984976ed4e92ab1dadef7a4a8, type: 2}
-  costMultiplier: 1.25
-  extraCostMultiplier: 0.75
+  costMultiplier: 0.75
+  extraCostMultiplier: 0.5
   spawnLimit: 9
   rewards: 2

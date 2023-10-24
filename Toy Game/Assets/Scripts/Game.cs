@@ -29,11 +29,6 @@ public class Game : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void LoadSceneIntDontUseThisMethod(int scene) {
-        if (scene == 1) LoadGameScene(GameScene.Encounter);
-        else LoadGameScene(GameScene.Map);
-    }
-
     public void LoadGameScene(GameScene scene) {
         string newScene = scene switch {
             GameScene.Encounter => "Encounter",
