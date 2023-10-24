@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Items;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +12,8 @@ namespace Encounter {
 
         [SerializeField] private Transform rewardsParent;
         [SerializeField] private RewardUI rewardUIPrefab;
+
+        private Item chosenItem;
 
         private void Start() {
             Map.EncounterNode encounterNode = (Map.EncounterNode)Map.Manager.instance.currentNode;
@@ -45,13 +45,14 @@ namespace Encounter {
         }
 
         public void ChooseItem(Item item, RewardUI rewardUI) {
-            Game.instance.player.items.Add(new ItemSlot(item));
+            chosenItem = item;
             foreach (RewardUI ui in uis) {
                 ui.SetChosen(ui == rewardUI);
             }
         }
 
         public void Continue() {
+            if (chosenItem != null) Game.instance.player.items.Add(new ItemSlot(chosenItem));
             Game.instance.LoadGameScene(Game.GameScene.Map);
         }
     }
