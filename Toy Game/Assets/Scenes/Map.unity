@@ -580,8 +580,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35f0b31b42d8154db53a7443117f5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentNode: {fileID: 0}
+  currentLevel: 0
   nodeTemplates:
   - {fileID: 11400000, guid: 0f809727684aa7b40b94b753b0928c6f, type: 2}
+  - {fileID: 11400000, guid: 87f107b8c0d51d64e953fe3628017ddb, type: 2}
   bossNodeTemplates:
   - {fileID: 11400000, guid: 0f809727684aa7b40b94b753b0928c6f, type: 2}
   startingNode: {fileID: 11400000, guid: 534204c682247e1408c6ba0d89bfb859, type: 2}

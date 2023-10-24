@@ -11,6 +11,7 @@ namespace Encounter {
 
         [System.NonSerialized] public List<Creature> playerAllies = new List<Creature>();
         [System.NonSerialized] public List<Creature> playerEnemies = new List<Creature>();
+        [System.NonSerialized] public List<Creature> killedEnemies = new List<Creature>();
 
         [System.NonSerialized] public Creature currentTurn;
         private int turnNumber;
@@ -109,11 +110,18 @@ namespace Encounter {
             playerEnemies.RemoveAll(x => x.UpdateDeadness());
 
             if (Game.instance.player.UpdateDeadness()) {
-                Debug.Log("GAME OVER");
+                Game.instance.LoadGameScene(Game.GameScene.GameOver);
             }
 
             if (playerEnemies.Count == 0) {
-                Debug.Log("ENCOUNTER WON");
+                Game.instance.LoadGameScene(Game.GameScene.EncounterWon);
+            }
+        }
+
+        public void CreatureDied(Creature owner, Creature source) {
+            AddEventToProcess(new Context(Action.AnyDeath, owner, source, owner.health));
+            if (playerEnemies.Contains(owner)) {
+                killedEnemies.Add(owner);
             }
         }
 

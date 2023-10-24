@@ -27,6 +27,8 @@ public abstract class Creature : ScriptableObject {
 
     public Priorities priorities;
 
+    public List<Item> dropPool;
+
     public void Initialise() {
         health = maxHealth;
         imagination = maxImagination;
@@ -140,7 +142,7 @@ public abstract class Creature : ScriptableObject {
         if (health > 0) return false;
         OnEvent(new Context(Action.LastStand, this, this, health));
         if (health > 0) return false;
-        Manager.instance.AddEventToProcess(new Context(Action.AnyDeath, this, this, health));
+        Manager.instance.CreatureDied(this, lastAttacker);
         OnDeath();
         isDead = true;
         Destroy(this);

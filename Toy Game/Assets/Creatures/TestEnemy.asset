@@ -24,17 +24,19 @@ MonoBehaviour:
   spawnCost: 1
   priorities:
     self:
-      damage: 1
       heal: 1
+      damage: 1
       buff: 1
       debuff: 1
     allies:
-      damage: 1
       heal: 1
+      damage: 1
       buff: 1
       debuff: 1
     enemies:
-      damage: 1
       heal: 1
+      damage: 1
       buff: 1
       debuff: 1
+  dropPool:
+  - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}

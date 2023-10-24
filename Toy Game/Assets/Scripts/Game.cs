@@ -38,6 +38,8 @@ public class Game : MonoBehaviour
         string newScene = scene switch {
             GameScene.Encounter => "Encounter",
             GameScene.Map => "Map",
+            GameScene.GameOver => "GameOver",
+            GameScene.EncounterWon => "EncounterWon",
             _ => "Map",
         };
 
@@ -57,6 +59,8 @@ public class Game : MonoBehaviour
 
     public enum GameScene {
         Encounter,
-        Map
+        Map,
+        GameOver,
+        EncounterWon
     }
 }

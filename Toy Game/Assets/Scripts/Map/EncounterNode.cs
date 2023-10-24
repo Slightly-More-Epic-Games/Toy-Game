@@ -12,6 +12,8 @@ namespace Map {
         public float extraCostMultiplier = 1f;
         public int spawnLimit = 9;
 
+        public int rewards;
+
         public List<Creature> GetEnemies() {
             List<Creature> list = new List<Creature>();
 

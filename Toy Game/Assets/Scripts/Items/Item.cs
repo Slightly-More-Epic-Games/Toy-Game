@@ -16,6 +16,9 @@ namespace Items {
         public TargetWeights targetWeights;
 
         public void Use(Context context, Creature owner) {
+            // items are not instantiated, so setting this used value is somewhat dangerous
+            // todo: make the used check be per creature?
+            // this could be acheived by putting items into a wrapper class
             used = true;
             OnUse(context, owner);
         }

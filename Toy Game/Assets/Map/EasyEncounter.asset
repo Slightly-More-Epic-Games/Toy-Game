@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01ac69860cacd5f45bc04812121177e4, type: 3}
-  m_Name: Encounter
+  m_Name: EasyEncounter
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   scene: 0
