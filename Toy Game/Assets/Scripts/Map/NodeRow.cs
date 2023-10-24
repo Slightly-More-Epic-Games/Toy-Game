@@ -11,6 +11,8 @@ namespace Map {
 
         public Transform row;
 
+        public int current;
+
         public NodeRow(float budget, List<Node> nodeTemplates, int count) {
             this.budget = budget;
             nodes = new List<Node>(count);
@@ -19,6 +21,7 @@ namespace Map {
                 node.Initialise(budget);
                 nodes.Add(node);
             }
+            current = -1;
         }
 
         public void Connect(NodeRow other) {
@@ -48,10 +51,6 @@ namespace Map {
 
         public float CenteredPosition(int index) {
             return index-((nodes.Count-1)/2f);
-        }
-
-        public void Play(int index) {
-            Debug.Log(nodes[index]);
         }
 
         public void CreateButtons(Transform nodeRowPrefab, Transform nodeRowParents, NodeVisual nodePrefab) {

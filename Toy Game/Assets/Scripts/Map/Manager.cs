@@ -7,6 +7,8 @@ namespace Map {
     public class Manager : MonoBehaviour
     {
         public static Manager instance;
+        public Node currentNode;
+        public int currentLevel = 0;
 
         private List<NodeRow> nodeRows = new List<NodeRow>();
         private int rowCount = 1;
@@ -39,6 +41,8 @@ namespace Map {
 
         private void Start() {
             CreateNextNodeRow(1, new List<Node>() {startingNode});
+            nodeRows[0].current = 0;
+            currentNode = nodeRows[0].nodes[0];
             for (int i = 0; i < 6; i++) {
                 CreateNextNodeRow(Random.Range(2,5), nodeTemplates);
             }
@@ -72,7 +76,30 @@ namespace Map {
         }
 
         private void UpdateMap() {
+            List<int> nextConnections = null;
+            foreach (NodeRow nodeRow in nodeRows) {
+                foreach (Node node in nodeRow.nodes) {
+                    node.nodeVisual.SetInteractable(false);
+                }
+                if (nextConnections != null) {
+                    foreach (int connection in nextConnections) {
+                        nodeRow.nodes[connection].nodeVisual.SetInteractable(true);
+                    }
+                }
+                if (nodeRow.current != -1) {
+                    nextConnections = nodeRow.nodes[nodeRow.current].connections;
+                } else {
+                    nextConnections = null;
+                }
+            }
+        }
 
+        public void Play(NodeRow nodeRow, Node node, int index) {
+            nodeRows[currentLevel].current = -1;
+            nodeRow.current = index;
+            currentLevel++;
+            currentNode = node;
+            Game.instance.LoadGameScene(node.scene);
         }
     }
 }

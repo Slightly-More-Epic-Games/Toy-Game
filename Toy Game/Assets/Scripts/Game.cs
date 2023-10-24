@@ -13,15 +13,10 @@ public class Game : MonoBehaviour
 
     public static Game instance;
 
-    //todo: put this into map manager
-    public Map.Node node;
-
     void Start() {
         instance = this;
         player = Instantiate(classes[0]);
         player.Initialise();
-        //todo: cost should increase by the players spawncost each level
-        node.Initialise(2f);
         LoadGameScene(GameScene.Map);
     }
 

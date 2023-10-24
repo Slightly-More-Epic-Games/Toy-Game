@@ -32,7 +32,7 @@ namespace Encounter {
 
             CreateCreature(Game.instance.player, true);
 
-            Map.EncounterNode node = (Map.EncounterNode)Game.instance.node;
+            Map.EncounterNode node = (Map.EncounterNode)Map.Manager.instance.currentNode;
 
             foreach (Creature creature in node.GetEnemies()) {
                 CreateCreature(creature, false);

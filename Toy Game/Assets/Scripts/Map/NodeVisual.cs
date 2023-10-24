@@ -31,7 +31,11 @@ namespace Map {
         }
 
         private void Play() {
-            nodeRow.Play(index);
+            Manager.instance.Play(nodeRow, node, index);
+        }
+
+        public void SetInteractable(bool interactable) {
+            button.interactable = interactable;
         }
     }
 }
