@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Map {
-    [CreateAssetMenu(fileName = "EncounterNode", menuName = "Toy Game/EncounterNode", order = 0)]
+    [CreateAssetMenu(fileName = "EncounterNode", menuName = "Toy Game/Map/EncounterNode", order = 0)]
     public class EncounterNode : Node
     {
         public List<Creature> enemyPool;

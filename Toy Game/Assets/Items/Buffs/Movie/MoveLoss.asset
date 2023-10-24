@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
-  m_Name: SwordDamage
+  m_Name: MoveLoss
   m_EditorClassIdentifier: 
   ui:
     name: 
     description: 
     icon: {fileID: 0}
   activateOn: 0
-  target: 2
+  target: 9
   conditions: []
   cancelEvent: 0
   overrides:
-  - action: 2
-    source: 2
-    target: 1
-    valueOverride: 2
+  - action: 4
+    source: 0
+    target: 0
+    valueOverride: 1

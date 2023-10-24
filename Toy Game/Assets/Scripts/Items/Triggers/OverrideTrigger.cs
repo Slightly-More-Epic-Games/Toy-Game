@@ -4,7 +4,7 @@ using UnityEngine;
 using Encounter;
 
 namespace Items.Triggers {
-    [CreateAssetMenu(fileName = "OverrideTrigger", menuName = "Toy Game/Override Trigger", order = 0)]
+    [CreateAssetMenu(fileName = "OverrideTrigger", menuName = "Toy Game/Items/Override Trigger", order = 0)]
     public class OverrideTrigger : Trigger
     {
         public List<ContextOverride> overrides;

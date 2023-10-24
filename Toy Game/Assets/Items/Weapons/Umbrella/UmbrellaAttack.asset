@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
   m_Name: UmbrellaAttack
   m_EditorClassIdentifier: 
+  ui:
+    name: 
+    description: 
+    icon: {fileID: 21300000, guid: ef28eb3ee5be25f428f594e0c0af881f, type: 3}
   activateOn: 0
   target: 2
   conditions: []

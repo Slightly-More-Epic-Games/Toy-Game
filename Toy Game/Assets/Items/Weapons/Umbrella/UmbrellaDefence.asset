@@ -15,7 +15,7 @@ MonoBehaviour:
   ui:
     name: blocking
     description: next time this creature loses health, dont
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: ef28eb3ee5be25f428f594e0c0af881f, type: 3}
   activateOn: 0
   target: 2
   conditions:

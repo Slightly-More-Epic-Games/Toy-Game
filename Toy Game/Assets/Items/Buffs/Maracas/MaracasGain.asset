@@ -10,24 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
-  m_Name: DamageToHealthEffect
+  m_Name: MaracasGain
   m_EditorClassIdentifier: 
   ui:
-    name: something something
-    description: the next time this creature deals 3 or more damage, heal the target
-      that amount
-    icon: {fileID: 0}
+    name: gaining imagination
+    description: 
+    icon: {fileID: 21300000, guid: 48ad55eadac4f294ebf863477e405425, type: 3}
   activateOn: 0
   target: 1
   conditions:
-  - actionMatch: 2
-    ownerMatch: 1
-    condition: {fileID: 11400000, guid: 6c48d86e282ddb84b877c199a7077d57, type: 2}
-    parameters: 02000000
-    resultOnSuccess: 3
-  cancelEvent: 1
+  - actionMatch: 7
+    ownerMatch: 2
+    condition: {fileID: 0}
+    parameters: 
+    resultOnSuccess: 2
+  cancelEvent: 0
   overrides:
-  - action: 3
-    source: 0
-    target: 1
-    valueOverride: 
+  - action: 5
+    source: 2
+    target: 2
+    valueOverride: 1

@@ -4,11 +4,11 @@ using UnityEngine;
 using Encounter;
 
 namespace Items.Conditions {
-    [CreateAssetMenu(fileName = "Greater Than Condition", menuName = "Toy Game/Conditions/GreaterThanCondition", order = 0)]
-    public class GreaterThanCondition : Condition
+    [CreateAssetMenu(fileName = "Chance Condition", menuName = "Toy Game/Conditions/ChanceCondition", order = 0)]
+    public class ChanceCondition : Condition
     {
         public override bool Test(Context context, Creature owner, int[] parameters) {
-            if (context.value > parameters[0]) return true;
+            if (Random.Range(0,100) < parameters[0]) return true;
             return false;
         }
     }
