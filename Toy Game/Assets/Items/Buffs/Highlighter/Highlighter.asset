@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc9384b0992e3d408972644676e6022, type: 3}
+  m_Name: Highlighter
+  m_EditorClassIdentifier: 
+  ui:
+    name: Highelighter
+    description: next time target deals damage, deal damage to all of targets enemies
+    icon: {fileID: 4088642283560930735, guid: 84baa9be386a5a04b80ba4dead6b99bf, type: 3}
+  imaginationCost: 4
+  healthCost: 0
+  priorities:
+    self:
+      heal: 0
+      damage: 0
+      buff: 1
+      debuff: 0
+    allies:
+      heal: 0
+      damage: 0
+      buff: 1
+      debuff: 0
+    enemies:
+      heal: 0
+      damage: 1
+      buff: 0
+      debuff: 0
+  targetWeights:
+    self: 1
+    ally: 1
+    enemy: 0
+  triggers:
+  - {fileID: 0}

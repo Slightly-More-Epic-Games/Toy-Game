@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
-  m_Name: MaracasGain
+  m_Name: MarbleDamage
   m_EditorClassIdentifier: 
   ui:
-    name: gaining imagination
-    description: 
-    icon: {fileID: 21300000, guid: 48ad55eadac4f294ebf863477e405425, type: 3}
+    name: marbles!
+    description: cancel next attack until end of turn
+    icon: {fileID: 0}
   activateOn: 0
-  target: 1
+  target: 3
   conditions:
-  - actionMatch: 7
-    ownerMatch: 2
+  - actionMatch: 2
+    ownerMatch: 1
     condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
     parameters: 
     resultOnSuccess: 2
-  cancelEvent: 0
-  overrides:
-  - action: 5
-    source: 2
-    target: 2
-    valueOverride: 1
+  - actionMatch: 8
+    ownerMatch: 1
+    condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
+    parameters: 
+    resultOnSuccess: 1
+  cancelEvent: 1
+  overrides: []

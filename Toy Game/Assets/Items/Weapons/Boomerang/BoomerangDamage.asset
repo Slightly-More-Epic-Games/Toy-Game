@@ -10,23 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
-  m_Name: MaracasGain
+  m_Name: BoomerangDamage
   m_EditorClassIdentifier: 
   ui:
-    name: gaining imagination
+    name: 
     description: 
-    icon: {fileID: 21300000, guid: 48ad55eadac4f294ebf863477e405425, type: 3}
+    icon: {fileID: 0}
   activateOn: 0
-  target: 1
-  conditions:
-  - actionMatch: 7
-    ownerMatch: 2
-    condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
-    parameters: 
-    resultOnSuccess: 2
+  target: 2
+  conditions: []
   cancelEvent: 0
   overrides:
-  - action: 5
-    source: 2
-    target: 2
+  - action: 2
+    source: 0
+    target: 1
     valueOverride: 1
