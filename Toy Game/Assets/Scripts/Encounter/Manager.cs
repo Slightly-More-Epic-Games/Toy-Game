@@ -94,6 +94,10 @@ namespace Encounter {
         public void ProcessEvents() {
             while (eventsToProcess.Count > 0) {
                 Context context = eventsToProcess.Dequeue();
+                if (context.action == Action.TurnStart && context.target.isDead) {
+                    context.target = currentTurn;
+                }
+
                 foreach (Creature creature in playerAllies) {
                     creature.OnEvent(context);
                 }

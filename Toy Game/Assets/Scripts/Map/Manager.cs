@@ -7,8 +7,8 @@ namespace Map {
     public class Manager : MonoBehaviour
     {
         public static Manager instance;
-        public Node currentNode;
-        public int currentLevel = 0;
+        [System.NonSerialized] public Node currentNode;
+        [System.NonSerialized] public int currentLevel = 0;
 
         private List<NodeRow> nodeRows = new List<NodeRow>();
         private int rowCount = 1;

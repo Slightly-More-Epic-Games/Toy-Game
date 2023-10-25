@@ -17,11 +17,21 @@ namespace Map {
             this.budget = budget;
             nodes = new List<Node>(count);
             for (int i = 0; i < count; i++) {
-                Node node = Object.Instantiate(nodeTemplates[Random.Range(0, nodeTemplates.Count)]);
+                Node node = Object.Instantiate(GetNodeWithinBudget(nodeTemplates, budget));
                 node.Initialise(budget);
                 nodes.Add(node);
             }
             current = -1;
+        }
+
+        public Node GetNodeWithinBudget(List<Node> nodeTemplates, float budget) {
+            int index = Random.Range(0, nodeTemplates.Count);
+            Node node = nodeTemplates[index];
+            while (node.budgetToAppear > budget && index > 0) {
+                index--;
+                node = nodeTemplates[index];
+            }
+            return node;
         }
 
         public void Connect(NodeRow other) {

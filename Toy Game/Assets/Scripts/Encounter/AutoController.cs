@@ -23,13 +23,13 @@ namespace Encounter {
 
             Priorities priorities = Priorities.Multiply(GetCurrentPriorities(owner, allies, enemies, turnNumber), owner.priorities);
 
-            ItemSlot item = GetBestItem(owner, allies, enemies, priorities, 1.3f);
-            Debug.Log("the best item is: "+item.GetItemUI().GetName());
+            ItemSlot item = GetBestItem(owner, priorities, 1.3f);
             if (item == null) return;
+            Debug.Log("the best item is: "+item.GetItemUI().GetName());
 
             Creature target = GetBestTarget(owner, allies, enemies, item, priorities);
-            Debug.Log("the best target for that item is: "+target);
             if (target == null) return;
+            Debug.Log("the best target for that item is: "+target);
 
             owner.UseItem(owner.items.IndexOf(item), target);
         }
@@ -94,8 +94,8 @@ namespace Encounter {
             return target;
         }
 
-        protected ItemSlot GetBestItem(Creature owner, List<Creature> allies, List<Creature> enemies, Priorities priorities, float slope) {
-            List<ItemSlot> items = GetFavouredItems(owner, allies, enemies, priorities);
+        protected ItemSlot GetBestItem(Creature owner, Priorities priorities, float slope) {
+            List<ItemSlot> items = GetFavouredItems(owner, priorities);
             return GetWeightedEarlyFromItemList(items, slope);
         }
 
@@ -116,9 +116,8 @@ namespace Encounter {
             return current;   
         }
 
-        protected List<ItemSlot> GetFavouredItems(Creature owner, List<Creature> allies, List<Creature> enemies, Priorities priorities) {
+        protected List<ItemSlot> GetFavouredItems(Creature owner, Priorities priorities) {
             List<ItemSlot> usableItems = GetUsableItems(owner);
-
             if (usableItems.Count == 0) return usableItems;
 
             List<(ItemSlot, float)> itemScores = new List<(ItemSlot, float)>();

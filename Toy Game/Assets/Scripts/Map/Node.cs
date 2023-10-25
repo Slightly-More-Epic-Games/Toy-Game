@@ -6,6 +6,7 @@ namespace Map {
     public class Node : ScriptableObject {
         public Sprite icon;
         public Game.GameScene scene;
+        public float budgetToAppear;
         
         protected float budget;
 

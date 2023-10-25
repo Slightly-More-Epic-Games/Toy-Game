@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   scene: 0
+  budgetToAppear: 3
   enemyPool:
   - {fileID: 11400000, guid: 402b993984976ed4e92ab1dadef7a4a8, type: 2}
   costMultiplier: 0.75
