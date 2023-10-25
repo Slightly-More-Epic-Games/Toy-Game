@@ -25,12 +25,12 @@ namespace Encounter {
         }
 
         public override void OnEncounterStart(Creature owner) {
+            owner.imagination = 0;
             itemTab = Manager.instance.CreateItemTab();
             itemTab.Init(owner, this);
         }
 
         public override void OnEncounterEnd(Creature owner) {
-            owner.imagination = 0;
             owner.triggers.Clear();
         }
 

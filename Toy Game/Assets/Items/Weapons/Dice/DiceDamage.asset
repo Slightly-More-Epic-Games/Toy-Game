@@ -24,9 +24,14 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: 7cd4db314d9ebd34eaa274bdeaec2b00, type: 2}
     parameters: 32000000
     resultOnSuccess: 3
+  - actionMatch: 1
+    ownerMatch: 0
+    condition: {fileID: 0}
+    parameters: 
+    resultOnSuccess: 1
   cancelEvent: 0
   overrides:
-  - action: 4
+  - action: 2
     source: 0
-    target: 1
+    target: 2
     valueOverride: 2

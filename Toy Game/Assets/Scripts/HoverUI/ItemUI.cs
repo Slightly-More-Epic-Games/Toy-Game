@@ -23,6 +23,9 @@ namespace HoverUI {
         public override string GetDescription() {
             string text = description;
             if (item == null) return text;
+            if (item.refresh == Item.Refresh.EncounterEnd) {
+                text += " - once per battle";
+            }
             string split = "\n";
             if (item.imaginationCost > 0) {
                 text += split+item.imaginationCost+" Imagination";

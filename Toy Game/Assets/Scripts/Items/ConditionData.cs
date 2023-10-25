@@ -8,7 +8,7 @@ namespace Items {
     [System.Serializable]
     public class ConditionData
     {
-        public Action actionMatch;
+        public Action actionMatch = Action.AnyItemUsed;
         public OwnerMatch ownerMatch;
         public Condition condition;
         public int[] parameters;

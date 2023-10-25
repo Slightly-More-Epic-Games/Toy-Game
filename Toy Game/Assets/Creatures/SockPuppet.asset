@@ -25,7 +25,7 @@ MonoBehaviour:
   - {fileID: -5446174517206969737, guid: d16f6872da00c674eb87e05f30f58df9, type: 3}
   - {fileID: -2250815253467992193, guid: d16f6872da00c674eb87e05f30f58df9, type: 3}
   - {fileID: 6453616020602359183, guid: d16f6872da00c674eb87e05f30f58df9, type: 3}
-  fps: 12
+  fps: 6
   ui:
     name: Sock Puppet
     description: 
