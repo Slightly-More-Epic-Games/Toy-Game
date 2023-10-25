@@ -9,19 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce70211da4a104a42802513fe3d67aa8, type: 3}
-  m_Name: WarriorClass
+  m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
+  m_Name: Gumball
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
-  fps: 1
-  maxHealth: 25
-  maxImagination: 10
+  - {fileID: -1686943066723184055, guid: 19d2a80e6f8ee9b459c2e40307a8c653, type: 3}
+  - {fileID: -4279125287257661725, guid: 19d2a80e6f8ee9b459c2e40307a8c653, type: 3}
+  fps: 2
+  maxHealth: 5
+  maxImagination: 5
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
-  - {fileID: 11400000, guid: 89958b3ada42df041875be1d8f0191d1, type: 2}
-  - {fileID: 11400000, guid: 2ec97704a85affd41a6342f6f3d50e7d, type: 2}
   spawnCost: 1
   priorities:
     self:

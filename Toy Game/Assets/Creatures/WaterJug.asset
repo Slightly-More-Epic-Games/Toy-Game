@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
-  m_Name: TestEnemy
+  m_Name: WaterJug
   m_EditorClassIdentifier: 
-  ui:
-    name: Enemy
-    description: oh no!
-    icon: {fileID: 0}
+  sprites:
+  - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
+  fps: 1
   maxHealth: 5
   maxImagination: 5
   inventory:
@@ -38,6 +37,4 @@ MonoBehaviour:
       damage: 1
       buff: 1
       debuff: 1
-  dropPool:
-  - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
-  - {fileID: 11400000, guid: 6c10c0880133d5548801df0a2dc3e140, type: 2}
+  dropPool: []

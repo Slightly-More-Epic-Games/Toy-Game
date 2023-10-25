@@ -8,15 +8,23 @@ using UnityEngine.UI;
 
 public class CreatureVisual : MonoBehaviour
 {
-    [SerializeField] private HoverableUI button;
+    [SerializeField] private Button button;
     [SerializeField] private Image image;
     [SerializeField] private RectTransform healthBar;
     [SerializeField] private Transform triggerParent;
     [SerializeField] private HoverableUI triggerVisual;
 
+    private Sprite[] sprites;
+    private float fps;
+
     public void Init(Creature owner, PlayerController playerController) {
         button.onClick.AddListener(delegate{playerController.SelectCreature(owner);});
-        button.SetInfo(owner.ui);
+        this.sprites = owner.sprites;
+        this.fps = owner.fps;
+    }
+
+    private void Update() {
+        image.sprite = sprites[Mathf.RoundToInt(Time.time*fps)%sprites.Length];
     }
 
     public void UpdateVisual(Creature owner) {

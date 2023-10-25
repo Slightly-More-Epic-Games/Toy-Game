@@ -14,9 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Childish
-    description: gain 4 imagination at the start of each turun
+    description: gain 4 imagination at the start of each turn
     icon: {fileID: 0}
   imaginationCost: -1
   healthCost: -1
+  priorities:
+    self:
+      heal: 0
+      damage: 0
+      buff: 0
+      debuff: 0
+    allies:
+      heal: 0
+      damage: 0
+      buff: 0
+      debuff: 0
+    enemies:
+      heal: 0
+      damage: 0
+      buff: 0
+      debuff: 0
+  targetWeights:
+    self: 1
+    ally: 1
+    enemy: 1
   triggers:
   - {fileID: 11400000, guid: f85dc08a417804b45823c37a9da3bcc1, type: 2}

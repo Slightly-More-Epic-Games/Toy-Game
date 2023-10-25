@@ -13,7 +13,7 @@ public class HoverInfo : MonoBehaviour
     [SerializeField] private RectTransform anchoring;
 
     public void HoverEnter(UIInfo uIInfo, Transform position, Vector3 offset) {
-        if (uIInfo.name == "") return;
+        if (uIInfo == null || uIInfo.name == "") return;
         gameObject.SetActive(true);
         transform.position = position.position+offset;
         anchoring.pivot = new Vector2(0.5f, offset.y >= 0 ? 0 : 1);

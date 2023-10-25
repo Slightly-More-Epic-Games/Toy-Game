@@ -5,7 +5,8 @@ using Items;
 using Encounter;
 
 public abstract class Creature : ScriptableObject {
-    public UIInfo ui;
+    public Sprite[] sprites;
+    public float fps;
 
     public int maxHealth;
     public int maxImagination;
