@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: SugarPoison
   m_EditorClassIdentifier: 
   ui:
-    name: 
-    description: 
-    icon: {fileID: 0}
+    name: sugar crash
+    description: lose 1 health at the start of your turn
+    icon: {fileID: 21300000, guid: 42ef60110a42afd45a18441f041c530b, type: 3}
   activateOn: 0
-  target: 0
-  conditions: []
+  target: 1
+  conditions:
+  - actionMatch: 7
+    ownerMatch: 2
+    condition: {fileID: 0}
+    parameters: 
+    resultOnSuccess: 2
   cancelEvent: 0
-  overrides: []
+  overrides:
+  - action: 4
+    source: 2
+    target: 2
+    valueOverride: 1

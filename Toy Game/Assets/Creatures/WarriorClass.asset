@@ -15,7 +15,7 @@ MonoBehaviour:
   ui:
     name: Warrior
     description: Wow the player!
-    icon: {fileID: 0}
+    icon: {fileID: 2676159555221356526, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
   maxHealth: 25
   maxImagination: 10
   inventory:
