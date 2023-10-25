@@ -22,13 +22,14 @@ namespace HoverUI {
 
         public override string GetDescription() {
             string text = description;
+            if (item == null) return text;
             string split = "\n";
             if (item.imaginationCost > 0) {
                 text += split+item.imaginationCost+" Imagination";
                 split = " - ";
             }
             if (item.healthCost > 0) {
-                text += split+item.imaginationCost+" Health";
+                text += split+item.healthCost+" Health";
             }
             return text;
         }

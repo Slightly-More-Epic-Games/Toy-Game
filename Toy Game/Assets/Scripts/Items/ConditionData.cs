@@ -34,7 +34,7 @@ namespace Items {
             if (ownerMatch == OwnerMatch.Source && context.source != owner) return Result.Pass;
             if (ownerMatch == OwnerMatch.Target && context.target != owner) return Result.Pass;
             if (ownerMatch == OwnerMatch.Either && context.source != owner && context.target != owner) return Result.Pass;
-            bool success = condition.Test(context, owner, parameters);
+            bool success = condition == null || condition.Test(context, owner, parameters);
             return success ? resultOnSuccess : Result.Pass;
         }
     }

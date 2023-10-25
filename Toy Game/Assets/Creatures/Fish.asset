@@ -24,7 +24,9 @@ MonoBehaviour:
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
-  spawnCost: 1
+  - {fileID: 11400000, guid: 89958b3ada42df041875be1d8f0191d1, type: 2}
+  - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
+  spawnCost: 0.75
   priorities:
     self:
       heal: 1
@@ -41,4 +43,6 @@ MonoBehaviour:
       damage: 1
       buff: 1
       debuff: 1
-  dropPool: []
+  dropPool:
+  - {fileID: 11400000, guid: 89958b3ada42df041875be1d8f0191d1, type: 2}
+  - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}

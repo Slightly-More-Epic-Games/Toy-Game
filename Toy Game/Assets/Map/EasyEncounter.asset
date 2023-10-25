@@ -16,6 +16,9 @@ MonoBehaviour:
   scene: 0
   budgetToAppear: 1
   enemyPool:
+  - {fileID: 11400000, guid: a6f481da536f2e542bc7e224b614c153, type: 2}
+  - {fileID: 11400000, guid: 02f080800c5867541a61930af2c5708f, type: 2}
+  - {fileID: 11400000, guid: 5d7b0bce8acd3fc42bed94f3d027f10b, type: 2}
   - {fileID: 11400000, guid: 402b993984976ed4e92ab1dadef7a4a8, type: 2}
   costMultiplier: 1
   extraCostMultiplier: 1

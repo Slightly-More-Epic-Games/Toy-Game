@@ -29,11 +29,14 @@ MonoBehaviour:
   ui:
     name: Sock Puppet
     description: 
-  maxHealth: 5
+  maxHealth: 7
   maxImagination: 5
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
+  - {fileID: 11400000, guid: e1a1ea6e245a27e41aac8f36891e0d0a, type: 2}
+  - {fileID: 11400000, guid: 65cd22a2b8dbe074385660517150940b, type: 2}
+  - {fileID: 11400000, guid: a3519f94df2398547a9b5f99bb7d1766, type: 2}
   spawnCost: 1
   priorities:
     self:
@@ -43,7 +46,7 @@ MonoBehaviour:
       debuff: 1
     allies:
       heal: 1
-      damage: 1
+      damage: 0.85
       buff: 1
       debuff: 1
     enemies:
@@ -51,4 +54,7 @@ MonoBehaviour:
       damage: 1
       buff: 1
       debuff: 1
-  dropPool: []
+  dropPool:
+  - {fileID: 11400000, guid: e1a1ea6e245a27e41aac8f36891e0d0a, type: 2}
+  - {fileID: 11400000, guid: 65cd22a2b8dbe074385660517150940b, type: 2}
+  - {fileID: 11400000, guid: a3519f94df2398547a9b5f99bb7d1766, type: 2}

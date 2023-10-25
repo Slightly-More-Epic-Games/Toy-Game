@@ -19,12 +19,15 @@ MonoBehaviour:
   ui:
     name: Toxic Waste
     description: 
-  maxHealth: 5
-  maxImagination: 5
+  maxHealth: 12
+  maxImagination: 12
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
-  - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
-  spawnCost: 1
+  - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}
+  - {fileID: 11400000, guid: f2adf191ddc3b9642b2e73aa16894cce, type: 2}
+  - {fileID: 11400000, guid: cdd7de32107ed2e478878393536a06bf, type: 2}
+  - {fileID: 11400000, guid: ad637d709a002d643a0939f2903417d4, type: 2}
+  spawnCost: 1.75
   priorities:
     self:
       heal: 1
@@ -40,5 +43,9 @@ MonoBehaviour:
       heal: 1
       damage: 1
       buff: 1
-      debuff: 1
-  dropPool: []
+      debuff: 1.15
+  dropPool:
+  - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}
+  - {fileID: 11400000, guid: f2adf191ddc3b9642b2e73aa16894cce, type: 2}
+  - {fileID: 11400000, guid: cdd7de32107ed2e478878393536a06bf, type: 2}
+  - {fileID: 11400000, guid: ad637d709a002d643a0939f2903417d4, type: 2}

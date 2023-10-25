@@ -7,7 +7,7 @@ using HoverUI;
 namespace Items {
     public abstract class Trigger : ScriptableObject
     {
-        public ItemUI ui;
+        public TriggerUI ui;
 
         public Action activateOn;
         public Target target;

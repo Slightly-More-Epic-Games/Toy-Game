@@ -11,7 +11,7 @@ namespace Map {
         [System.NonSerialized] public int currentLevel = 0;
 
         private List<NodeRow> nodeRows = new List<NodeRow>();
-        private int rowCount = 1;
+        private int rowCount = 0;
 
         [SerializeField] private List<Node> nodeTemplates;
         [SerializeField] private List<Node> bossNodeTemplates;

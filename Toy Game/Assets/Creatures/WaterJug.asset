@@ -18,26 +18,33 @@ MonoBehaviour:
   ui:
     name: Water Jug
     description: 
-  maxHealth: 5
-  maxImagination: 5
+  maxHealth: 8
+  maxImagination: 8
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
-  spawnCost: 1
+  - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
+  - {fileID: 11400000, guid: c24734111af4e764fa714ac361feab07, type: 2}
+  - {fileID: 11400000, guid: 6934352c2a2f55b48b1a012040608610, type: 2}
+  spawnCost: 1.25
   priorities:
     self:
       heal: 1
       damage: 1
-      buff: 1
+      buff: 0.85
       debuff: 1
     allies:
-      heal: 1
+      heal: 1.15
       damage: 1
-      buff: 1
+      buff: 1.15
       debuff: 1
     enemies:
       heal: 1
-      damage: 1
+      damage: 0.85
       buff: 1
       debuff: 1
-  dropPool: []
+  dropPool:
+  - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
+  - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
+  - {fileID: 11400000, guid: c24734111af4e764fa714ac361feab07, type: 2}
+  - {fileID: 11400000, guid: 6934352c2a2f55b48b1a012040608610, type: 2}

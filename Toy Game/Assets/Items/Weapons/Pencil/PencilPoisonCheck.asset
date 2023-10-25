@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: PencilPoisonCheck
   m_EditorClassIdentifier: 
   ui:
-    name: 
+    name: ???
     description: 
     icon: {fileID: 0}
   activateOn: 0
   target: 1
   conditions:
-  - actionMatch: 0
-    ownerMatch: 2
+  - actionMatch: 1
+    ownerMatch: 0
     condition: {fileID: 11400000, guid: 7cd4db314d9ebd34eaa274bdeaec2b00, type: 2}
     parameters: 0a000000
     resultOnSuccess: 2
   - actionMatch: 0
-    ownerMatch: 2
+    ownerMatch: 0
     condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
     parameters: 
     resultOnSuccess: 1

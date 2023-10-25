@@ -37,6 +37,7 @@ public class CreatureVisual : MonoBehaviour
         foreach (Trigger trigger in owner.triggers) {
             HoverableUI ui = Instantiate(triggerVisual, triggerParent);
             ui.SetInfo(trigger.ui);
+            ui.image.sprite = trigger.ui.icon;
         }
     }
 }

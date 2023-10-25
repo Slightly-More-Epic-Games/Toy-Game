@@ -23,7 +23,7 @@ MonoBehaviour:
     ownerMatch: 1
     condition: {fileID: 0}
     parameters: 
-    resultOnSuccess: 2
+    resultOnSuccess: 3
   cancelEvent: 0
   overrides:
   - action: 4

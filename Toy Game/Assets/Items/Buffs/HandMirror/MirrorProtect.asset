@@ -10,23 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
-  m_Name: DiceDamage
+  m_Name: MirrorProtect
   m_EditorClassIdentifier: 
   ui:
-    name: dice lose health
+    name: 
     description: 
     icon: {fileID: 0}
   activateOn: 0
-  target: 3
-  conditions:
-  - actionMatch: 1
-    ownerMatch: 0
-    condition: {fileID: 11400000, guid: 7cd4db314d9ebd34eaa274bdeaec2b00, type: 2}
-    parameters: 32000000
-    resultOnSuccess: 3
+  target: 0
+  conditions: []
   cancelEvent: 0
   overrides:
-  - action: 4
-    source: 0
-    target: 1
-    valueOverride: 2
+  - action: 3
+    source: 2
+    target: 2
+    valueOverride: 4

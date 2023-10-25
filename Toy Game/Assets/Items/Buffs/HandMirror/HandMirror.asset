@@ -41,4 +41,5 @@ MonoBehaviour:
     enemy: 0
   refresh: 1
   triggers:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 53445390687272242b1e964fecd5850e, type: 2}
+  - {fileID: 11400000, guid: 4c6ef966c99f7cb44bf2ae75c0b673d1, type: 2}

@@ -18,12 +18,15 @@ MonoBehaviour:
   ui:
     name: Cube
     description: 
-  maxHealth: 5
-  maxImagination: 5
+  maxHealth: 15
+  maxImagination: 12
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
-  - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
-  spawnCost: 1
+  - {fileID: 11400000, guid: 1e96bd0ad738e744aaf7c2e8489d1f73, type: 2}
+  - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
+  - {fileID: 11400000, guid: 0725921ed3b2eae49b858e09f1e46358, type: 2}
+  - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}
+  spawnCost: 2
   priorities:
     self:
       heal: 1
@@ -37,7 +40,11 @@ MonoBehaviour:
       debuff: 1
     enemies:
       heal: 1
-      damage: 1
+      damage: 1.15
       buff: 1
       debuff: 1
-  dropPool: []
+  dropPool:
+  - {fileID: 11400000, guid: 1e96bd0ad738e744aaf7c2e8489d1f73, type: 2}
+  - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
+  - {fileID: 11400000, guid: 0725921ed3b2eae49b858e09f1e46358, type: 2}
+  - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}

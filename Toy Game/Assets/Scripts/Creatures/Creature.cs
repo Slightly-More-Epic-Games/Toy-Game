@@ -136,7 +136,7 @@ public abstract class Creature : ScriptableObject {
 
     protected void HealthChange(int delta, Creature source) {
         health += delta;
-        if (delta < 0 && lastAttacker != this) lastAttacker = source;
+        if (delta < 0 && source != this) lastAttacker = source;
     }
 
     protected void ImaginationChange(int delta) {

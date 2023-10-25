@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Highlighter
   m_EditorClassIdentifier: 
   ui:
-    name: Highelighter
+    name: Highlighter
     description: next time target deals damage, deal damage to all of targets enemies
-    icon: {fileID: 4088642283560930735, guid: 84baa9be386a5a04b80ba4dead6b99bf, type: 3}
+    icon: {fileID: 21300000, guid: 84baa9be386a5a04b80ba4dead6b99bf, type: 3}
   imaginationCost: 4
   healthCost: 1
   priorities:

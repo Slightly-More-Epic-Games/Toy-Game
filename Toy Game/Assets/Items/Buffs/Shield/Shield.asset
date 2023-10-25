@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: shield
-    description: half all damage target takes until next turn
+    description: half all damage target takes until their next turn
     icon: {fileID: 21300000, guid: 1c165db59fe3c9246aa0e5cfb7be8c19, type: 3}
   imaginationCost: 2
   healthCost: 1
