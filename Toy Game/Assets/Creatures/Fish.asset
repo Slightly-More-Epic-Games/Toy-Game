@@ -16,6 +16,9 @@ MonoBehaviour:
   - {fileID: 1797647124, guid: 721680f485f867a4d9b48ea8872a0c38, type: 3}
   - {fileID: -1389953305, guid: 721680f485f867a4d9b48ea8872a0c38, type: 3}
   fps: 2
+  ui:
+    name: Goldfish
+    description: 
   maxHealth: 5
   maxImagination: 5
   inventory:

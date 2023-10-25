@@ -52,7 +52,7 @@ namespace Encounter {
         }
 
         public void Continue() {
-            if (chosenItem != null) Game.instance.player.items.Add(new ItemSlot(chosenItem));
+            if (chosenItem != null) Game.instance.player.AddItem(chosenItem);
             Game.instance.LoadGameScene(Game.GameScene.Map);
         }
     }

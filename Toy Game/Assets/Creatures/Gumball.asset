@@ -16,6 +16,9 @@ MonoBehaviour:
   - {fileID: -1686943066723184055, guid: 19d2a80e6f8ee9b459c2e40307a8c653, type: 3}
   - {fileID: -4279125287257661725, guid: 19d2a80e6f8ee9b459c2e40307a8c653, type: 3}
   fps: 2
+  ui:
+    name: Gumball
+    description: 
   maxHealth: 5
   maxImagination: 5
   inventory:

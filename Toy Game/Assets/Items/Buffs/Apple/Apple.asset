@@ -20,12 +20,12 @@ MonoBehaviour:
   healthCost: 0
   priorities:
     self:
-      heal: 0.75
+      heal: 0.5
       damage: 0
       buff: 0.5
       debuff: 0
     allies:
-      heal: 0.75
+      heal: 0.5
       damage: 0
       buff: 0.5
       debuff: 0
@@ -38,5 +38,6 @@ MonoBehaviour:
     self: 1
     ally: 1
     enemy: 0
+  refresh: 1
   triggers:
   - {fileID: 11400000, guid: a7e01f711e58e0c4aaedd0aaf3e39099, type: 2}

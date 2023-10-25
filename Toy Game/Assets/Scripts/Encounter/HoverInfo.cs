@@ -4,6 +4,7 @@ using Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using HoverUI;
 
 public class HoverInfo : MonoBehaviour
 {
@@ -13,12 +14,14 @@ public class HoverInfo : MonoBehaviour
     [SerializeField] private RectTransform anchoring;
 
     public void HoverEnter(UIInfo uIInfo, Transform position, Vector3 offset) {
-        if (uIInfo == null || uIInfo.name == "") return;
+        if (uIInfo == null) return;
+        string name = uIInfo.GetName();
+        if (name == "") return;
         gameObject.SetActive(true);
         transform.position = position.position+offset;
         anchoring.pivot = new Vector2(0.5f, offset.y >= 0 ? 0 : 1);
-        title.text = uIInfo.name;
-        description.text = uIInfo.description;
+        title.text = name;
+        description.text = uIInfo.GetDescription();
         LayoutRebuilder.ForceRebuildLayoutImmediate(layout);
     }
 

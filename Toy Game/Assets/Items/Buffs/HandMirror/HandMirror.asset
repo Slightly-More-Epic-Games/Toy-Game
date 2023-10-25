@@ -22,7 +22,7 @@ MonoBehaviour:
   priorities:
     self:
       heal: 0
-      damage: 0
+      damage: 0.5
       buff: 1
       debuff: 0
     allies:
@@ -39,5 +39,6 @@ MonoBehaviour:
     self: 1
     ally: 0.5
     enemy: 0
+  refresh: 1
   triggers:
   - {fileID: 0}

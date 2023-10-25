@@ -4,6 +4,7 @@ using Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using HoverUI;
 
 namespace Encounter {
     public class ItemTab : MonoBehaviour
@@ -21,7 +22,9 @@ namespace Encounter {
                 int i2 = new int();
                 i2 = i;
                 button.onClick.AddListener(delegate {playerController.SelectItem(i2);});
-                button.SetInfo(owner.items[i].GetUIInfo());
+                ItemUI itemUI = owner.items[i].GetItemUI();
+                button.SetInfo(itemUI);
+                button.image.sprite = itemUI.icon;
                 items[i] = button;
             }
 

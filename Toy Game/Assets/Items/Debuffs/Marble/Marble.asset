@@ -39,5 +39,6 @@ MonoBehaviour:
     self: 1
     ally: 1
     enemy: 1
+  refresh: 2
   triggers:
   - {fileID: 11400000, guid: d02f0556ce723c2479d3a5982b1ae495, type: 2}

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Items {
+namespace HoverUI {
     public class HoverableUI : Button
     {
         private UIInfo uIInfo;
@@ -23,7 +23,7 @@ namespace Items {
 
         public void SetInfo(UIInfo uIInfo) {
             this.uIInfo = uIInfo;
-            image.sprite = uIInfo.icon;
+            //image.sprite = uIInfo.icon;
         }
     }
 }

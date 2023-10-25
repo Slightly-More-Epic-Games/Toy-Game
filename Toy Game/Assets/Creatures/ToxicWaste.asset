@@ -16,6 +16,9 @@ MonoBehaviour:
   - {fileID: 1097300724, guid: 70fa72b20da3dbf4aa964cfc31f49a28, type: 3}
   - {fileID: 1536007321, guid: 70fa72b20da3dbf4aa964cfc31f49a28, type: 3}
   fps: 2
+  ui:
+    name: Toxic Waste
+    description: 
   maxHealth: 5
   maxImagination: 5
   inventory:

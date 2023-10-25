@@ -26,6 +26,9 @@ MonoBehaviour:
   - {fileID: -2250815253467992193, guid: d16f6872da00c674eb87e05f30f58df9, type: 3}
   - {fileID: 6453616020602359183, guid: d16f6872da00c674eb87e05f30f58df9, type: 3}
   fps: 12
+  ui:
+    name: Sock Puppet
+    description: 
   maxHealth: 5
   maxImagination: 5
   inventory:

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Items;
 using Encounter;
+using HoverUI;
 
 public abstract class Creature : ScriptableObject {
     public Sprite[] sprites;
     public float fps;
+
+    public CreatureUI ui;
 
     public int maxHealth;
     public int maxImagination;
@@ -36,8 +39,13 @@ public abstract class Creature : ScriptableObject {
         imagination = 0;
         items = new List<ItemSlot>();
         foreach (Item item in inventory) {
-            items.Add(new ItemSlot(item));
+            AddItem(item);
         }
+        ui.SetCreature(this);
+    }
+
+    public void AddItem(Item item) {
+        items.Add(new ItemSlot(Instantiate(item)));
     }
 
     public void AddTrigger(Trigger trigger) {
@@ -80,6 +88,10 @@ public abstract class Creature : ScriptableObject {
         }
         if (imagination > maxImagination) {
             imagination = maxImagination;
+        }
+
+        foreach (ItemSlot item in items) {
+            item.EventFinished(this);
         }
 
         creatureVisual.UpdateVisual(this);

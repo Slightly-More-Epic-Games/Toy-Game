@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Encounter;
+using HoverUI;
 
 namespace Items {
     public abstract class Trigger : ScriptableObject
     {
-        public UIInfo ui;
+        public ItemUI ui;
 
         public Action activateOn;
         public Target target;

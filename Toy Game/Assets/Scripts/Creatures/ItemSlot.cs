@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Encounter;
 using Items;
 using UnityEngine;
+using HoverUI;
 
 public class ItemSlot {
     protected Item item;
@@ -11,6 +12,7 @@ public class ItemSlot {
 
     public ItemSlot(Item item) {
         this.item = item;
+        item.ui.SetItem(item);
     }
 
     public void Use(Creature owner, Creature target, int index) {
@@ -26,10 +28,16 @@ public class ItemSlot {
     }
 
     public void Event(Context context, Creature owner) {
-        if (context.action == Action.TurnEnd) {
+        if ((item.refresh == Item.Refresh.TurnEnd && context.action == Action.TurnEnd) || (item.refresh == Item.Refresh.EncounterEnd && context.action == Action.EncounterEnd)) {
             used = false;
         }
         item.Event(context, owner);
+    }
+
+    public void EventFinished(Creature owner) {
+        if (item.refresh == Item.Refresh.EventFinished) {
+            used = false;
+        }
     }
 
     public bool CanUse(Creature owner) {
@@ -44,7 +52,7 @@ public class ItemSlot {
         return item.targetWeights;
     }
 
-    public UIInfo GetUIInfo() {
+    public ItemUI GetItemUI() {
         return item.ui;
     }
 }

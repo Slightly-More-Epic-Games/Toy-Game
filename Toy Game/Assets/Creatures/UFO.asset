@@ -26,6 +26,9 @@ MonoBehaviour:
   - {fileID: -4444941582165194561, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
   - {fileID: -2510468340105279501, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
   fps: 12
+  ui:
+    name: UFO
+    description: wow!
   maxHealth: 5
   maxImagination: 5
   inventory:
@@ -48,4 +51,5 @@ MonoBehaviour:
       damage: 1
       buff: 1
       debuff: 1
-  dropPool: []
+  dropPool:
+  - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}

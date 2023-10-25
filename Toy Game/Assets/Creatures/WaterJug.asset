@@ -15,6 +15,9 @@ MonoBehaviour:
   sprites:
   - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
   fps: 1
+  ui:
+    name: Water Jug
+    description: 
   maxHealth: 5
   maxImagination: 5
   inventory:

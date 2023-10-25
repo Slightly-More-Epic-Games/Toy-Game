@@ -16,7 +16,7 @@ MonoBehaviour:
     name: movie
     description: all creatures gain 3 imagination, allies lose 1 health
     icon: {fileID: -2952542141569679838, guid: 4bc5f9df16521ca4fbe069bb78aaa801, type: 3}
-  imaginationCost: 0
+  imaginationCost: 3
   healthCost: 0
   priorities:
     self:
@@ -38,6 +38,7 @@ MonoBehaviour:
     self: 1
     ally: 1
     enemy: 1
+  refresh: 1
   triggers:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9b8b2ee90b7d8664181d29d26ab5dde1, type: 2}
+  - {fileID: 11400000, guid: eb874ba9931bb574bbd8bd0b9ca52d22, type: 2}

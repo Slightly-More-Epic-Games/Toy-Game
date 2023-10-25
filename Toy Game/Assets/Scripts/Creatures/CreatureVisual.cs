@@ -5,10 +5,11 @@ using Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using HoverUI;
 
 public class CreatureVisual : MonoBehaviour
 {
-    [SerializeField] private Button button;
+    [SerializeField] private HoverableUI button;
     [SerializeField] private Image image;
     [SerializeField] private RectTransform healthBar;
     [SerializeField] private Transform triggerParent;
@@ -19,6 +20,7 @@ public class CreatureVisual : MonoBehaviour
 
     public void Init(Creature owner, PlayerController playerController) {
         button.onClick.AddListener(delegate{playerController.SelectCreature(owner);});
+        button.SetInfo(owner.ui);
         this.sprites = owner.sprites;
         this.fps = owner.fps;
     }

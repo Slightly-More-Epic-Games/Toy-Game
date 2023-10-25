@@ -85,7 +85,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 844832120857167764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a2969444145ffd45896ffaaa832fd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  offset: {x: 0, y: -16, z: 0}
 --- !u!1 &1011077944560753243
 GameObject:
   m_ObjectHideFlags: 0
