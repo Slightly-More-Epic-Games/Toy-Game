@@ -82,5 +82,9 @@ namespace Map {
                 }
             }
         }
+
+        public void Destroy() {
+            Object.Destroy(row.gameObject);
+        }
     }
 }

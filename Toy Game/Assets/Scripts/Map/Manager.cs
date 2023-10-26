@@ -8,10 +8,11 @@ namespace Map {
     {
         public static Manager instance;
         [System.NonSerialized] public Node currentNode;
-        [System.NonSerialized] public int currentLevel = 0;
+        private int currentLevel = 0;
+        [System.NonSerialized] public int bossesKilled;
 
         private List<NodeRow> nodeRows = new List<NodeRow>();
-        private int rowCount = 0;
+        private int totalRows = 0;
 
         [SerializeField] private List<Node> nodeTemplates;
         [SerializeField] private List<Node> bossNodeTemplates;
@@ -40,6 +41,18 @@ namespace Map {
         }
 
         private void Start() {
+            CreateMap();
+        }
+
+        private void CreateMap() {
+            if (nodeRows.Count != 0) {
+                bossesKilled++;
+                foreach (NodeRow nodeRow in nodeRows) {
+                    nodeRow.Destroy();
+                }
+                nodeRows.Clear();
+            }
+            currentLevel = 0;
             CreateNextNodeRow(1, new List<Node>() {startingNode});
             nodeRows[0].current = 0;
             currentNode = nodeRows[0].nodes[0];
@@ -63,8 +76,8 @@ namespace Map {
         }
 
         private void CreateNextNodeRow(int count, List<Node> nodeTemplates) {
-            NodeRow nodeRow = new NodeRow(Game.instance.player.spawnCost*rowCount, nodeTemplates, count);
-            rowCount++;
+            NodeRow nodeRow = new NodeRow(Game.instance.player.spawnCost*totalRows, nodeTemplates, count);
+            totalRows++;
             nodeRow.CreateButtons(nodeRowPrefab, nodeRowParents, nodePrefab);
             LayoutRebuilder.ForceRebuildLayoutImmediate(rowLayoutGroup);
             if (nodeRows.Count > 0) {
@@ -91,6 +104,11 @@ namespace Map {
                 } else {
                     nextConnections = null;
                 }
+            }
+
+            //reached end of map
+            if (nextConnections != null && nextConnections.Count == 0) {
+                CreateMap();
             }
         }
 
