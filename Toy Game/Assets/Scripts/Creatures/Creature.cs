@@ -55,6 +55,7 @@ public abstract class Creature : ScriptableObject {
 
     public void UseItem(int index, Creature target) {
         ItemSlot item = items[index];
+        item.PrepareToUse(this, target, index);
         controller.UseItemPhysically(item, this, target, index);
     }
 

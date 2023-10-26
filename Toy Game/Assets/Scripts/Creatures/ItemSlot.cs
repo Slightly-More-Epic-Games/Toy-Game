@@ -19,13 +19,15 @@ public class ItemSlot {
         return new ItemSlot(Object.Instantiate(item));
     }
 
-    public void Use(Creature owner, Creature target, int index) {
+    public void PrepareToUse(Creature owner, Creature target, int index) {
         used = true;
-
+        
         if (item.imaginationCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LoseImagination, owner, owner, item.imaginationCost));
         if (item.healthCost > 0) Manager.instance.AddEventToProcess(new Context(Action.LoseHealth, owner, owner, item.healthCost));
         Manager.instance.ProcessEvents();
+    }
 
+    public void Use(Creature owner, Creature target, int index) {
         Manager.instance.AddEventToProcess(new Context(Action.AnyItemUsed, owner, target, index));
         item.Use(new Context(Action.ItemUsed, owner, target, index), owner);
         Manager.instance.ProcessEvents();

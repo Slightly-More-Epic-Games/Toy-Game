@@ -15,6 +15,8 @@ public class Game : MonoBehaviour
 
     public HoverInfo hoverInfo;
 
+    [SerializeField] private GameObject pauseScreen;
+
     void Start() {
         instance = this;
         player = Instantiate(classes[0]);
@@ -22,7 +24,22 @@ public class Game : MonoBehaviour
         LoadGameScene(GameScene.Map);
     }
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            TogglePause();
+        }
+    }
+
+    public void TogglePause() {
+        bool paused = !pauseScreen.activeSelf;
+        
+        pauseScreen.SetActive(paused);
+        Time.timeScale = paused ? 0 : 1;
+    }
+
     public void Quit() {
+        Time.timeScale = 1;
+
         if (currentScene != null) {
             SceneManager.UnloadSceneAsync(currentScene);
         }
