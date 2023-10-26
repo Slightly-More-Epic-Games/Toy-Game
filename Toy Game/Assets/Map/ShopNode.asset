@@ -17,6 +17,22 @@ MonoBehaviour:
   budgetToAppear: 2
   itemPool:
   - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
-  - {fileID: 11400000, guid: e1a1ea6e245a27e41aac8f36891e0d0a, type: 2}
+  - {fileID: 11400000, guid: 2ec97704a85affd41a6342f6f3d50e7d, type: 2}
+  - {fileID: 11400000, guid: 084067d114462074fbbabcedf3d19d39, type: 2}
+  - {fileID: 11400000, guid: cdd7de32107ed2e478878393536a06bf, type: 2}
+  - {fileID: 11400000, guid: 6934352c2a2f55b48b1a012040608610, type: 2}
+  - {fileID: 11400000, guid: a3519f94df2398547a9b5f99bb7d1766, type: 2}
   - {fileID: 11400000, guid: 0725921ed3b2eae49b858e09f1e46358, type: 2}
-  sellCount: 0
+  - {fileID: 11400000, guid: c24734111af4e764fa714ac361feab07, type: 2}
+  - {fileID: 11400000, guid: ad637d709a002d643a0939f2903417d4, type: 2}
+  - {fileID: 11400000, guid: 65cd22a2b8dbe074385660517150940b, type: 2}
+  - {fileID: 11400000, guid: f2adf191ddc3b9642b2e73aa16894cce, type: 2}
+  - {fileID: 11400000, guid: c5f85c9810592d94d89c26293d95cdf1, type: 2}
+  - {fileID: 11400000, guid: 2b651985fd867a443aa6266f84222b2e, type: 2}
+  - {fileID: 11400000, guid: 1e96bd0ad738e744aaf7c2e8489d1f73, type: 2}
+  - {fileID: 11400000, guid: e1a1ea6e245a27e41aac8f36891e0d0a, type: 2}
+  - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
+  - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}
+  - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
+  - {fileID: 11400000, guid: 89958b3ada42df041875be1d8f0191d1, type: 2}
+  sellCount: 4

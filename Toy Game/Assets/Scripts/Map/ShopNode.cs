@@ -12,7 +12,16 @@ namespace Map {
         public int sellCount;
 
         public List<Item> GetItems() {
-            return itemPool;
+            List<Item> itemTemp = new List<Item>(itemPool);
+            List<Item> items = new List<Item>(sellCount);
+
+            for (int i = 0; i < sellCount; i++) {
+                int index = Random.Range(0, itemTemp.Count);
+                items.Add(itemTemp[index]);
+                itemTemp.RemoveAt(index);
+            }
+
+            return items;
         }
     }
 }
