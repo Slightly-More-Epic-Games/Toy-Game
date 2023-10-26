@@ -38,6 +38,7 @@ public class ShopManager : MonoBehaviour
         ItemUI itemUI = itemSlot.GetItemUI();
         button.SetInfo(itemUI);
         button.image.sprite = itemUI.icon;
+        button.FlipOffset();
         ShopItem shopItem = new ShopItem(button, itemSlot, isPlayer);
         button.onClick.AddListener(delegate {SwitchItem(shopItem);});
         shopItems.Add(shopItem);

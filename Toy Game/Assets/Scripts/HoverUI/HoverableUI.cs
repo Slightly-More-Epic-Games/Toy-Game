@@ -23,7 +23,10 @@ namespace HoverUI {
 
         public void SetInfo(UIInfo uIInfo) {
             this.uIInfo = uIInfo;
-            //image.sprite = uIInfo.icon;
+        }
+
+        public void FlipOffset() {
+            offset.y *= -1;
         }
     }
 }
