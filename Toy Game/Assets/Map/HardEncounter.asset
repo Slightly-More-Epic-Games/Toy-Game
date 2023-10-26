@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ac69860cacd5f45bc04812121177e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9684e5104cf6d0947bcb9b7054cac94b, type: 3}
   m_Name: HardEncounter
   m_EditorClassIdentifier: 
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   scene: 0
   budgetToAppear: 3
+  rewards: 2
   enemyPool:
   - {fileID: 11400000, guid: 5d7b0bce8acd3fc42bed94f3d027f10b, type: 2}
   - {fileID: 11400000, guid: 402b993984976ed4e92ab1dadef7a4a8, type: 2}
@@ -24,4 +25,3 @@ MonoBehaviour:
   costMultiplier: 0.75
   extraCostMultiplier: 0.5
   spawnLimit: 9
-  rewards: 2

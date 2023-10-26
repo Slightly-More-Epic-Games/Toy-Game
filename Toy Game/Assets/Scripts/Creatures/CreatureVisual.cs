@@ -9,18 +9,20 @@ using HoverUI;
 
 public class CreatureVisual : MonoBehaviour
 {
-    [SerializeField] private HoverableUI button;
+    [SerializeField] private Button button;
     [SerializeField] private Image image;
     [SerializeField] private RectTransform healthBar;
     [SerializeField] private Transform triggerParent;
     [SerializeField] private HoverableUI triggerVisual;
+    [SerializeField] private TextMeshProUGUI info;
 
+    private CreatureUI ui;
     private Sprite[] sprites;
     private float fps;
 
     public void Init(Creature owner, PlayerController playerController) {
         button.onClick.AddListener(delegate{playerController.SelectCreature(owner);});
-        button.SetInfo(owner.ui);
+        this.ui = owner.ui;
         this.sprites = owner.sprites;
         this.fps = owner.fps;
     }
@@ -39,5 +41,6 @@ public class CreatureVisual : MonoBehaviour
             ui.SetInfo(trigger.ui);
             ui.image.sprite = trigger.ui.icon;
         }
+        info.text = ui.GetName();
     }
 }

@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ac69860cacd5f45bc04812121177e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9684e5104cf6d0947bcb9b7054cac94b, type: 3}
   m_Name: EasyEncounter
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   scene: 0
   budgetToAppear: 1
+  rewards: 0
   enemyPool:
   - {fileID: 11400000, guid: a6f481da536f2e542bc7e224b614c153, type: 2}
   - {fileID: 11400000, guid: 02f080800c5867541a61930af2c5708f, type: 2}
@@ -23,4 +24,3 @@ MonoBehaviour:
   costMultiplier: 1
   extraCostMultiplier: 1
   spawnLimit: 9
-  rewards: 0

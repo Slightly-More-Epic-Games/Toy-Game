@@ -24,6 +24,7 @@ namespace Encounter {
         [SerializeField] private AutoController allyController;
 
         [SerializeField] private CreatureVisual creatureVisualPrefab;
+        [SerializeField] private CreatureVisual largeCreatureVisualPrefab;
         [SerializeField] private Transform creatureVisuals;
 
         private int endState;
@@ -77,7 +78,7 @@ namespace Encounter {
                     playerEnemies.Add(instance);
                 }
             }
-            instance.creatureVisual = Instantiate(creatureVisualPrefab, position);
+            instance.creatureVisual = Instantiate(template.isLarge ? largeCreatureVisualPrefab : creatureVisualPrefab, position);
             instance.creatureVisual.Init(instance, playerController);
             return true;
         }

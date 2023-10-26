@@ -481,6 +481,7 @@ MonoBehaviour:
   enemyController: {fileID: 1410946979}
   allyController: {fileID: 2113773561}
   creatureVisualPrefab: {fileID: 1635177524471434399, guid: 3cc2358ed7a6627418d6e07d4c4454f2, type: 3}
+  largeCreatureVisualPrefab: {fileID: 1635177524471434399, guid: 03f67a7511ab5f6429b20f489fa0dbf4, type: 3}
   creatureVisuals: {fileID: 805341069}
 --- !u!4 &907720230
 Transform:

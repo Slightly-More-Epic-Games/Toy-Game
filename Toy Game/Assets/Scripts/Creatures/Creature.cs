@@ -34,6 +34,8 @@ public abstract class Creature : ScriptableObject {
 
     public List<Item> dropPool;
 
+    public bool isLarge;
+
     public void Initialise() {
         health = maxHealth;
         imagination = 0;

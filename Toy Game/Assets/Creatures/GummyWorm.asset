@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
+  m_Name: GummyWorm
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1858338004600974589, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 4730324645782633579, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 838958358863809248, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 6417290342371730458, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 830226181064442643, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 8960478198155272528, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 1571588975476837218, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -2411011646549517222, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -7538829919041249304, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -4378469603757410063, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -6403154608381031946, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  fps: 6
+  ui:
+    name: Sour Gummy Wyrm, The Destroyer
+  maxHealth: 50
+  maxImagination: 50
+  inventory:
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
+  - {fileID: 11400000, guid: 2b651985fd867a443aa6266f84222b2e, type: 2}
+  spawnCost: 1
+  priorities:
+    self:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+    allies:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+    enemies:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+  dropPool:
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  isLarge: 1

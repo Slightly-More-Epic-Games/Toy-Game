@@ -7,7 +7,6 @@ namespace HoverUI {
     public class CreatureUI : UIInfo
     {
         public string name;
-        public string description;
         private Creature owner;
 
         public void SetCreature(Creature owner) {
@@ -19,7 +18,7 @@ namespace HoverUI {
         }
 
         public override string GetDescription() {
-            return description;
+            return "";
         }
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8bae89040deb8d448de6e179b2e18bf, type: 3}
+  m_Name: GummyWorm
+  m_EditorClassIdentifier: 
+  icon: {fileID: -1858338004600974589, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  scene: 0
+  budgetToAppear: 0
+  rewards: 3
+  boss: {fileID: 11400000, guid: ec3e2acd2d872f740b743ca6091d9b45, type: 2}
+  minions:
+  - {fileID: 11400000, guid: 5d7b0bce8acd3fc42bed94f3d027f10b, type: 2}
+  - {fileID: 11400000, guid: 5d7b0bce8acd3fc42bed94f3d027f10b, type: 2}
+  - {fileID: 11400000, guid: 1a8e56c65338db643ae5151d2d4950d8, type: 2}
