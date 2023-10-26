@@ -16,26 +16,38 @@ namespace Map {
         private NodeRow nodeRow;
         private int index;
 
+        [SerializeField] private SpriteAnimation empty;
+        private SpriteAnimation currentAnimation;
+
         public void Initialise(Node node, NodeRow nodeRow, int index) {
             this.node = node;
             this.nodeRow = nodeRow;
             this.index = index;
 
-            image.sprite = node.icon;
             button.onClick.AddListener(Play);
 
             node.nodeVisual = this;
 
             Vector2 pos = Random.insideUnitCircle;
             child.anchoredPosition = new Vector3(pos.x*spreadRange, pos.y*spreadRange, 0);
+
+            currentAnimation = node.off;
+        }
+
+        private void Update() {
+            image.sprite = currentAnimation.GetSprite();
         }
 
         private void Play() {
             Manager.instance.Play(nodeRow, node, index);
+            currentAnimation = empty;
         }
 
         public void SetInteractable(bool interactable) {
             button.interactable = interactable;
+            if (currentAnimation != empty) {
+                currentAnimation = interactable ? node.on : node.off;
+            }
         }
     }
 }

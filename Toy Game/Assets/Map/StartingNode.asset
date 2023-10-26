@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71777999dfa2f754bb227e9a336f8608, type: 3}
   m_Name: StartingNode
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  on:
+    sprites:
+    - {fileID: 21300000, guid: 4e2049adde9b0c44fb8d772ede35f6a7, type: 3}
+    fps: 1
+  off:
+    sprites:
+    - {fileID: 21300000, guid: 4e2049adde9b0c44fb8d772ede35f6a7, type: 3}
+    fps: 1
   scene: 1
+  budgetToAppear: 0

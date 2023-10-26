@@ -4,7 +4,9 @@ using UnityEngine;
 
 namespace Map {
     public class Node : ScriptableObject {
-        public Sprite icon;
+        public SpriteAnimation on;
+        public SpriteAnimation off;
+        
         public Game.GameScene scene;
         public float budgetToAppear;
         

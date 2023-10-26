@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 1797647124, guid: 721680f485f867a4d9b48ea8872a0c38, type: 3}
-  - {fileID: -1389953305, guid: 721680f485f867a4d9b48ea8872a0c38, type: 3}
-  fps: 2
+  spriteAnimation:
+    sprites:
+    - {fileID: 1797647124, guid: 721680f485f867a4d9b48ea8872a0c38, type: 3}
+    - {fileID: -1389953305, guid: 721680f485f867a4d9b48ea8872a0c38, type: 3}
+    fps: 2
   ui:
     name: Goldfish
-    description: 
   maxHealth: 5
   maxImagination: 5
   inventory:
@@ -46,3 +46,4 @@ MonoBehaviour:
   dropPool:
   - {fileID: 11400000, guid: 89958b3ada42df041875be1d8f0191d1, type: 2}
   - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
+  isLarge: 0

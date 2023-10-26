@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
   m_Name: UFO
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 2676159555221356526, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: -2199306989489832512, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: 2250811097118728341, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: 8051841465924602776, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: 1213142655871200412, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: -7847734609975052293, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: -8063045658762582104, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: -6128667472846951180, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: -7532146308865455728, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: -5778161369101660221, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: -4444941582165194561, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  - {fileID: -2510468340105279501, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
-  fps: 12
+  spriteAnimation:
+    sprites:
+    - {fileID: 2676159555221356526, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: -2199306989489832512, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: 2250811097118728341, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: 8051841465924602776, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: 1213142655871200412, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: -7847734609975052293, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: -8063045658762582104, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: -6128667472846951180, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: -7532146308865455728, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: -5778161369101660221, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: -4444941582165194561, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    - {fileID: -2510468340105279501, guid: 7f209c0448694d04ea5e2f722685f92c, type: 3}
+    fps: 12
   ui:
     name: UFO
-    description: wow!
   maxHealth: 10
   maxImagination: 8
   inventory:
@@ -59,3 +59,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 89958b3ada42df041875be1d8f0191d1, type: 2}
   - {fileID: 11400000, guid: c24734111af4e764fa714ac361feab07, type: 2}
   - {fileID: 11400000, guid: 084067d114462074fbbabcedf3d19d39, type: 2}
+  isLarge: 0

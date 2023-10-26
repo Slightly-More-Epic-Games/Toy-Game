@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
   m_Name: Gumball
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: -1686943066723184055, guid: 19d2a80e6f8ee9b459c2e40307a8c653, type: 3}
-  - {fileID: -4279125287257661725, guid: 19d2a80e6f8ee9b459c2e40307a8c653, type: 3}
-  fps: 2
+  spriteAnimation:
+    sprites:
+    - {fileID: -1686943066723184055, guid: 19d2a80e6f8ee9b459c2e40307a8c653, type: 3}
+    - {fileID: -4279125287257661725, guid: 19d2a80e6f8ee9b459c2e40307a8c653, type: 3}
+    fps: 2
   ui:
     name: Gumball
-    description: 
   maxHealth: 13
   maxImagination: 8
   inventory:
@@ -49,3 +49,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5f85c9810592d94d89c26293d95cdf1, type: 2}
   - {fileID: 11400000, guid: 2ec97704a85affd41a6342f6f3d50e7d, type: 2}
   - {fileID: 11400000, guid: ad637d709a002d643a0939f2903417d4, type: 2}
+  isLarge: 0

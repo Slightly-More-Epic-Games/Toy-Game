@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9684e5104cf6d0947bcb9b7054cac94b, type: 3}
   m_Name: HardEncounter
   m_EditorClassIdentifier: 
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  on:
+    sprites:
+    - {fileID: 21300000, guid: 9c237fd3f45749b47b730a3e32716dea, type: 3}
+    fps: 1
+  off:
+    sprites:
+    - {fileID: 21300000, guid: 15a61374623f4d14797c9165ed8a2966, type: 3}
+    fps: 1
   scene: 0
   budgetToAppear: 3
   rewards: 2

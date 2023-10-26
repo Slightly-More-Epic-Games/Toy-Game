@@ -17,18 +17,16 @@ public class CreatureVisual : MonoBehaviour
     [SerializeField] private TextMeshProUGUI info;
 
     private CreatureUI ui;
-    private Sprite[] sprites;
-    private float fps;
+    private SpriteAnimation spriteAnimation;
 
     public void Init(Creature owner, PlayerController playerController) {
         button.onClick.AddListener(delegate{playerController.SelectCreature(owner);});
         this.ui = owner.ui;
-        this.sprites = owner.sprites;
-        this.fps = owner.fps;
+        this.spriteAnimation = owner.spriteAnimation;
     }
 
     private void Update() {
-        image.sprite = sprites[Mathf.RoundToInt(Time.time*fps)%sprites.Length];
+        image.sprite = spriteAnimation.GetSprite();
     }
 
     public void UpdateVisual(Creature owner) {

@@ -6,8 +6,7 @@ using Encounter;
 using HoverUI;
 
 public abstract class Creature : ScriptableObject {
-    public Sprite[] sprites;
-    public float fps;
+    public SpriteAnimation spriteAnimation;
 
     public CreatureUI ui;
 

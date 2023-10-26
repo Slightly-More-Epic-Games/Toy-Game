@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
   m_Name: Cube
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: -656681371, guid: b6fdec6dadea3f2408eb3a19b5cc48f4, type: 3}
-  fps: 1
+  spriteAnimation:
+    sprites:
+    - {fileID: -656681371, guid: b6fdec6dadea3f2408eb3a19b5cc48f4, type: 3}
+    fps: 1
   ui:
     name: Cube
-    description: 
   maxHealth: 15
   maxImagination: 12
   inventory:
@@ -48,3 +48,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
   - {fileID: 11400000, guid: 0725921ed3b2eae49b858e09f1e46358, type: 2}
   - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}
+  isLarge: 0

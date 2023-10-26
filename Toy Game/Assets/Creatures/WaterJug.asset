@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
   m_Name: WaterJug
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
-  fps: 1
+  spriteAnimation:
+    sprites:
+    - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
+    fps: 1
   ui:
     name: Water Jug
-    description: 
   maxHealth: 8
   maxImagination: 8
   inventory:
@@ -48,3 +48,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
   - {fileID: 11400000, guid: c24734111af4e764fa714ac361feab07, type: 2}
   - {fileID: 11400000, guid: 6934352c2a2f55b48b1a012040608610, type: 2}
+  isLarge: 0

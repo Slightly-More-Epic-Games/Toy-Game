@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
   m_Name: ToxicWaste
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 1097300724, guid: 70fa72b20da3dbf4aa964cfc31f49a28, type: 3}
-  - {fileID: 1536007321, guid: 70fa72b20da3dbf4aa964cfc31f49a28, type: 3}
-  fps: 2
+  spriteAnimation:
+    sprites:
+    - {fileID: 1097300724, guid: 70fa72b20da3dbf4aa964cfc31f49a28, type: 3}
+    - {fileID: 1536007321, guid: 70fa72b20da3dbf4aa964cfc31f49a28, type: 3}
+    fps: 2
   ui:
     name: Toxic Waste
-    description: 
   maxHealth: 12
   maxImagination: 12
   inventory:
@@ -49,3 +49,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2adf191ddc3b9642b2e73aa16894cce, type: 2}
   - {fileID: 11400000, guid: cdd7de32107ed2e478878393536a06bf, type: 2}
   - {fileID: 11400000, guid: ad637d709a002d643a0939f2903417d4, type: 2}
+  isLarge: 0

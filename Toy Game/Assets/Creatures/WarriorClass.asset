@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce70211da4a104a42802513fe3d67aa8, type: 3}
   m_Name: WarriorClass
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
-  fps: 1
+  spriteAnimation:
+    sprites:
+    - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
+    fps: 1
   ui:
     name: Player
-    description: 
   maxHealth: 25
   maxImagination: 10
   inventory:
@@ -41,3 +41,4 @@ MonoBehaviour:
       buff: 1
       debuff: 1
   dropPool: []
+  isLarge: 0

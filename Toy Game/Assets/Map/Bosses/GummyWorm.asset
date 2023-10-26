@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8bae89040deb8d448de6e179b2e18bf, type: 3}
   m_Name: GummyWorm
   m_EditorClassIdentifier: 
-  icon: {fileID: -1858338004600974589, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  on:
+    sprites:
+    - {fileID: -2424553518018739129, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    - {fileID: -3588229512158965765, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    - {fileID: -6963195877183015321, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    - {fileID: 7801903984715115176, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    - {fileID: -5888845342232556802, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    fps: 4
+  off:
+    sprites:
+    - {fileID: -2424553518018739129, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    - {fileID: -3588229512158965765, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    - {fileID: -6963195877183015321, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    - {fileID: 7801903984715115176, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    - {fileID: -5888845342232556802, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
+    fps: 4
   scene: 0
   budgetToAppear: 0
   rewards: 3

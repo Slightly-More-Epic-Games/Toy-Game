@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9684e5104cf6d0947bcb9b7054cac94b, type: 3}
   m_Name: MediumEncounter
   m_EditorClassIdentifier: 
-  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  on:
+    sprites:
+    - {fileID: 21300000, guid: 052cf2affcbde18458ec02cb2aebbf86, type: 3}
+    fps: 1
+  off:
+    sprites:
+    - {fileID: 21300000, guid: 62c9856059fbb3949aa1b062bdff7466, type: 3}
+    fps: 1
   scene: 0
   budgetToAppear: 1
   rewards: 1
