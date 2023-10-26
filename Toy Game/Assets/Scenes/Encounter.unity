@@ -767,6 +767,7 @@ MonoBehaviour:
   itemUseTime: 0.5
   minUseSpeed: 128
   isAlly: 0
+  itemDelay: 0.25
 --- !u!1 &1443093928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1213,7 @@ MonoBehaviour:
   itemUseTime: 0.5
   minUseSpeed: 128
   isAlly: 1
+  itemDelay: 0.25
 --- !u!1 &2128753186
 GameObject:
   m_ObjectHideFlags: 0

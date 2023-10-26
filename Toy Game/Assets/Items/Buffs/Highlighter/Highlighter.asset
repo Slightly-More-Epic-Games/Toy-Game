@@ -15,6 +15,7 @@ MonoBehaviour:
   ui:
     name: Highlighter
     description: next time target deals damage, deal damage to all of targets enemies
+      as well
     icon: {fileID: 21300000, guid: 84baa9be386a5a04b80ba4dead6b99bf, type: 3}
   imaginationCost: 4
   healthCost: 1

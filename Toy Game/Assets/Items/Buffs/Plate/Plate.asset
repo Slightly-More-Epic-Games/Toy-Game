@@ -33,11 +33,11 @@ MonoBehaviour:
       heal: 0
       damage: 0
       buff: 0
-      debuff: 1
+      debuff: 0
   targetWeights:
     self: 0
     ally: 1
-    enemy: 1
+    enemy: 0
   refresh: 2
   triggers:
   - {fileID: 11400000, guid: 7b1567d0d7812274289ef2b6d6b94e4a, type: 2}

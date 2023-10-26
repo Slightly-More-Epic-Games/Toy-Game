@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: highlighted
-    description: next time you deal damage, deal damage to all your enimies
+    description: next time you deal damage, deal damage to all your enimies as well
     icon: {fileID: 21300000, guid: 84baa9be386a5a04b80ba4dead6b99bf, type: 3}
   activateOn: 0
   target: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
     parameters: 
     resultOnSuccess: 3
-  cancelEvent: 1
+  cancelEvent: 0
   overrides:
   - action: 2
     source: 0

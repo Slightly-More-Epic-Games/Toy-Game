@@ -10,16 +10,21 @@ namespace Encounter {
         public bool isAlly;
 
         private bool readyToEnd;
+        private float useItemAt;
+
+        [SerializeField] private float itemDelay;
 
         public override void OnTurnStart(Creature owner) {
             readyToEnd = false;
+            useItemAt = Time.time + itemDelay;
         }
 
         public override void UpdateTurn(Creature owner, int turnNumber) {
             if (!usingItem) {
                 if (readyToEnd) {
                     owner.EndTurn();
-                } else {
+                } else if (useItemAt < Time.time) {
+                    useItemAt = Time.time + itemDelay;
                     bool success = UseBestItem(owner, turnNumber);
                     //once a boss has been killed, give creatures a chance to use multiple items
                     if (!success || Random.Range(0,4) >= Mathf.Min(Map.Manager.instance.bossesKilled, 2)) {
