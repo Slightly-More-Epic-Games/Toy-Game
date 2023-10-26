@@ -9,12 +9,25 @@ namespace Encounter {
     {
         public bool isAlly;
 
-        public override void UpdateTurn(Creature owner, int turnNumber) {
-            UseBestItem(owner, turnNumber);
-            owner.EndTurn();
+        private bool readyToEnd;
+
+        public override void OnTurnStart(Creature owner) {
+            readyToEnd = false;
         }
 
-        protected void UseBestItem(Creature owner, int turnNumber) {
+        public override void UpdateTurn(Creature owner, int turnNumber) {
+            if (!usingItem) {
+                if (readyToEnd) {
+                    owner.EndTurn();
+                } else {
+                    UseBestItem(owner, turnNumber);
+                    readyToEnd = true;
+                }
+            }
+        }
+
+        protected bool UseBestItem(Creature owner, int turnNumber) {
+            if (owner.isDead) return false;
             List<Creature> allies = new List<Creature>(isAlly ? Manager.instance.playerAllies : Manager.instance.playerEnemies);
             List<Creature> enemies = new List<Creature>(isAlly ? Manager.instance.playerEnemies : Manager.instance.playerAllies);
             allies.Remove(owner);
@@ -24,14 +37,15 @@ namespace Encounter {
             Priorities priorities = Priorities.Multiply(GetCurrentPriorities(owner, allies, enemies, turnNumber), owner.priorities);
 
             ItemSlot item = GetBestItem(owner, priorities, 1.3f);
-            if (item == null) return;
+            if (item == null) return false;
             Debug.Log("the best item is: "+item.GetItemUI().GetName());
 
             Creature target = GetBestTarget(owner, allies, enemies, item, priorities);
-            if (target == null) return;
+            if (target == null) return false;
             Debug.Log("the best target for that item is: "+target);
 
             owner.UseItem(owner.items.IndexOf(item), target);
+            return true;
         }
 
         protected Creature GetBestTarget(Creature owner, List<Creature> allies, List<Creature> enemies, ItemSlot item, Priorities priorities) {

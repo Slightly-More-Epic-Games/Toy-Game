@@ -9,8 +9,19 @@ namespace Encounter {
 
         private int index = -1;
         private Creature target = null;
+        private bool bufferedEnd;
 
-        public ItemTab itemTab;
+        [System.NonSerialized] public ItemTab itemTab;
+
+        protected override void Update() {
+            base.Update();
+            if (!usingItem && index != -1 && target != null) {
+                UseItem(index, target);
+            }
+            if (!usingItem && bufferedEnd) {
+                EndTurn();
+            }
+        }
 
         public override void OnTurnStart(Creature owner) {
             turnActive = true;
@@ -41,13 +52,11 @@ namespace Encounter {
         public void SelectItem(int index) {
             if (!turnActive) return;
             this.index = index;
-            if (this.target != null) UseItem(index, target);
         }
 
         public void SelectCreature(Creature target) {
             if (!turnActive) return;
             this.target = target;
-            if (this.index != -1) UseItem(index, target);
         }
 
         public void UseItem(int index, Creature target) {
@@ -57,10 +66,15 @@ namespace Encounter {
         }
 
         public void EndTurn() {
-            if (Manager.instance.currentTurn != Game.instance.player) return;
+            if (usingItem) {
+                bufferedEnd = true;
+            } else {
+                if (Manager.instance.currentTurn != Game.instance.player) return;
 
-            Manager.instance.AddEventToProcess(new Context(Action.TurnEnd, Game.instance.player, Game.instance.player, 0));
-            Manager.instance.ProcessEvents();
+                Manager.instance.AddEventToProcess(new Context(Action.TurnEnd, Game.instance.player, Game.instance.player, 0));
+                Manager.instance.ProcessEvents();
+                bufferedEnd = false;
+            }
         }
     }
 }
