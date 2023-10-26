@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
+  m_Name: StringWorm
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -4255040936262648630, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: 4807329398794875114, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: 917355863615609950, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: -8736568766076400550, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: 2479193490896941639, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: 99621898707854855, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: 7648892217564502061, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: -4670363802954854558, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: -6736806622224838413, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: -4570697645283132320, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: -328856719200645065, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: -1266324947664600811, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: 6883267241908135336, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: 5016751547607813102, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  - {fileID: -308351802038594379, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  fps: 8
+  ui:
+    name: Stringed Wyrm, The Entangled
+  maxHealth: 50
+  maxImagination: 50
+  inventory:
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
+  - {fileID: 11400000, guid: 65cd22a2b8dbe074385660517150940b, type: 2}
+  spawnCost: 1
+  priorities:
+    self:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+    allies:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+    enemies:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+  dropPool:
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  isLarge: 1

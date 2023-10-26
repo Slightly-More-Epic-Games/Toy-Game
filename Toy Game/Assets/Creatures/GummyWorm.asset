@@ -42,7 +42,7 @@ MonoBehaviour:
   - {fileID: -1695173348, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
   fps: 8
   ui:
-    name: Sour Gummy Wyrm, The Destroyer
+    name: Sour Gummy Wyrm, The Putrid
   maxHealth: 50
   maxImagination: 50
   inventory:

@@ -366,6 +366,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 387ffecf734c84c4f9ba0b410f241ddb, type: 2}
   bossNodeTemplates:
   - {fileID: 11400000, guid: 0489ae20e48151a418f2a072b35b366d, type: 2}
+  - {fileID: 11400000, guid: e1eee1eb5c43101489bad561a86ca005, type: 2}
   startingNode: {fileID: 11400000, guid: 534204c682247e1408c6ba0d89bfb859, type: 2}
   nodeRowParents: {fileID: 760910849}
   nodeRowPrefab: {fileID: 979684017563516954, guid: 610ef0a7dc3fe504793b9b1495d598af, type: 3}

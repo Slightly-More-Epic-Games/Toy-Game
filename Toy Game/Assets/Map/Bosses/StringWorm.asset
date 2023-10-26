@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8bae89040deb8d448de6e179b2e18bf, type: 3}
+  m_Name: StringWorm
+  m_EditorClassIdentifier: 
+  icon: {fileID: -4255040936262648630, guid: 6cd4317ba35c59a439a4cd7effb250b6, type: 3}
+  scene: 0
+  budgetToAppear: 0
+  rewards: 3
+  boss: {fileID: 11400000, guid: b1beb37cd93222b4d9432e29e84bd1cc, type: 2}
+  minionPool:
+  - {fileID: 11400000, guid: a6f481da536f2e542bc7e224b614c153, type: 2}
+  - {fileID: 11400000, guid: c728a800f1b47954e855b2f5ca2833f3, type: 2}
+  - {fileID: 11400000, guid: 74b866404fbffbd41a7914bb78704e0f, type: 2}
+  - {fileID: 11400000, guid: 02f080800c5867541a61930af2c5708f, type: 2}
+  startingMinions: 3
+  minionsPerLoop: 2
