@@ -26,7 +26,7 @@ namespace Items {
         }
 
         public bool CanUse(Creature owner) {
-            return healthCost >= 0 && imaginationCost >= 0 && healthCost <= owner.health && imaginationCost <= owner.imagination;
+            return healthCost >= 0 && imaginationCost >= 0 && healthCost < owner.health && imaginationCost <= owner.imagination;
         }
 
         protected abstract void OnUse(Context context, Creature owner);

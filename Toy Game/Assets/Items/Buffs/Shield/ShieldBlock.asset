@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: shielded
-    description: damage taken is halved until turn ends
+    description: damage taken is halved until next turn
     icon: {fileID: 21300000, guid: 1c165db59fe3c9246aa0e5cfb7be8c19, type: 3}
   activateOn: 0
-  target: 0
+  target: 2
   conditions:
-  - actionMatch: 8
-    ownerMatch: 1
+  - actionMatch: 7
+    ownerMatch: 2
     condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
     parameters: 
     resultOnSuccess: 1
