@@ -20,8 +20,11 @@ namespace Encounter {
                 if (readyToEnd) {
                     owner.EndTurn();
                 } else {
-                    UseBestItem(owner, turnNumber);
-                    readyToEnd = true;
+                    bool success = UseBestItem(owner, turnNumber);
+                    //once a boss has been killed, give creatures a chance to use multiple items
+                    if (!success || Random.Range(0,4) >= Mathf.Min(Map.Manager.instance.bossesKilled, 2)) {
+                        readyToEnd = true;
+                    }
                 }
             }
         }
@@ -32,17 +35,13 @@ namespace Encounter {
             List<Creature> enemies = new List<Creature>(isAlly ? Manager.instance.playerEnemies : Manager.instance.playerAllies);
             allies.Remove(owner);
 
-            Debug.Log((isAlly ? "ally" : "enemy")+"\""+owner+"\" is trying to use best item...");
-
             Priorities priorities = Priorities.Multiply(GetCurrentPriorities(owner, allies, enemies, turnNumber), owner.priorities);
 
             ItemSlot item = GetBestItem(owner, priorities, 1.3f);
             if (item == null) return false;
-            Debug.Log("the best item is: "+item.GetItemUI().GetName());
 
             Creature target = GetBestTarget(owner, allies, enemies, item, priorities);
             if (target == null) return false;
-            Debug.Log("the best target for that item is: "+target);
 
             owner.UseItem(owner.items.IndexOf(item), target);
             return true;

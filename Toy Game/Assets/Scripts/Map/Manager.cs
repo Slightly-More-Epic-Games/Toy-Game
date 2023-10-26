@@ -29,6 +29,12 @@ namespace Map {
 
         [SerializeField] private LineRenderer linePrefab;
 
+        [SerializeField] private Image playerIndicator;
+        [SerializeField] private float walkSpeed;
+        private bool walking;
+
+        [SerializeField] private SpriteAnimation empty;
+
         private void Awake() {
             if (instance != null) {
                 DestroyManager();
@@ -42,6 +48,20 @@ namespace Map {
 
         private void Start() {
             CreateMap();
+        }
+
+        private void Update() {
+            playerIndicator.sprite = Game.instance.player.spriteAnimation.GetSprite();
+            Vector3 target = currentNode.nodeVisual.transform.GetChild(0).position + new Vector3(0,14,0);
+            if (walking) {
+                playerIndicator.transform.position = Vector3.MoveTowards(playerIndicator.transform.position, target, walkSpeed*Time.deltaTime);
+                if (Vector3.Distance(playerIndicator.transform.position, target) < 1) {
+                    currentNode.nodeVisual.SetAnimation(empty);
+                    Game.instance.LoadGameScene(currentNode.scene);
+                }
+            } else {
+                playerIndicator.transform.position = target;
+            }
         }
 
         private void CreateMap() {
@@ -89,6 +109,7 @@ namespace Map {
         }
 
         private void UpdateMap() {
+            walking = false;
             List<int> nextConnections = null;
             foreach (NodeRow nodeRow in nodeRows) {
                 foreach (Node node in nodeRow.nodes) {
@@ -118,7 +139,7 @@ namespace Map {
             nodeRow.current = index;
             currentLevel++;
             currentNode = node;
-            Game.instance.LoadGameScene(node.scene);
+            walking = true;
         }
     }
 }

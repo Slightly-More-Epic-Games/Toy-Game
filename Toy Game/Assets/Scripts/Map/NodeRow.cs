@@ -68,6 +68,9 @@ namespace Map {
             for (int i = 0; i < nodes.Count; i++) {
                 Node node = nodes[i];
                 NodeVisual nodeVisual = Object.Instantiate(nodePrefab, row);
+                if (node as BossNode != null) {
+                    nodeVisual.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(48, 48);
+                }
                 nodeVisual.Initialise(node, this, i);
             }
         }

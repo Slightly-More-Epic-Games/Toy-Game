@@ -16,8 +16,8 @@ namespace Map {
         private NodeRow nodeRow;
         private int index;
 
-        [SerializeField] private SpriteAnimation empty;
         private SpriteAnimation currentAnimation;
+        private bool updateInteractable = true;
 
         public void Initialise(Node node, NodeRow nodeRow, int index) {
             this.node = node;
@@ -40,12 +40,16 @@ namespace Map {
 
         private void Play() {
             Manager.instance.Play(nodeRow, node, index);
-            currentAnimation = empty;
+        }
+
+        public void SetAnimation(SpriteAnimation animation) {
+            currentAnimation = animation;
+            updateInteractable = false;
         }
 
         public void SetInteractable(bool interactable) {
             button.interactable = interactable;
-            if (currentAnimation != empty) {
+            if (updateInteractable) {
                 currentAnimation = interactable ? node.on : node.off;
             }
         }
