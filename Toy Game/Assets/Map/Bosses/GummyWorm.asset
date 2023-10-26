@@ -19,7 +19,7 @@ MonoBehaviour:
     - {fileID: -6963195877183015321, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
     - {fileID: 7801903984715115176, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
     - {fileID: -5888845342232556802, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
-    fps: 4
+    fps: 12
   off:
     sprites:
     - {fileID: -2424553518018739129, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
     - {fileID: -6963195877183015321, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
     - {fileID: 7801903984715115176, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
     - {fileID: -5888845342232556802, guid: 9e3290e3e8b099941af2187cbf60ad2e, type: 3}
-    fps: 4
+    fps: 12
   scene: 0
   budgetToAppear: 0
   rewards: 3
