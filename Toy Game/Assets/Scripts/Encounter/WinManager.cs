@@ -7,7 +7,6 @@ using UnityEngine.UI;
 namespace Encounter {
     public class WinManager : MonoBehaviour
     {
-        private Item[] rewards;
         private RewardUI[] uis;
 
         [SerializeField] private Transform rewardsParent;
@@ -24,12 +23,11 @@ namespace Encounter {
                 AddItemsToPool(creature, creature.isLarge ? largePool : pool);
             }
 
-            rewards = new Item[Mathf.Min(pool.Count, encounterNode.rewards)];
-            uis = new RewardUI[rewards.Length];
+            uis = new RewardUI[Mathf.Min(pool.Count, encounterNode.rewards)+1];
 
             int large = largePool.Count;
 
-            for (int i = 0; i < rewards.Length; i++) {
+            for (int i = 0; i < uis.Length-1; i++) {
                 List<Item> p = i < large ? largePool : pool;
                 int index = Random.Range(0, p.Count);
                 Item item = p[index];
@@ -37,6 +35,18 @@ namespace Encounter {
                 p.RemoveAt(index);
                 AddReward(item, i);
             }
+
+            AddHealReward();
+        }
+
+        private void AddHealReward() {
+            RewardUI rewardUI = Instantiate(rewardUIPrefab, rewardsParent);
+            rewardUI.SetItem(null);
+            uis[uis.Length-1] = rewardUI;
+            rewardUI.button.onClick.AddListener(delegate {
+                ChooseItem(null, rewardUI);
+            });
+            rewardUI.SetChosen(true);
         }
 
         private void AddReward(Item item, int index) {
@@ -46,7 +56,6 @@ namespace Encounter {
             rewardUI.button.onClick.AddListener(delegate {
                 ChooseItem(item, rewardUI);
             });
-            rewards[index] = item;
         }
 
         private void AddItemsToPool(Creature creature, List<Item> pool) {
@@ -66,6 +75,7 @@ namespace Encounter {
 
         public void Continue() {
             if (chosenItem != null) Game.instance.player.AddItem(chosenItem);
+            else Game.instance.player.health = Mathf.Min(Game.instance.player.health+5, Game.instance.player.maxHealth);
             Game.instance.LoadGameScene(Game.GameScene.Map);
         }
     }

@@ -17,6 +17,7 @@ namespace Encounter {
         public string selectedText;
     
         public void SetItem(Item item) {
+            if (item == null) return;
             title.text = item.ui.GetName();
             description.text = item.ui.GetDescription();
             image.sprite = item.ui.icon;
