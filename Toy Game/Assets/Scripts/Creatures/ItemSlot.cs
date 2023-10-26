@@ -15,6 +15,10 @@ public class ItemSlot {
         item.ui.SetItem(item);
     }
 
+    public ItemSlot Copy() {
+        return new ItemSlot(Object.Instantiate(item));
+    }
+
     public void Use(Creature owner, Creature target, int index) {
         used = true;
 

@@ -26,8 +26,6 @@ namespace Encounter {
         [SerializeField] private CreatureVisual creatureVisualPrefab;
         [SerializeField] private Transform creatureVisuals;
 
-        public HoverInfo hoverInfo;
-
         private int endState;
 
         public void Start() {

@@ -13,6 +13,8 @@ public class Game : MonoBehaviour
 
     public static Game instance;
 
+    public HoverInfo hoverInfo;
+
     void Start() {
         instance = this;
         player = Instantiate(classes[0]);
@@ -35,6 +37,7 @@ public class Game : MonoBehaviour
             GameScene.Map => "Map",
             GameScene.GameOver => "GameOver",
             GameScene.EncounterWon => "EncounterWon",
+            GameScene.Shop => "Shop",
             _ => "Map",
         };
 
@@ -45,6 +48,8 @@ public class Game : MonoBehaviour
         if (currentScene != null) {
             SceneManager.UnloadSceneAsync(currentScene);
         }
+        
+        hoverInfo.HoverExit();
 
         Encounter.Manager.instance = null;
 
@@ -56,6 +61,7 @@ public class Game : MonoBehaviour
         Encounter,
         Map,
         GameOver,
-        EncounterWon
+        EncounterWon,
+        Shop
     }
 }

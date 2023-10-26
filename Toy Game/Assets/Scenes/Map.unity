@@ -584,6 +584,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0f809727684aa7b40b94b753b0928c6f, type: 2}
   - {fileID: 11400000, guid: b68835cd8e941114080daac98970a270, type: 2}
   - {fileID: 11400000, guid: 87f107b8c0d51d64e953fe3628017ddb, type: 2}
+  - {fileID: 11400000, guid: 387ffecf734c84c4f9ba0b410f241ddb, type: 2}
   bossNodeTemplates:
   - {fileID: 11400000, guid: 0f809727684aa7b40b94b753b0928c6f, type: 2}
   startingNode: {fileID: 11400000, guid: 534204c682247e1408c6ba0d89bfb859, type: 2}

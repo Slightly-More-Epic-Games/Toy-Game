@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 406905d7970327e48b83f36a25d6ff1d, type: 3}
+  m_Name: ShopNode
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: cb6417b5823c57441ba632f20afb2256, type: 3}
+  scene: 4
+  budgetToAppear: 2
+  itemPool:
+  - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
+  - {fileID: 11400000, guid: e1a1ea6e245a27e41aac8f36891e0d0a, type: 2}
+  - {fileID: 11400000, guid: 0725921ed3b2eae49b858e09f1e46358, type: 2}
+  sellCount: 0

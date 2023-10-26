@@ -10,23 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 305604408585e864789cbb7655c90432, type: 3}
-  m_Name: PlateHeal
+  m_Name: CakeEncounterStart
   m_EditorClassIdentifier: 
   ui:
-    name: Plate
-    description: when this creature dies, all creatures gain 2 health
-    icon: {fileID: 21300000, guid: 980e922d6e1ecbf48a618c60a58f910e, type: 3}
-  activateOn: 0
-  target: 1
-  conditions:
-  - actionMatch: 12
-    ownerMatch: 2
-    condition: {fileID: 0}
-    parameters: 
-    resultOnSuccess: 3
+    name: cake
+    description: 
+    icon: {fileID: 0}
+  activateOn: 9
+  target: 2
+  conditions: []
   cancelEvent: 0
   overrides:
   - action: 3
     source: 2
-    target: 5
-    valueOverride: 2
+    target: 2
+    valueOverride: 1
