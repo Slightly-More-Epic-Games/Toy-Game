@@ -33,6 +33,7 @@ namespace Encounter {
                 List<Item> p = i < large ? largePool : pool;
                 int index = Random.Range(0, p.Count);
                 Item item = p[index];
+                item.ui.SetItem(item);
                 p.RemoveAt(index);
                 AddReward(item, i);
             }

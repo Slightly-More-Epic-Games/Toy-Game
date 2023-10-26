@@ -27,6 +27,7 @@ public class ShopManager : MonoBehaviour
         }
 
         foreach (Item item in node.GetItems()) {
+            item.ui.SetItem(item);
             CreateShopItem(new ItemSlot(item), false);
         }
 
