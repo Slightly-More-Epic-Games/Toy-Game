@@ -296,7 +296,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      arrow_select_0: 6706012045806561441
+      arrow_select_1: 8219041873689337001
+      arrow_select_2: -1642877418868248049
+      arrow_select_3: 1610009382483903608
+      arrow_select_4: -7711925966041926673
+      arrow_select_5: 5894472911337237359
+      arrow_select_6: 9129404562922493204
+      arrow_select_7: -76246018556550426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

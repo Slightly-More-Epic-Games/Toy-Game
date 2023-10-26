@@ -108,6 +108,7 @@ namespace Map {
 
             //reached end of map
             if (nextConnections != null && nextConnections.Count == 0) {
+                Game.instance.player.health = Game.instance.player.maxHealth;
                 CreateMap();
             }
         }

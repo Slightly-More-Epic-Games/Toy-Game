@@ -272,7 +272,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      end_turn_button_0: 2058518826365189002
+      end_turn_button_1: -8146795824090854712
+      end_turn_button_2: 2349324931631338716
+      end_turn_button_3: 6422988630184515983
+      end_turn_button_4: 6935538869171524463
+      end_turn_button_5: -2397304012607956678
+      end_turn_button_6: -2939104159484533079
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
