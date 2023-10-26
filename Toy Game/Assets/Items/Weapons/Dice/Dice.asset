@@ -35,9 +35,10 @@ MonoBehaviour:
       buff: 0
       debuff: 0
   targetWeights:
-    self: 1
-    ally: 1
+    self: 0
+    ally: 0
     enemy: 1
+  refresh: 1
   triggers:
   - {fileID: 11400000, guid: 3dfa774eae7681e468926b433c5a048a, type: 2}
   - {fileID: 11400000, guid: 9873d9ed6d0df9d418f916f72432b485, type: 2}
