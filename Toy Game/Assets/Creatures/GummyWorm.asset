@@ -24,7 +24,23 @@ MonoBehaviour:
   - {fileID: -7538829919041249304, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
   - {fileID: -4378469603757410063, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
   - {fileID: -6403154608381031946, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
-  fps: 6
+  - {fileID: -2076462764, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -2042250594, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 177101882, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 1690415026, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 799149437, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -1382899995, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 1070905523, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -1400157266, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 1787585061, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 786762474, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 731046849, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 1232353788, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -533582813, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 92676387, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: 247865800, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  - {fileID: -1695173348, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
+  fps: 8
   ui:
     name: Sour Gummy Wyrm, The Destroyer
   maxHealth: 50

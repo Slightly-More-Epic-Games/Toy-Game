@@ -132,7 +132,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -153,7 +153,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -174,7 +174,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -194,8 +194,8 @@ TextureImporter:
       name: gummy_worm_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 192
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -215,8 +215,8 @@ TextureImporter:
       name: gummy_worm_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 256
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -236,8 +236,8 @@ TextureImporter:
       name: gummy_worm_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 0
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -257,8 +257,8 @@ TextureImporter:
       name: gummy_worm_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 64
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -278,8 +278,8 @@ TextureImporter:
       name: gummy_worm_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 128
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -299,8 +299,8 @@ TextureImporter:
       name: gummy_worm_8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -320,8 +320,8 @@ TextureImporter:
       name: gummy_worm_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 256
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -341,8 +341,8 @@ TextureImporter:
       name: gummy_worm_10
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 0
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -354,6 +354,342 @@ TextureImporter:
       bones: []
       spriteID: 6f90b8d1fcc6327a0800000000000000
       internalID: -6403154608381031946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba868c833b9c4a47babdc291836e185
+      internalID: -2076462764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48250d9259b09744ca90d8c3393bb9f4
+      internalID: -2042250594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2afd956b3007294581afb223e237d2b
+      internalID: 177101882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520883382c7c47646832fc11f7e9bf9a
+      internalID: 1690415026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151a8b908bdd7c14f9721136b9d1a0a2
+      internalID: 799149437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec96ff694a26b545b6968c249b7fcdc
+      internalID: -1382899995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe546900e6178345b0a5dd655a5c4ce
+      internalID: 1070905523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5bb088ba4c3a744a9b44b21df512104
+      internalID: -1400157266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c21a1f398f43a4d98013bc91a78ff1
+      internalID: 1787585061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ba39616ac89c44a87a127fecba0660
+      internalID: 786762474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0f1ff9d29c018438b87a618e015b7d
+      internalID: 731046849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0043fcb7aa80f5d49969daae3851277e
+      internalID: 1232353788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd6094beb300cb45b015e7baeb880cb
+      internalID: -533582813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d68c4d0296776354c95db18cf6a09cc6
+      internalID: 92676387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47883c86cc3997459f26064c49a08e7
+      internalID: 247865800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gummy_worm_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850303ae44de17b49ac95c88dfc76208
+      internalID: -1695173348
       vertices: []
       indices: 
       edges: []
@@ -372,7 +708,23 @@ TextureImporter:
       gummy_worm_0: -1858338004600974589
       gummy_worm_1: 4730324645782633579
       gummy_worm_10: -6403154608381031946
+      gummy_worm_11: -2076462764
+      gummy_worm_12: -2042250594
+      gummy_worm_13: 177101882
+      gummy_worm_14: 1690415026
+      gummy_worm_15: 799149437
+      gummy_worm_16: -1382899995
+      gummy_worm_17: 1070905523
+      gummy_worm_18: -1400157266
+      gummy_worm_19: 1787585061
       gummy_worm_2: 838958358863809248
+      gummy_worm_20: 786762474
+      gummy_worm_21: 731046849
+      gummy_worm_22: 1232353788
+      gummy_worm_23: -533582813
+      gummy_worm_24: 92676387
+      gummy_worm_25: 247865800
+      gummy_worm_26: -1695173348
       gummy_worm_3: 6417290342371730458
       gummy_worm_4: 830226181064442643
       gummy_worm_5: 8960478198155272528
