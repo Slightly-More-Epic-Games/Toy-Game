@@ -21,7 +21,7 @@ MonoBehaviour:
   conditions: []
   cancelEvent: 0
   overrides:
-  - action: 4
+  - action: 2
     source: 0
     target: 1
     valueOverride: 3

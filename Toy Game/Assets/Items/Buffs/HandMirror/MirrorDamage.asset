@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: reflective
-    description: deal twice the damage back next time this creature is targetted
+    description: deal twice the damage back next time this creature is attacked
     icon: {fileID: 21300000, guid: b2027b482f1b1ac489cede315f54bed1, type: 3}
   activateOn: 0
   target: 1
