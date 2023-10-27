@@ -32,7 +32,7 @@ MonoBehaviour:
     fps: 8
   ui:
     name: Stringed Wyrm, The Entangled
-  maxHealth: 25
+  maxHealth: 32
   maxImagination: 25
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
@@ -44,8 +44,8 @@ MonoBehaviour:
   spawnCost: 5
   priorities:
     self:
-      heal: 1
-      damage: 1
+      heal: 0.5
+      damage: 1.25
       buff: 1
       debuff: 1
     allies:

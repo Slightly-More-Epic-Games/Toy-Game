@@ -37,7 +37,7 @@ namespace Encounter {
 
             int large = largePool.Count;
 
-            for (int i = 0; i < uis.Length-1; i++) {
+            for (int i = 0; i < (large == 0 ? uis.Length-1 : uis.Length); i++) {
                 List<Item> p = i < large ? largePool : pool;
                 int index = Random.Range(0, p.Count);
                 Item item = p[index];
