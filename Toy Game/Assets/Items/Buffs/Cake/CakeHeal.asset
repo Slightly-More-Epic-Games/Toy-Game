@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CakeHeal
   m_EditorClassIdentifier: 
   ui:
-    name: ???
+    name: 
     description: 
     icon: {fileID: 0}
   activateOn: 0

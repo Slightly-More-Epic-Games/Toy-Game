@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Marble
-    description: cancel all creatures next attempts at dealing damage, until their
-      turn ends
+    description: Cancel All Creatures' next attempts at dealing damage, unless their
+      turn ends first
     icon: {fileID: 21300000, guid: 3d1fe9f31562e4e48ba796d77b865749, type: 3}
   imaginationCost: 3
   healthCost: 0

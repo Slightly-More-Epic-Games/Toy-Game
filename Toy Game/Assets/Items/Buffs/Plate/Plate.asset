@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Paper Plate
-    description: when target dies, all creatures gain 2 health
+    description: When Target dies, All Creatures gain 2 health
     icon: {fileID: 21300000, guid: 980e922d6e1ecbf48a618c60a58f910e, type: 3}
   imaginationCost: 3
   healthCost: 0

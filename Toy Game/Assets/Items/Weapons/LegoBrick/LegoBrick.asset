@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Unbranded Brick
-    description: deal 6 damage to the last creature to attack you
+    description: Deal 6 damage to the last creature to attack Target
     icon: {fileID: 21300000, guid: a2dfddf0ee4cf9c4a8a477a543cb99e7, type: 3}
   imaginationCost: 3
   healthCost: 3
@@ -37,7 +37,7 @@ MonoBehaviour:
   targetWeights:
     self: 1
     ally: 1
-    enemy: 1
+    enemy: 0
   refresh: 2
   triggers:
   - {fileID: 11400000, guid: 65f99a0f9e73f5243a712d70bb48a87f, type: 2}

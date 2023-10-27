@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SugarPoison
   m_EditorClassIdentifier: 
   ui:
-    name: sugar crash
-    description: lose 1 health at the start of your turn
+    name: Sugar Crash
+    description: Lose 1 health every time turn starts
     icon: {fileID: 21300000, guid: 42ef60110a42afd45a18441f041c530b, type: 3}
   activateOn: 0
   target: 1

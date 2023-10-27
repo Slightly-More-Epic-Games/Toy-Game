@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Movie
   m_EditorClassIdentifier: 
   ui:
-    name: movie
-    description: all creatures gain 3 imagination, allies lose 1 health
+    name: Movie
+    description: All Creatures gain 3 imagination, Allies lose 1 health
     icon: {fileID: -2952542141569679838, guid: 4bc5f9df16521ca4fbe069bb78aaa801, type: 3}
   imaginationCost: 1
   healthCost: 0

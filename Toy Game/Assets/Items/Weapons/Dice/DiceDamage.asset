@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DiceDamage
   m_EditorClassIdentifier: 
   ui:
-    name: dice lose health
+    name: 
     description: 
     icon: {fileID: 0}
   activateOn: 0

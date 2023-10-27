@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Dice
-    description: 50% chance to either heal or damage each creature
+    description: 50% chance to either heal or damage Each Creature 1 health
     icon: {fileID: 21300000, guid: ce8640bf2119c3a48b974a4eb39a2598, type: 3}
-  imaginationCost: 2
+  imaginationCost: 1
   healthCost: 0
   priorities:
     self:

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: HandMirror
   m_EditorClassIdentifier: 
   ui:
-    name: hand mirror
-    description: next time a creature damages target, target deals twice the damage
-      back
+    name: Hand Mirror
+    description: Target reflects 2x the damage back next time they are attacked
     icon: {fileID: 21300000, guid: b2027b482f1b1ac489cede315f54bed1, type: 3}
   imaginationCost: 4
   healthCost: 2

@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Boomerang
-    description: deals 1 damage, then 2 more damage at then end of the opponents
-      turn
+    description: Deal 1 damage to Target, then 2 more damage at end of Targets turn
     icon: {fileID: 21300000, guid: 36d8d7e27e6d12143bb20c539bf71f11, type: 3}
   imaginationCost: 2
   healthCost: 1
@@ -39,6 +38,7 @@ MonoBehaviour:
     self: 0
     ally: 0
     enemy: 1
+  refresh: 1
   triggers:
   - {fileID: 11400000, guid: 235529e3787482d45a04a1db3ebf6b98, type: 2}
   - {fileID: 11400000, guid: 72da8b9385c2c32419ceee034662c90e, type: 2}

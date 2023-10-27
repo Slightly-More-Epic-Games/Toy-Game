@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Maracas
-    description: target gains 1 more imagination every turn
+    description: Target gains 1 more imagination every time their turn starts
     icon: {fileID: 21300000, guid: 48ad55eadac4f294ebf863477e405425, type: 3}
   imaginationCost: 4
   healthCost: 2

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Pencil
-    description: deal 2 damage, 10% chance for target to get poisoned, taking 1 damage
-      every turn
+    description: Deal 2 damage to Target, 10% chance for Target to get poisoned,
+      taking 1 damage every turn
     icon: {fileID: 21300000, guid: 1986186aa3de74540b2984728d45312d, type: 3}
   imaginationCost: 3
   healthCost: 0

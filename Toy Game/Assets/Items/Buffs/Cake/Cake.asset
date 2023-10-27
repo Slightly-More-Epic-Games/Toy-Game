@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Cake
-    description: heal target 5 health, user loses 1 health each turn
+    description: Heal Target 5 health, Item holder loses 1 health each turn
     icon: {fileID: 21300000, guid: 9d5150ba74b6ed044b898ee8cca43760, type: 3}
   imaginationCost: 3
   healthCost: 0

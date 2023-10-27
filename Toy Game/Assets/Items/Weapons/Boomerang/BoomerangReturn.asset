@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Boomerang Incoming
-    description: take 2 damage at the end of your turn
+    description: Take 2 damage when turn ends
     icon: {fileID: 21300000, guid: 36d8d7e27e6d12143bb20c539bf71f11, type: 3}
   activateOn: 0
   target: 1

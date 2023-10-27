@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Kite
-    description: deal 1 damage to target, gain 4 imagination
+    description: Deal 1 damage to Target, gain 4 imagination
     icon: {fileID: 21300000, guid: 14b4c82fe95fbdc48ada6bae9047ff77, type: 3}
   imaginationCost: 4
   healthCost: 0

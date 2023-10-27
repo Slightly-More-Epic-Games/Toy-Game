@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: HighlighterBuff
   m_EditorClassIdentifier: 
   ui:
-    name: highlighted
-    description: next time you deal damage, deal damage to all your enimies as well
+    name: Highlighted
+    description: Next time this creature deals damage, the same amount of damage
+      is dealt again to all of this creature's enemies
     icon: {fileID: 21300000, guid: 84baa9be386a5a04b80ba4dead6b99bf, type: 3}
   activateOn: 0
   target: 0

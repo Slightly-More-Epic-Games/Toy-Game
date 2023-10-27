@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Glue
   m_EditorClassIdentifier: 
   ui:
-    name: glue
-    description: target deals and takes 50% damage
+    name: Glue
+    description: Target deals and takes 50% damage
     icon: {fileID: 21300000, guid: 7b6e93e3dcbb48641915cc9bf51d95fd, type: 3}
   imaginationCost: 2
   healthCost: 2

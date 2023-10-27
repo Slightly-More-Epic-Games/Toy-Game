@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Teddy Bear
-    description: gain 4 imagination at the start of each turn
+    description: Gain 4 imagination at the start of each turn
     icon: {fileID: 21300000, guid: 4b545e61ff21ac540b731025381f4960, type: 3}
   imaginationCost: -1
   healthCost: -1

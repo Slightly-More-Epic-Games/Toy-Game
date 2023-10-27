@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ShieldBlock
   m_EditorClassIdentifier: 
   ui:
-    name: shielded
-    description: damage taken is halved until next turn
+    name: Shielded
+    description: Damage taken is halved until next turn
     icon: {fileID: 21300000, guid: 1c165db59fe3c9246aa0e5cfb7be8c19, type: 3}
   activateOn: 0
   target: 1

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PencilPoison
   m_EditorClassIdentifier: 
   ui:
-    name: poisoned
-    description: lose 1 health every turn
+    name: Poisoned!
+    description: Lose 1 health every time turn starts
     icon: {fileID: 21300000, guid: 1986186aa3de74540b2984728d45312d, type: 3}
   activateOn: 7
   target: 2

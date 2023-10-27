@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Sugar
-    description: heal target 5 health, target loses 1 health each turn
+    description: Heal Target 5 health, Target then loses 1 health whenever their
+      turn begins
     icon: {fileID: 21300000, guid: 42ef60110a42afd45a18441f041c530b, type: 3}
   imaginationCost: 5
   healthCost: 1

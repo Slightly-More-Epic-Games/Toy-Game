@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Umbrella
-    description: deal 3 damage to target, block next time you lose health
+    description: Deal 3 damage to Target, block next time you lose health
     icon: {fileID: 21300000, guid: ef28eb3ee5be25f428f594e0c0af881f, type: 3}
   imaginationCost: 4
   healthCost: 1
@@ -38,6 +38,7 @@ MonoBehaviour:
     self: 0
     ally: 0
     enemy: 1
+  refresh: 1
   triggers:
   - {fileID: 11400000, guid: 8e862897cf102394a9cbd4cc09d2538e, type: 2}
   - {fileID: 11400000, guid: c34c20c9857d4614e996ac5e8d525e2b, type: 2}

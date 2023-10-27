@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CakeDamage
   m_EditorClassIdentifier: 
   ui:
-    name: cake
+    name: 
     description: 
     icon: {fileID: 0}
   activateOn: 7
