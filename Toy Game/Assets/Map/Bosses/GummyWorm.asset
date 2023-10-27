@@ -33,9 +33,10 @@ MonoBehaviour:
   rewards: 3
   boss: {fileID: 11400000, guid: ec3e2acd2d872f740b743ca6091d9b45, type: 2}
   minionPool:
-  - {fileID: 11400000, guid: 5d7b0bce8acd3fc42bed94f3d027f10b, type: 2}
   - {fileID: 11400000, guid: a6f481da536f2e542bc7e224b614c153, type: 2}
+  - {fileID: 11400000, guid: 5d7b0bce8acd3fc42bed94f3d027f10b, type: 2}
   - {fileID: 11400000, guid: 1a8e56c65338db643ae5151d2d4950d8, type: 2}
   - {fileID: 11400000, guid: 402b993984976ed4e92ab1dadef7a4a8, type: 2}
+  - {fileID: 11400000, guid: 191fba24e5572c94cb75b3c8703e5725, type: 2}
   startingMinions: 2
   minionsPerLoop: 2

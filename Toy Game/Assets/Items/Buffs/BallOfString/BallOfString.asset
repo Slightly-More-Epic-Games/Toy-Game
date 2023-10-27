@@ -21,14 +21,14 @@ MonoBehaviour:
   healthCost: 2
   priorities:
     self:
-      heal: 1.5
-      damage: 0
+      heal: 0.5
+      damage: 0.25
       buff: 1
       debuff: 0
     allies:
-      heal: 0
+      heal: 1.25
       damage: 0
-      buff: 0
+      buff: 0.25
       debuff: 0
     enemies:
       heal: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
       debuff: 0
   targetWeights:
     self: 1
-    ally: 0.5
+    ally: 1
     enemy: 0
   refresh: 1
   triggers:

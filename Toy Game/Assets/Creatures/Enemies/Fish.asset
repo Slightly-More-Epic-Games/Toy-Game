@@ -34,7 +34,7 @@ MonoBehaviour:
       buff: 1
       debuff: 1
     allies:
-      heal: 1
+      heal: 1.15
       damage: 1
       buff: 1
       debuff: 1
