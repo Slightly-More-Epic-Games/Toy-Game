@@ -16,6 +16,8 @@ public class CreatureVisual : MonoBehaviour
     [SerializeField] private HoverableUI triggerVisual;
     [SerializeField] private TextMeshProUGUI info;
 
+    [SerializeField] private Image targetedIndicator;
+
     private CreatureUI ui;
     private SpriteAnimation spriteAnimation;
 
@@ -40,5 +42,10 @@ public class CreatureVisual : MonoBehaviour
             ui.image.sprite = trigger.ui.icon;
         }
         info.text = ui.GetName();
+    }
+
+    public void SetTargeted(bool active, float transparency) {
+        targetedIndicator.gameObject.SetActive(active);
+        if (active) targetedIndicator.color = new Color(1, 1, 1, transparency);
     }
 }

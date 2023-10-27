@@ -21,19 +21,26 @@ namespace Encounter {
             if (!usingItem && bufferedEnd) {
                 EndTurn();
             }
+            if (!usingItem && index == -1) {
+                itemTab.Select(-1);
+            }
         }
 
         public override void OnTurnStart(Creature owner) {
             turnActive = true;
-            this.target = null;
             this.index = -1;
             itemTab.SetInteractable(owner, true);
             itemTab.SetFlipTarget(0);
+            if (target != null) {
+                target.creatureVisual.SetTargeted(true, 1f);
+            }
         }
 
         public override void OnTurnEnd(Creature owner) {
             itemTab.SetInteractable(owner, true);
             itemTab.SetFlipTarget(1);
+            itemTab.Select(-1);
+            target.creatureVisual.SetTargeted(true, 0.5f);
             turnActive = false;
         }
 
@@ -41,6 +48,7 @@ namespace Encounter {
             owner.imagination = 0;
             itemTab = Manager.instance.CreateItemTab();
             itemTab.Init(owner, this);
+            itemTab.Select(-1);
         }
 
         public override void OnEncounterEnd(Creature owner) {
@@ -53,17 +61,31 @@ namespace Encounter {
 
         public void SelectItem(int index) {
             if (!turnActive) return;
-            this.index = index;
+
+            if (this.index == index) {
+                this.index = -1;
+            } else {
+                this.index = index;
+            }
+
+            itemTab.Select(this.index);
         }
 
         public void SelectCreature(Creature target) {
             if (!turnActive) return;
+            if (this.target != null) {
+                this.target.creatureVisual.SetTargeted(false, 1f);
+                if (this.target == target) {
+                    this.target = null;
+                    return;
+                }
+            }
+            target.creatureVisual.SetTargeted(true, 1f);
             this.target = target;
         }
 
         public void UseItem(int index, Creature target) {
             Game.instance.player.UseItem(index, target);
-            this.target = null;
             this.index = -1;
         }
 

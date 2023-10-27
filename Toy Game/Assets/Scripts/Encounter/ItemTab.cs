@@ -21,9 +21,15 @@ namespace Encounter {
         private float flipTarget;
         private float currentFlip;
 
+        [SerializeField] private RectTransform selectedMarker;
+        [SerializeField] private Image selectedMarkerImage;
+        [SerializeField] private SpriteAnimation selectedAnimation;
+
         private void Update() {
             currentFlip = Mathf.MoveTowards(currentFlip, flipTarget, Time.deltaTime/flipDuration);
             endTurn.image.sprite = flipSprites[Mathf.RoundToInt(currentFlip*(flipSprites.Length-1))];
+
+            selectedMarkerImage.sprite = selectedAnimation.GetSprite();
         }
 
         public void SetFlipTarget(float target) {
@@ -67,6 +73,16 @@ namespace Encounter {
             HoverableUI hoverableUI = items[index];
             ItemSlot item = owner.items[index];
             hoverableUI.interactable = item.CanUse(owner);
+        }
+
+        public void Select(int index) {
+            if (index == -1) {
+                selectedMarker.gameObject.SetActive(false);
+                return;
+            }
+            selectedMarker.gameObject.SetActive(true);
+            selectedMarker.SetParent(items[index].transform);
+            selectedMarker.anchoredPosition = Vector2.zero;
         }
     }
 }
