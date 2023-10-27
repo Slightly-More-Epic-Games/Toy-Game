@@ -13,11 +13,20 @@ namespace Map {
 
         public int current;
 
-        public NodeRow(float budget, List<Node> nodeTemplates, int count) {
+        public NodeRow(float budget, List<Node> nodeTemplates, List<Node> specialNodes, int count) {
             this.budget = budget;
             nodes = new List<Node>(count);
+            int specialIndex = -1;
+            if (specialNodes != null) {
+                specialIndex = Random.Range(0, count);
+            }
             for (int i = 0; i < count; i++) {
-                Node node = Object.Instantiate(GetNodeWithinBudget(nodeTemplates, budget));
+                Node node;
+                if (i == specialIndex) {
+                    node = Object.Instantiate(specialNodes[Random.Range(0, specialNodes.Count)]);
+                } else {
+                    node = Object.Instantiate(GetNodeWithinBudget(nodeTemplates, budget));
+                }
                 node.Initialise(budget);
                 nodes.Add(node);
             }

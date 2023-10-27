@@ -16,6 +16,7 @@ namespace Map {
 
         [SerializeField] private List<Node> nodeTemplates;
         [SerializeField] private List<Node> bossNodeTemplates;
+        [SerializeField] private List<Node> specialNodes;
         [SerializeField] private Node startingNode;
 
 
@@ -73,13 +74,13 @@ namespace Map {
                 nodeRows.Clear();
             }
             currentLevel = 0;
-            CreateNextNodeRow(1, new List<Node>() {startingNode});
+            CreateNextNodeRow(1, new List<Node>() {startingNode}, null);
             nodeRows[0].current = 0;
             currentNode = nodeRows[0].nodes[0];
             for (int i = 0; i < 6; i++) {
-                CreateNextNodeRow(Random.Range(2,5), nodeTemplates);
+                CreateNextNodeRow(Random.Range(2,5), nodeTemplates, i%2 == 1 ? specialNodes : null);
             }
-            CreateNextNodeRow(1, bossNodeTemplates);
+            CreateNextNodeRow(1, bossNodeTemplates, null);
             UpdateMap();
         }
 
@@ -95,8 +96,8 @@ namespace Map {
             UpdateMap();
         }
 
-        private void CreateNextNodeRow(int count, List<Node> nodeTemplates) {
-            NodeRow nodeRow = new NodeRow(Game.instance.player.spawnCost*totalRows, nodeTemplates, count);
+        private void CreateNextNodeRow(int count, List<Node> nodeTemplates, List<Node> specialNodes) {
+            NodeRow nodeRow = new NodeRow(Game.instance.player.spawnCost*totalRows, nodeTemplates, specialNodes, count);
             totalRows++;
             nodeRow.CreateButtons(nodeRowPrefab, nodeRowParents, nodePrefab);
             LayoutRebuilder.ForceRebuildLayoutImmediate(rowLayoutGroup);
