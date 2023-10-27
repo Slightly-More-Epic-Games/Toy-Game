@@ -9,7 +9,7 @@ namespace Encounter {
 
         private int index = -1;
         private Creature target = null;
-        private bool bufferedEnd;
+        private bool bufferedEnd;        
 
         [System.NonSerialized] public ItemTab itemTab;
 
@@ -28,10 +28,12 @@ namespace Encounter {
             this.target = null;
             this.index = -1;
             itemTab.SetInteractable(owner, true);
+            itemTab.SetFlipTarget(0);
         }
 
         public override void OnTurnEnd(Creature owner) {
             itemTab.SetInteractable(owner, true);
+            itemTab.SetFlipTarget(1);
             turnActive = false;
         }
 

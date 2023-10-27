@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using HoverUI;
+using System.Linq;
 
 namespace Encounter {
     public class ItemTab : MonoBehaviour
@@ -14,6 +15,20 @@ namespace Encounter {
 
         [SerializeField] private Button endTurn;
         [SerializeField] private TextMeshProUGUI imagination;
+
+        [SerializeField] private float flipDuration;
+        [SerializeField] private Sprite[] flipSprites;
+        private float flipTarget;
+        private float currentFlip;
+
+        private void Update() {
+            currentFlip = Mathf.MoveTowards(currentFlip, flipTarget, Time.deltaTime/flipDuration);
+            endTurn.image.sprite = flipSprites[Mathf.RoundToInt(currentFlip*(flipSprites.Length-1))];
+        }
+
+        public void SetFlipTarget(float target) {
+            flipTarget = target;
+        }
 
         public void Init(Creature owner, PlayerController playerController) {
             items = new HoverableUI[owner.items.Count];

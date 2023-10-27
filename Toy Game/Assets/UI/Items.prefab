@@ -312,6 +312,15 @@ MonoBehaviour:
   buttonPrefab: {fileID: 5633991825891541449, guid: 4ba2c16fe931e3e46a06812e9442f252, type: 3}
   endTurn: {fileID: 8944955822956477273}
   imagination: {fileID: 1010558548644038228}
+  flipDuration: 0.3333333
+  flipSprites:
+  - {fileID: 2058518826365189002, guid: a9bc6b35aae53ca4ab0d82456f0eb5e6, type: 3}
+  - {fileID: -8146795824090854712, guid: a9bc6b35aae53ca4ab0d82456f0eb5e6, type: 3}
+  - {fileID: 2349324931631338716, guid: a9bc6b35aae53ca4ab0d82456f0eb5e6, type: 3}
+  - {fileID: 6422988630184515983, guid: a9bc6b35aae53ca4ab0d82456f0eb5e6, type: 3}
+  - {fileID: 6935538869171524463, guid: a9bc6b35aae53ca4ab0d82456f0eb5e6, type: 3}
+  - {fileID: -2397304012607956678, guid: a9bc6b35aae53ca4ab0d82456f0eb5e6, type: 3}
+  - {fileID: -2939104159484533079, guid: a9bc6b35aae53ca4ab0d82456f0eb5e6, type: 3}
 --- !u!1 &4859691832448945832
 GameObject:
   m_ObjectHideFlags: 0
