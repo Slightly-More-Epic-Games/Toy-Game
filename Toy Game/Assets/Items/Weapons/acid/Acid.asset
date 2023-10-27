@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Acid
   m_EditorClassIdentifier: 
   ui:
-    name: Acid
+    name: The Sour Wyrm's Acid
     description: Every time Target takes damage, Target takes 2 extra damage
     icon: {fileID: 21300000, guid: 09c6e3ca57fe9a0418f3a1269f30a7a9, type: 3}
   imaginationCost: 7
