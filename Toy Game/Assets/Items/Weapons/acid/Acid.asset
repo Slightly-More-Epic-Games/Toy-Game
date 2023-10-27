@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc9384b0992e3d408972644676e6022, type: 3}
+  m_Name: Acid
+  m_EditorClassIdentifier: 
+  ui:
+    name: Acid
+    description: Every time Target takes damage, Target takes 2 extra damage
+    icon: {fileID: 21300000, guid: 09c6e3ca57fe9a0418f3a1269f30a7a9, type: 3}
+  imaginationCost: 7
+  healthCost: 2
+  priorities:
+    self:
+      heal: 0
+      damage: 0
+      buff: 0
+      debuff: 0
+    allies:
+      heal: 0
+      damage: 0
+      buff: 0
+      debuff: 0
+    enemies:
+      heal: 0
+      damage: 0.5
+      buff: 0
+      debuff: 1.5
+  targetWeights:
+    self: 0
+    ally: 0
+    enemy: 1
+  refresh: 2
+  triggers:
+  - {fileID: 11400000, guid: 15fc23040e83df54f971aad20c7cdbc2, type: 2}

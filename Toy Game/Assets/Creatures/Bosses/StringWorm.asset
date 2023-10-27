@@ -39,6 +39,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
   - {fileID: 11400000, guid: 65cd22a2b8dbe074385660517150940b, type: 2}
+  - {fileID: 11400000, guid: d85b8bc6ff8d5bf4b82511c29398721e, type: 2}
   spawnCost: 5
   priorities:
     self:
@@ -58,4 +59,5 @@ MonoBehaviour:
       debuff: 1
   dropPool:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  - {fileID: 11400000, guid: d85b8bc6ff8d5bf4b82511c29398721e, type: 2}
   isLarge: 1

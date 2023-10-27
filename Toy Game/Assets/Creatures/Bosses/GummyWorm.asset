@@ -43,7 +43,7 @@ MonoBehaviour:
     - {fileID: -1695173348, guid: ba8eb948bdd700e41a8691717293f9c3, type: 3}
     fps: 8
   ui:
-    name: Sour Gummy Wyrm, The Putrid
+    name: Sour Gummy Wyrm, The Corroded
   maxHealth: 25
   maxImagination: 25
   inventory:
@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
   - {fileID: 11400000, guid: 2b651985fd867a443aa6266f84222b2e, type: 2}
+  - {fileID: 11400000, guid: a9e5240dca3766a4c8acbedb77f26c9a, type: 2}
   spawnCost: 5
   priorities:
     self:
@@ -70,4 +71,5 @@ MonoBehaviour:
       debuff: 1
   dropPool:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  - {fileID: 11400000, guid: a9e5240dca3766a4c8acbedb77f26c9a, type: 2}
   isLarge: 1
