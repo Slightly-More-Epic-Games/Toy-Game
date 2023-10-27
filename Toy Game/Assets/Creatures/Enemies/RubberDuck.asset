@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
+  m_Name: RubberDuck
+  m_EditorClassIdentifier: 
+  spriteAnimation:
+    sprites:
+    - {fileID: 3756548404541059286, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: 6622202889385855014, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: -989526087005891712, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: -4466979482853982266, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: -8950311151364727326, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: 8215470619250658555, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: -5370665388478512192, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: 3371205776097964356, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: -83946847895944956, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: 4632345761830502241, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: 1836543624726785658, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    - {fileID: 2519983366620170865, guid: eb8a76724faea5241a0e896ebbb4a125, type: 3}
+    fps: 6
+  ui:
+    name: Rubber Duck
+  maxHealth: 10
+  maxImagination: 5
+  inventory:
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  - {fileID: 11400000, guid: 084067d114462074fbbabcedf3d19d39, type: 2}
+  - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}
+  - {fileID: 11400000, guid: c5f85c9810592d94d89c26293d95cdf1, type: 2}
+  spawnCost: 1.75
+  priorities:
+    self:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+    allies:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+    enemies:
+      heal: 1
+      damage: 1
+      buff: 1
+      debuff: 1
+  dropPool:
+  - {fileID: 11400000, guid: 084067d114462074fbbabcedf3d19d39, type: 2}
+  - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}
+  - {fileID: 11400000, guid: c5f85c9810592d94d89c26293d95cdf1, type: 2}
+  isLarge: 0

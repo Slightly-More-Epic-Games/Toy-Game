@@ -27,6 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d7b0bce8acd3fc42bed94f3d027f10b, type: 2}
   - {fileID: 11400000, guid: 402b993984976ed4e92ab1dadef7a4a8, type: 2}
   - {fileID: 11400000, guid: 1a8e56c65338db643ae5151d2d4950d8, type: 2}
+  - {fileID: 11400000, guid: 191fba24e5572c94cb75b3c8703e5725, type: 2}
   - {fileID: 11400000, guid: c728a800f1b47954e855b2f5ca2833f3, type: 2}
   - {fileID: 11400000, guid: 74b866404fbffbd41a7914bb78704e0f, type: 2}
   costMultiplier: 0.75
