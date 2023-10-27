@@ -42,8 +42,13 @@ namespace Encounter {
                 HoverableUI button = Instantiate(buttonPrefab, transform);
                 int i2 = new int();
                 i2 = i;
-                button.onClick.AddListener(delegate {playerController.SelectItem(i2);});
-                ItemUI itemUI = owner.items[i].GetItemUI();
+                ItemSlot itemSlot = owner.items[i];
+                if (itemSlot.IsPassive()) {
+                    button.transition = Selectable.Transition.None;
+                } else {
+                    button.onClick.AddListener(delegate {playerController.SelectItem(i2);});
+                }
+                ItemUI itemUI = itemSlot.GetItemUI();
                 button.SetInfo(itemUI);
                 button.image.sprite = itemUI.icon;
                 items[i] = button;
@@ -72,7 +77,7 @@ namespace Encounter {
         public void UpdateItemIcon(Creature owner, int index) {
             HoverableUI hoverableUI = items[index];
             ItemSlot item = owner.items[index];
-            hoverableUI.interactable = item.CanUse(owner);
+            hoverableUI.interactable = item.CanUse(owner) || item.IsPassive();
         }
 
         public void Select(int index) {

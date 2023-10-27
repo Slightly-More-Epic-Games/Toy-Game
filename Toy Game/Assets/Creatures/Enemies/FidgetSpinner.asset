@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteAnimation:
     sprites:
-    - {fileID: -1829296532128664596, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
-    - {fileID: 5341853220655593225, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
-    - {fileID: -3199192542441651740, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
     - {fileID: -7148832561162743542, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
+    - {fileID: -3199192542441651740, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
+    - {fileID: 5341853220655593225, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
+    - {fileID: -1829296532128664596, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
     fps: 12
   ui:
     name: Fidget Spinner

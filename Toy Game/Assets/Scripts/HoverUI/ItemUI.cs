@@ -21,19 +21,32 @@ namespace HoverUI {
         }
 
         public override string GetDescription() {
-            string text = description;
-            if (item == null) return text;
-            if (item.refresh == Item.Refresh.EncounterEnd) {
-                text += " - once per battle";
+            if (item == null) return description;
+
+            string text;
+            if (item.healthCost == -1 && item.imaginationCost == -1) {
+                text = "Passive:\n";
+            } else {
+                text = item.refresh switch {
+                    Item.Refresh.EventFinished => "On your Turn",
+                    Item.Refresh.TurnEnd => "Once per Turn",
+                    Item.Refresh.EncounterEnd => "Once per Encounter",
+                    Item.Refresh.Never => "Once per Game",
+                    _ => ""
+                };
+                string split = " use for ";
+
+                if (item.imaginationCost > 0) {
+                    text += split+item.imaginationCost+" Imagination";
+                    split = " and ";
+                }
+                if (item.healthCost > 0) {
+                    text += split+item.healthCost+" Health";
+                }
+                text += ":\n";
             }
-            string split = "\n";
-            if (item.imaginationCost > 0) {
-                text += split+item.imaginationCost+" Imagination";
-                split = " - ";
-            }
-            if (item.healthCost > 0) {
-                text += split+item.healthCost+" Health";
-            }
+            text += description;
+
             return text;
         }
     }

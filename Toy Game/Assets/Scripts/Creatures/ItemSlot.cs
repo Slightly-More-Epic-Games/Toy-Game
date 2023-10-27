@@ -50,6 +50,10 @@ public class ItemSlot {
         return !used && item.CanUse(owner);
     }
 
+    public bool IsPassive() {
+        return item.healthCost == -1 && item.imaginationCost == -1;
+    }
+
     public Priorities GetPriorities() {
         return item.priorities;
     }
