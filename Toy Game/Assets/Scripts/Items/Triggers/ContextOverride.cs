@@ -23,7 +23,7 @@ namespace Items.Triggers {
                 expression ??= new Expression(valueOverride.Replace("x", "[X]"));
                 expression.Parameters["X"] = context.value;
                 float result = float.Parse(expression.Evaluate().ToString(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture);
-                newValue = Mathf.RoundToInt(result);
+                newValue = Mathf.CeilToInt(result);
             }
 
             List<Creature> sources = context.GetTargets(source, owner);

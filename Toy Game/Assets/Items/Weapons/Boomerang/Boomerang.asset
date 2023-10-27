@@ -16,8 +16,8 @@ MonoBehaviour:
     name: Boomerang
     description: Deal 1 damage to Target, then 2 more damage at end of Targets turn
     icon: {fileID: 21300000, guid: 36d8d7e27e6d12143bb20c539bf71f11, type: 3}
-  imaginationCost: 2
-  healthCost: 1
+  imaginationCost: 3
+  healthCost: 0
   priorities:
     self:
       heal: 0

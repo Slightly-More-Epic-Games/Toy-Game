@@ -44,14 +44,14 @@ MonoBehaviour:
     fps: 8
   ui:
     name: Sour Gummy Wyrm, The Putrid
-  maxHealth: 50
-  maxImagination: 50
+  maxHealth: 25
+  maxImagination: 25
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
   - {fileID: 11400000, guid: 0da52b1db0c82814aa02b6ba2736edd5, type: 2}
   - {fileID: 11400000, guid: 2b651985fd867a443aa6266f84222b2e, type: 2}
-  spawnCost: 1
+  spawnCost: 5
   priorities:
     self:
       heal: 1
