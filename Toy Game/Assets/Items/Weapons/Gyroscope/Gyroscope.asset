@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Gyroscope
-    description: Deal 1 damagge to Target, heal 1 health
+    description: Deal 1 damage to Target, heal 1 health
     icon: {fileID: -7619616464827048738, guid: 0b8b1c3e2a3cd724abb9757f859e030b, type: 3}
   imaginationCost: 3
   healthCost: 0
