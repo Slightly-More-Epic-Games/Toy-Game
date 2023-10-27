@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
-  m_Name: WaterJug
+  m_Name: HotChocolate
   m_EditorClassIdentifier: 
   spriteAnimation:
     sprites:
-    - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
+    - {fileID: -1715043160, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
+    - {fileID: -810979459, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
+    - {fileID: 567364654, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
+    - {fileID: 2120412041, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
     fps: 1
   ui:
-    name: Water Jug
+    name: Hot Chocolate
   maxHealth: 8
   maxImagination: 8
   inventory:

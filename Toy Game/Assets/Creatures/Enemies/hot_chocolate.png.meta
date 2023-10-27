@@ -98,7 +98,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: water_jug_0
+      name: hot_chocolate_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e959fa7805aff2c428dac7b6485a50a2
+      internalID: -1715043160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hot_chocolate_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5044c19bfa8c81b48b17e718b28defb3
+      internalID: -810979459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hot_chocolate_2
       rect:
         serializedVersion: 2
         x: 0
@@ -112,8 +154,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d228268b5be2cc149a4d558448b66527
-      internalID: 1515525029
+      spriteID: 6b7e69a4fb488b1408846d3b78f6d456
+      internalID: 567364654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hot_chocolate_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7c4f6b96ba598478a490af74468aa2
+      internalID: 2120412041
       vertices: []
       indices: 
       edges: []
@@ -129,7 +192,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      water_jug_0: 1515525029
+      hot_chocolate_0: -1715043160
+      hot_chocolate_1: -810979459
+      hot_chocolate_2: 567364654
+      hot_chocolate_3: 2120412041
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
