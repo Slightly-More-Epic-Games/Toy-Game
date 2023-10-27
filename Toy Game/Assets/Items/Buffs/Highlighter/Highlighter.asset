@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Highlighter
-    description: Next time the target deals damage, deal the same damage again to
-      all of targets enemies as well
+    description: Next time Target deals damage, all of Targets Allies gain 1 health
     icon: {fileID: 21300000, guid: 84baa9be386a5a04b80ba4dead6b99bf, type: 3}
   imaginationCost: 4
   healthCost: 1

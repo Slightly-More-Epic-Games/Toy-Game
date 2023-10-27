@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Highlighted
-    description: Next time this creature deals damage, the same amount of damage
-      is dealt again to all of this creature's enemies
+    description: Next time this creature deals damage, all of this creature's allies
+      gain 1 health
     icon: {fileID: 21300000, guid: 84baa9be386a5a04b80ba4dead6b99bf, type: 3}
   activateOn: 0
   target: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
     resultOnSuccess: 3
   cancelEvent: 0
   overrides:
-  - action: 2
+  - action: 3
     source: 0
-    target: 7
-    valueOverride: 
+    target: 9
+    valueOverride: 1

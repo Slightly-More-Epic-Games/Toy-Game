@@ -17,8 +17,8 @@ MonoBehaviour:
     description: Until Target's next turn starts, all damage Target takes is instead
       healed at half the amount
     icon: {fileID: 21300000, guid: 9ae0d6e4f46fc794f80dac84f22534f1, type: 3}
-  imaginationCost: 6
-  healthCost: 4
+  imaginationCost: 7
+  healthCost: 2
   priorities:
     self:
       heal: 1.5
