@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteAnimation:
     sprites:
-    - {fileID: 1515525029, guid: de76e72f80a9aed4bb6174855bf72a06, type: 3}
-    fps: 1
+    - {fileID: -5115618752126089108, guid: 49c5f81d427eab143808b07e158c802c, type: 3}
+    - {fileID: -5050664382621690000, guid: 49c5f81d427eab143808b07e158c802c, type: 3}
+    - {fileID: -5937766766644145194, guid: 49c5f81d427eab143808b07e158c802c, type: 3}
+    - {fileID: 6213080392227812279, guid: 49c5f81d427eab143808b07e158c802c, type: 3}
+    fps: 5
   ui:
     name: Player
   maxHealth: 25
