@@ -42,4 +42,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a2d4bd60e736b024ca52ada7f83d5919, type: 2}
   - {fileID: 11400000, guid: 4d606adffa220f045b3d8a7dcb85c9d4, type: 2}
   - {fileID: 11400000, guid: 89958b3ada42df041875be1d8f0191d1, type: 2}
+  - {fileID: 11400000, guid: 4a8e35471e2926c40886d2115607effb, type: 2}
   sellCount: 4

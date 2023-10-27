@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2e2d59904769045a681bf8c4b1f557, type: 3}
+  m_Name: FidgetSpinner
+  m_EditorClassIdentifier: 
+  spriteAnimation:
+    sprites:
+    - {fileID: -1829296532128664596, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
+    - {fileID: 5341853220655593225, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
+    - {fileID: -3199192542441651740, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
+    - {fileID: -7148832561162743542, guid: 06b1cfc3f3c18674e9fa34cdaf1355a6, type: 3}
+    fps: 12
+  ui:
+    name: Fidget Spinner
+  maxHealth: 12
+  maxImagination: 5
+  inventory:
+  - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
+  - {fileID: 11400000, guid: c24734111af4e764fa714ac361feab07, type: 2}
+  - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
+  - {fileID: 11400000, guid: 0725921ed3b2eae49b858e09f1e46358, type: 2}
+  - {fileID: 11400000, guid: 4a8e35471e2926c40886d2115607effb, type: 2}
+  spawnCost: 2
+  priorities:
+    self:
+      heal: 1.1
+      damage: 1
+      buff: 1.1
+      debuff: 1
+    allies:
+      heal: 1.1
+      damage: 1
+      buff: 1.1
+      debuff: 1
+    enemies:
+      heal: 1
+      damage: 0.9
+      buff: 1
+      debuff: 1
+  dropPool:
+  - {fileID: 11400000, guid: c24734111af4e764fa714ac361feab07, type: 2}
+  - {fileID: 11400000, guid: 0725921ed3b2eae49b858e09f1e46358, type: 2}
+  - {fileID: 11400000, guid: dce03d2a8ce0f5c458fc7c9bd907c4c4, type: 2}
+  - {fileID: 11400000, guid: 4a8e35471e2926c40886d2115607effb, type: 2}
+  isLarge: 0
