@@ -640,7 +640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Battle Won!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48c939c27b5be4643a7cb8c71ba08c25, type: 2}
   m_sharedMaterial: {fileID: -27456238796767909, guid: 48c939c27b5be4643a7cb8c71ba08c25, type: 2}
@@ -763,6 +763,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardsParent: {fileID: 1313445148}
   rewardUIPrefab: {fileID: 6741715771319374651, guid: c484f5329a559344f806d666e3a710be, type: 3}
+  winTitle: {fileID: 1502691964}
+  winPrompt: {fileID: 2061808957}
+  regularWinTitle: Battle Won!
+  regularWinPrompt: 'Choose Reward:'
+  largeWinTitle: Boss Defeated!
+  largeWinPrompt: 'Healed Fully, Choose Reward:'
 --- !u!1 &2061808955
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Choose Reward:'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 643ff029b27d4824bace8176c8ea46d7, type: 2}
   m_sharedMaterial: {fileID: 5503313291947769778, guid: 643ff029b27d4824bace8176c8ea46d7, type: 2}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Items;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,14 @@ namespace Encounter {
 
         private Item chosenItem;
 
+        [SerializeField] private TextMeshProUGUI winTitle;
+        [SerializeField] private TextMeshProUGUI winPrompt;
+
+        [SerializeField] private string regularWinTitle;
+        [SerializeField] private string regularWinPrompt;
+        [SerializeField] private string largeWinTitle;
+        [SerializeField] private string largeWinPrompt;
+
         private void Start() {
             Map.EncounterNode encounterNode = (Map.EncounterNode)Map.Manager.instance.currentNode;
 
@@ -23,7 +32,8 @@ namespace Encounter {
                 AddItemsToPool(creature, creature.isLarge ? largePool : pool);
             }
 
-            uis = new RewardUI[Mathf.Min(pool.Count, encounterNode.rewards)+1];
+            int rewards = Mathf.Min(Mathf.Min(pool.Count, encounterNode.rewards)+1, 3);
+            uis = new RewardUI[rewards];
 
             int large = largePool.Count;
 
@@ -36,7 +46,17 @@ namespace Encounter {
                 AddReward(item, i);
             }
 
-            AddHealReward();
+            if (rewards != encounterNode.rewards) {
+                AddHealReward();
+            }
+
+            if (large == 0) {
+                winTitle.text = regularWinTitle;
+                winPrompt.text = regularWinPrompt;
+            } else {
+                winTitle.text = largeWinTitle;
+                winPrompt.text = largeWinPrompt;
+            }
         }
 
         private void AddHealReward() {
