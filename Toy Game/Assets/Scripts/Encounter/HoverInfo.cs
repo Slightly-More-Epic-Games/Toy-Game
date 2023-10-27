@@ -13,12 +13,22 @@ public class HoverInfo : MonoBehaviour
     [SerializeField] private RectTransform layout;
     [SerializeField] private RectTransform anchoring;
 
-    public void HoverEnter(UIInfo uIInfo, Transform position, Vector3 offset) {
+    private Transform obj;
+
+    private void Update() {
+        if (obj == null) {
+            //if the currently hovered object dissapears, hide the hover info
+            HoverExit();
+        }
+    }
+
+    public void HoverEnter(UIInfo uIInfo, Vector3 position, Vector3 offset, Transform obj) {
         if (uIInfo == null) return;
         string name = uIInfo.GetName();
         if (name == "") return;
+        this.obj = obj;
         gameObject.SetActive(true);
-        transform.position = position.position+offset;
+        transform.position = position+offset;
         anchoring.pivot = new Vector2(0.5f, offset.y >= 0 ? 0 : 1);
         title.text = name;
         description.text = uIInfo.GetDescription();

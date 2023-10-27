@@ -29,4 +29,4 @@ MonoBehaviour:
   - action: 4
     source: 0
     target: 1
-    valueOverride: 2
+    valueOverride: 1

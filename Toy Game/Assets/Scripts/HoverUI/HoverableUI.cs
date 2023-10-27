@@ -13,7 +13,7 @@ namespace HoverUI {
 
         public override void OnPointerEnter(PointerEventData eventData) {
             base.OnPointerEnter(eventData);
-            Game.instance.hoverInfo.HoverEnter(uIInfo, transform, offset);
+            Game.instance.hoverInfo.HoverEnter(uIInfo, transform.position, offset, transform);
         }
 
         public override void OnPointerExit(PointerEventData eventData) {
