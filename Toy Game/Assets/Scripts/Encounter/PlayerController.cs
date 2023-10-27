@@ -40,7 +40,9 @@ namespace Encounter {
             itemTab.SetInteractable(owner, true);
             itemTab.SetFlipTarget(1);
             itemTab.Select(-1);
-            target.creatureVisual.SetTargeted(true, 0.5f);
+            if (target != null) {
+                target.creatureVisual.SetTargeted(true, 0.5f);
+            }
             turnActive = false;
         }
 
