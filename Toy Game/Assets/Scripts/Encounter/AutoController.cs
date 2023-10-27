@@ -26,8 +26,8 @@ namespace Encounter {
                 } else if (useItemAt < Time.time) {
                     useItemAt = Time.time + itemDelay;
                     bool success = UseBestItem(owner, turnNumber);
-                    //once a boss has been killed, give creatures a chance to use multiple items
-                    if (!success || Random.Range(0,4) >= Mathf.Min(Map.Manager.instance.bossesKilled, 2)) {
+                    //once 2 bosses have been killed, give creatures a chance to use multiple items
+                    if (!success || Random.Range(0,4) >= Mathf.Min(Map.Manager.instance.bossesKilled-1, 2)) {
                         readyToEnd = true;
                     }
                 }
