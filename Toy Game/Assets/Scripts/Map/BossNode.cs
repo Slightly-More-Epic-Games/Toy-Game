@@ -13,6 +13,7 @@ namespace Map {
         public int minionsPerLoop;
 
         public override List<Creature> GetEnemies() {
+            // boss node doesnt use budget, instead it just always spawns the boss, then also spawns an increasing number of minions
             List<Creature> list = new List<Creature>();
 
             list.Add(boss);

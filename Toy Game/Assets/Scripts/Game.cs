@@ -65,6 +65,7 @@ public class Game : MonoBehaviour
     public void LoadGameScene(GameScene scene) {
         // loads the specified scene and automatically unloads the last one
         
+        // by linking each scene with an enum, it ensures any bit of code that calles LoadGameScene is loading a valid scene
         string newScene = scene switch {
             GameScene.Encounter => "Encounter",
             GameScene.Map => "Map",

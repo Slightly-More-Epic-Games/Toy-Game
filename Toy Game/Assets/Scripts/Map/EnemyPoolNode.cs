@@ -15,9 +15,20 @@ namespace Map {
         public override List<Creature> GetEnemies() {
             List<Creature> list = new List<Creature>();
 
+            // nodes have a "budget" which increases over time
+            // this is then used in a funky algorithm
+            
+            // until you run out of budget or hit the spawn limit:
+            // - get a random affordable creature out of remaining budget
+            // - increase a multiplier to futurer creature costs
+
+            // this means more difficult enemies will appear later on, and that more enemies will appear in general
+            // the increasing multiplier for each new creature means that the amount of creatures does not increase linearly
+            // helping with balance
+
             float multiplier = costMultiplier;
             while (budget > 0 && list.Count < spawnLimit) {
-                //dividing budget by cost multiplier is the same as multipling the cost
+                // dividing budget by cost multiplier is the same as multipling the cost
                 Creature creature = GetCreature(budget/multiplier);
                 if (creature == null) break;
                 budget -= creature.spawnCost*multiplier;

@@ -19,6 +19,8 @@ namespace Map {
         private SpriteAnimation currentAnimation;
         private bool updateInteractable = true;
 
+        // monobehaviours and scriptable objects are instantiated so dont really have constructors
+        // therefore lots of them (like this one) instead have an initialise method
         public void Initialise(Node node, NodeRow nodeRow, int index) {
             this.node = node;
             this.nodeRow = nodeRow;
@@ -43,6 +45,8 @@ namespace Map {
         }
 
         public void SetAnimation(SpriteAnimation animation) {
+            // this is used to make the passed nodes empty
+            // it is slightly ugly state logic though
             currentAnimation = animation;
             updateInteractable = false;
         }

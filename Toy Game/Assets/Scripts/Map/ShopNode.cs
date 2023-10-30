@@ -12,6 +12,9 @@ namespace Map {
         public int sellCount;
 
         public List<Item> GetItems() {
+            // gets a random list thats sellCount long from itemPool - with no duplicates
+            // its probably more memory efficent to shuffle then take the first sellCount values
+
             List<Item> itemTemp = new List<Item>(itemPool);
             List<Item> items = new List<Item>(sellCount);
 

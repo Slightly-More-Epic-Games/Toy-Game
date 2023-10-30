@@ -44,7 +44,7 @@ MonoBehaviour:
     fps: 8
   ui:
     name: Sour Gummy Wyrm, The Corroded
-  maxHealth: 25
+  maxHealth: 24
   maxImagination: 25
   inventory:
   - {fileID: 11400000, guid: f42e8f86a296d6844a066d366800d540, type: 2}
