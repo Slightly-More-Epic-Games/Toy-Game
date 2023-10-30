@@ -9,6 +9,8 @@ namespace Items.Triggers {
     {
         public List<ContextOverride> overrides;
 
+        // an override trigger takes the current context, and then creates a new context based on the current ones values
+        // this is done using ContextOverrides
         protected override void Activate(Context context, Creature owner) {
             foreach (ContextOverride contextOverride in overrides) {
                 contextOverride.Apply(context, owner);

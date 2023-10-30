@@ -5,6 +5,9 @@ using Encounter;
 using Items.Conditions;
 
 namespace Items {
+    // wrapper class for a Condition scriptable object to handle passing in parameters and doing some preemptive checks
+    // this is just a serializable class, since it will vary greatly per trigger, and doesnt really need to be more specific such that a scriptable object would be more appropriate
+
     [System.Serializable]
     public class ConditionData
     {
