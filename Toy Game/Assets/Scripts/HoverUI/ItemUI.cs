@@ -23,6 +23,10 @@ namespace HoverUI {
         public override string GetDescription() {
             if (item == null) return description;
 
+            // magically format the description with the item's cost
+            // this means if a cost is changed the description wont need to be updated
+            // it will still need to be updated if stats (eg how much damage) is changed
+
             string text;
             if (item.healthCost == -1 && item.imaginationCost == -1) {
                 text = "Passive:\n";
