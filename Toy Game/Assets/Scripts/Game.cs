@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
     [SerializeField] private AudioSource music;
 
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject pauseButton;
 
     void Start() {
         // this means that other classes can get a reference to Game without needing to be given one
@@ -28,7 +29,7 @@ public class Game : MonoBehaviour
         // ...but we didnt end up doing this
         player = Instantiate(classes[0]);
         player.Initialise();
-        
+
         LoadGameScene(GameScene.Map);
     }
 
@@ -42,6 +43,7 @@ public class Game : MonoBehaviour
         bool paused = !pauseScreen.activeSelf;
         
         pauseScreen.SetActive(paused);
+        pauseButton.SetActive(!paused);
         // pausing the game sets the timescale to 0
         // this freezes animations
         Time.timeScale = paused ? 0 : 1;
