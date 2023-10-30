@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 665345170}
   - component: {fileID: 665345171}
   m_Layer: 0
-  m_Name: Room
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
