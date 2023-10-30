@@ -32,7 +32,10 @@ public class CreatureVisual : MonoBehaviour
     }
 
     public void UpdateVisual(Creature owner) {
+        // update health bar position
         healthBar.anchorMax = new Vector2(Mathf.Max(0f, owner.health/(float)owner.maxHealth), 1f);
+
+        // update list of triggers above each creatures head
         foreach (Transform child in triggerParent) {
             Destroy(child.gameObject);
         }
@@ -41,10 +44,13 @@ public class CreatureVisual : MonoBehaviour
             ui.SetInfo(trigger.ui);
             ui.image.sprite = trigger.ui.icon;
         }
+
+        // update healthbar text (the creatures name and its current health)
         info.text = ui.GetName();
     }
 
     public void SetTargeted(bool active, float transparency) {
+        // when a creature is targetted, a little box appears around it
         targetedIndicator.gameObject.SetActive(active);
         if (active) targetedIndicator.color = new Color(1, 1, 1, transparency);
     }

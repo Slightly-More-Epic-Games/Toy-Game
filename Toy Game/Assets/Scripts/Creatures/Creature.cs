@@ -55,19 +55,28 @@ public abstract class Creature : ScriptableObject {
 
     public void UseItem(int index, Creature target) {
         ItemSlot item = items[index];
+        // when using an item, first take the cost of the item
         item.PrepareToUse(this, target, index);
+        // then get the controller to create the little item throw animation
         controller.UseItemPhysically(item, this, target, index);
     }
 
     public void OnEvent(Context context) {
+        // when an event happens, first go through all items, since some items may create a trigger when something happens
+        // (eg the Teddy Bear creates a "gain imagination" trigger)
         foreach (ItemSlot item in items) {
             item.Event(context, this);
         }
+
+        // then go throuhh all triggers
+        // some of these triggers will either dissapear, or create more triggers
+        // this means a foreach (Trigger trigger in triggers) {} cant be used
 
         bool cancelled = false;
         for (int i = 0; i < triggers.Count; i++) {
             Trigger trigger = triggers[i];
             Trigger.Result result = trigger.RunTrigger(context, this);
+            // if the trigger has ended, remove it
             if (result.ended) {
                 triggers.RemoveAt(i);
                 i--;
@@ -75,16 +84,21 @@ public abstract class Creature : ScriptableObject {
             cancelled |= result.cancelled;
         }
 
+        // if no triggers caused the event to get cancelled, process it
         if (!cancelled) {
             ProcessEvent(context);
         }
     }
 
     public virtual void EventFinished() {
+        // after the encounter manager has finished processing a chain of events, this is called
+        // nothing in this method should ever call ProcessEvents, for fear of an infinite loop
         foreach (Trigger trigger in triggers) {
+            // this is when triggers are allowed to activate again
             trigger.EventFinished();
         }
 
+        // limit health and imaginaton
         if (health > maxHealth) {
             health = maxHealth;
         }
@@ -96,17 +110,23 @@ public abstract class Creature : ScriptableObject {
             item.EventFinished(this);
         }
 
+        // update health bar and controller
         creatureVisual.UpdateVisual(this);
         controller.OnEventsFinished(this);
     }
 
     protected void ProcessEvent(Context context) {
+        // provided an event hasnt been cancelled, its now time to process it!
+        // this is just a massive switch statement that calls other methods
+        // nothing needs explaining
         switch (context.action) {
             case Action.ItemUsed:
             case Action.AnyItemUsed:
                 break;
             case Action.DealDamage:
                 if (context.source != this) return;
+                // other than this, the deal damage event creates a lose health event
+                // this distinction is useful for some items (eg the hand mirror)
                 Manager.instance.AddEventToProcess(new Context(Action.LoseHealth, context.source, context.target, context.value));
                 break;
             case Action.GainHealth:
@@ -154,9 +174,12 @@ public abstract class Creature : ScriptableObject {
     public bool UpdateDeadness() {
         if (isDead) return true;
         if (health > 0) return false;
+        // last stand can be used to heal a creature when it dies, preventing death
         OnEvent(new Context(Action.LastStand, this, this, health));
         if (health > 0) return false;
+        // if nothing heals a creature on last stand, an AnyDeath event is made, which cant be stopped
         Manager.instance.CreatureDied(this, lastAttacker);
+        // most of this code is just making sure everything gets cleared
         OnDeath();
         isDead = true;
         Destroy(this);
