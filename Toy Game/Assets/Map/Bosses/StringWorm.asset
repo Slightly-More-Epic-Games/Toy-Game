@@ -39,5 +39,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74b866404fbffbd41a7914bb78704e0f, type: 2}
   - {fileID: 11400000, guid: 02f080800c5867541a61930af2c5708f, type: 2}
   - {fileID: 11400000, guid: d82afeabab51d164592983f3fb47a8ee, type: 2}
-  startingMinions: 2
+  startingMinions: 3
   minionsPerLoop: 2
