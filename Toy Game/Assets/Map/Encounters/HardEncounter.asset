@@ -22,6 +22,7 @@ MonoBehaviour:
     fps: 1
   scene: 0
   budgetToAppear: 3
+  music: {fileID: 8300000, guid: 29a5910fcb3bc644a99f7927a4898e63, type: 3}
   rewards: 2
   enemyPool:
   - {fileID: 11400000, guid: 5d7b0bce8acd3fc42bed94f3d027f10b, type: 2}

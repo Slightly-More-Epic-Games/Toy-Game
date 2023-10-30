@@ -30,6 +30,7 @@ MonoBehaviour:
     fps: 12
   scene: 0
   budgetToAppear: 0
+  music: {fileID: 8300000, guid: d1bc3e0a6531f274592c4b8f8dab555a, type: 3}
   rewards: 3
   boss: {fileID: 11400000, guid: b1beb37cd93222b4d9432e29e84bd1cc, type: 2}
   minionPool:

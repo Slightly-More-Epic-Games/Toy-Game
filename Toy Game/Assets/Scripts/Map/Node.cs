@@ -9,8 +9,10 @@ namespace Map {
         
         public Game.GameScene scene;
         public float budgetToAppear;
-        
         protected float budget;
+
+        public AudioClip music;
+        
 
         [System.NonSerialized] public List<int> connections;
         [System.NonSerialized] public NodeVisual nodeVisual;

@@ -15,6 +15,8 @@ public class Game : MonoBehaviour
 
     public HoverInfo hoverInfo;
 
+    [SerializeField] private AudioSource music;
+
     [SerializeField] private GameObject pauseScreen;
 
     void Start() {
@@ -72,6 +74,11 @@ public class Game : MonoBehaviour
 
         SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
         currentScene = newScene;
+    }
+
+    public void Play(AudioClip audioClip) {
+        music.clip = audioClip;
+        music.Play();
     }
 
     public enum GameScene {

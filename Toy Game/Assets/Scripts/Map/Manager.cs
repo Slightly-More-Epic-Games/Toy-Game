@@ -36,6 +36,9 @@ namespace Map {
 
         [SerializeField] private SpriteAnimation empty;
 
+        [SerializeField] private AudioClip mapMusic;
+
+
         private void Awake() {
             if (instance != null) {
                 DestroyManager();
@@ -133,7 +136,11 @@ namespace Map {
                 Game.instance.player.health = Game.instance.player.maxHealth;
                 CreateMap();
             }
+
+            Game.instance.Play(mapMusic);
+        
         }
+
 
         public void Play(NodeRow nodeRow, Node node, int index) {
             nodeRows[currentLevel].current = -1;
@@ -141,6 +148,7 @@ namespace Map {
             currentLevel++;
             currentNode = node;
             walking = true;
+            Game.instance.Play(node.music);
         }
     }
 }
