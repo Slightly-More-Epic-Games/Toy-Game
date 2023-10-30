@@ -20,9 +20,15 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject pauseScreen;
 
     void Start() {
+        // this means that other classes can get a reference to Game without needing to be given one
         instance = this;
+
+        // the game code supports multiple player classes (eg warrior, wizard etc)
+        // these can have different max health, starting items, sprites etc
+        // ...but we didnt end up doing this
         player = Instantiate(classes[0]);
         player.Initialise();
+        
         LoadGameScene(GameScene.Map);
     }
 
@@ -36,10 +42,13 @@ public class Game : MonoBehaviour
         bool paused = !pauseScreen.activeSelf;
         
         pauseScreen.SetActive(paused);
+        // pausing the game sets the timescale to 0
+        // this freezes animations
         Time.timeScale = paused ? 0 : 1;
     }
 
     public void Quit() {
+        // make sure time unpauses
         Time.timeScale = 1;
 
         if (currentScene != null) {
@@ -47,10 +56,13 @@ public class Game : MonoBehaviour
         }
 
         if (Map.Manager.instance != null) Map.Manager.instance.DestroyManager();
+        // because the scene isnt loading additively, unity automatically unloads the Game scene
         SceneManager.LoadScene("MainMenu");
     }
 
     public void LoadGameScene(GameScene scene) {
+        // loads the specified scene and automatically unloads the last one
+        
         string newScene = scene switch {
             GameScene.Encounter => "Encounter",
             GameScene.Map => "Map",
@@ -60,6 +72,8 @@ public class Game : MonoBehaviour
             _ => "Map",
         };
 
+        // when returning to the map it needs to be updated (since the map scene doesnt fully unload)
+        // likewise when leaving the map it needs to be hidden
         if (Map.Manager.instance != null) Map.Manager.instance.SetManagerActive(newScene == "Map");
 
         if (currentScene == newScene) return;
@@ -68,9 +82,10 @@ public class Game : MonoBehaviour
             SceneManager.UnloadSceneAsync(currentScene);
         }
         
+        // clear up some things that cause issues if theyre not cleared when scenes load
         hoverInfo.HoverExit();
-
         Encounter.Manager.instance = null;
+
 
         SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
         currentScene = newScene;

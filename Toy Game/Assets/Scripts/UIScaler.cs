@@ -12,6 +12,7 @@ public class UIScaler : MonoBehaviour
     }
 
     private void Update() {
+        // world space canvases dont support scaling to screen size, however its easy enough to just hardcode the one case we need to use
         if (Screen.height != lastHeight) {
             SetSize();
         }

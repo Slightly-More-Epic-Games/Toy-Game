@@ -138,9 +138,7 @@ namespace Map {
             }
 
             Game.instance.Play(mapMusic);
-        
         }
-
 
         public void Play(NodeRow nodeRow, Node node, int index) {
             nodeRows[currentLevel].current = -1;
@@ -148,6 +146,7 @@ namespace Map {
             currentLevel++;
             currentNode = node;
             walking = true;
+            // this happens before the next scene is actually loaded, which makes it sound more seamless
             Game.instance.Play(node.music);
         }
     }
