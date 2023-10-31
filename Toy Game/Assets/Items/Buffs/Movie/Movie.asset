@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Movie
-    description: All Creatures gain 3 imagination, Allies lose 1 health
+    description: All Creatures get full imagination
     icon: {fileID: -2952542141569679838, guid: 4bc5f9df16521ca4fbe069bb78aaa801, type: 3}
-  imaginationCost: 1
-  healthCost: 0
+  imaginationCost: 0
+  healthCost: 4
   priorities:
     self:
       heal: 0
-      damage: 0.5
-      buff: 0
+      damage: 1
+      buff: 1
       debuff: 0
     allies:
       heal: 0
-      damage: 0.5
+      damage: 0
       buff: 1
       debuff: 0
     enemies:
@@ -37,8 +37,7 @@ MonoBehaviour:
   targetWeights:
     self: 1
     ally: 1
-    enemy: 1
+    enemy: 0
   refresh: 2
   triggers:
   - {fileID: 11400000, guid: 9b8b2ee90b7d8664181d29d26ab5dde1, type: 2}
-  - {fileID: 11400000, guid: eb874ba9931bb574bbd8bd0b9ca52d22, type: 2}
