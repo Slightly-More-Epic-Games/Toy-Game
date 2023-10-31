@@ -29,7 +29,7 @@ MonoBehaviour:
     condition: {fileID: 0}
     parameters: 
     resultOnSuccess: 1
-  cancelEvent: 1
+  cancelMode: 1
   overrides:
   - action: 3
     source: 0

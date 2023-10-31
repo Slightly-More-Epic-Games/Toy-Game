@@ -32,11 +32,13 @@ namespace Items.Triggers {
             List<Creature> sources = context.GetTargets(source, owner);
             List<Creature> targets = context.GetTargets(target, owner);
 
+            Action newAction = action == Action.Unchanged ? context.action : action;
+
             // create the new event and add it to the list of events to process in the current processingness
             // each source targets each target with the new action and new value
             foreach (Creature sourceCreature in sources) {
                 foreach (Creature targetCreature in targets) {
-                    Manager.instance.AddEventToProcess(new Context(action, sourceCreature, targetCreature, newValue));
+                    Manager.instance.AddEventToProcess(new Context(newAction, sourceCreature, targetCreature, newValue));
                 }
             }
         }

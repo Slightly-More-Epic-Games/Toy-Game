@@ -19,6 +19,7 @@ namespace Encounter {
         EncounterStart,
         EncounterEnd,
         LastStand,
-        AnyDeath
+        AnyDeath,
+        Unchanged //used for context overrides - does nothing if used as a regular event
     }
 }

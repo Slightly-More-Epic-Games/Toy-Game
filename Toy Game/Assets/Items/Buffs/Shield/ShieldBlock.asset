@@ -29,7 +29,7 @@ MonoBehaviour:
     condition: {fileID: 11400000, guid: eb1771ea52147d44d84a749714159d03, type: 2}
     parameters: 
     resultOnSuccess: 2
-  cancelEvent: 1
+  cancelMode: 1
   overrides:
   - action: 4
     source: 0

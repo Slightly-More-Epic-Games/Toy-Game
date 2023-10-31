@@ -24,9 +24,9 @@ MonoBehaviour:
     condition: {fileID: 0}
     parameters: 
     resultOnSuccess: 2
-  cancelEvent: 0
+  cancelMode: 2
   overrides:
   - action: 4
     source: 0
     target: 1
-    valueOverride: 1
+    valueOverride: x+1

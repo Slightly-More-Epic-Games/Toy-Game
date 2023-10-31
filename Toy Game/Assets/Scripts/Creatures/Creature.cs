@@ -35,6 +35,9 @@ public abstract class Creature : ScriptableObject {
 
     public bool isLarge;
 
+    private List<Trigger> triggersToActivate = new List<Trigger>();
+    private List<Trigger> triggersToRemove = new List<Trigger>();
+
     public void Initialise() {
         health = maxHealth;
         imagination = 0;
@@ -68,26 +71,53 @@ public abstract class Creature : ScriptableObject {
             item.Event(context, this);
         }
 
-        // then go throuhh all triggers
+        // then go through all triggers
         // some of these triggers will either dissapear, or create more triggers
         // this means a foreach (Trigger trigger in triggers) {} cant be used
 
-        bool cancelled = false;
+        triggersToActivate.Clear();
+        triggersToRemove.Clear();
+
+        Trigger.CancelMode cancelMode = Trigger.CancelMode.None;
         for (int i = 0; i < triggers.Count; i++) {
             Trigger trigger = triggers[i];
             Trigger.Result result = trigger.RunTrigger(context, this);
             // if the trigger has ended, remove it
             if (result.ended) {
-                triggers.RemoveAt(i);
-                i--;
+                triggersToRemove.Add(trigger);
             }
-            cancelled |= result.cancelled;
+
+            cancelMode = Trigger.GetDominantCancelMode(cancelMode, result.cancelMode);
+            if (cancelMode == Trigger.CancelMode.Replace) {
+                break;
+            }
+        }
+
+        // some triggers (eg glue) want to replace the context with a new version
+        // if this was done by adding another event normally, then items like umbrellas would block the first cancelled event, and not the second
+        // triggers with such a flag marked do activate regardless of any other cancelAlls however
+        if (cancelMode != Trigger.CancelMode.Replace) {
+            foreach (Trigger trigger in triggersToRemove) {
+                triggers.Remove(trigger);
+            }
+        }
+
+        foreach (Trigger trigger in triggersToActivate) {
+            if (cancelMode == Trigger.CancelMode.Replace) {
+                trigger.AllowActivations();
+            } else {
+                trigger.Activate(context, this);
+            }
         }
 
         // if no triggers caused the event to get cancelled, process it
-        if (!cancelled) {
+        if (cancelMode == Trigger.CancelMode.None) {
             ProcessEvent(context);
         }
+    }
+
+    public void AddTriggerToActivate(Trigger trigger) {
+        triggersToActivate.Add(trigger);
     }
 
     public virtual void EventFinished() {

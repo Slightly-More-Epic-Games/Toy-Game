@@ -14,7 +14,7 @@ namespace Items {
         public Action activateOn;
         public Target target;
         public List<ConditionData> conditions;
-        public bool cancelEvent;
+        public CancelMode cancelMode;
 
         protected bool activated = false;
 
@@ -35,7 +35,9 @@ namespace Items {
 
             // dont let a trigger activate again if its already activated before EventFinished()
             // this means a "convert healing event into damage" and a "convert damage event into healing" wont loop infinitely
-            if (activated) return result;
+            if (activated) {
+                return result;
+            }
 
             foreach (ConditionData conditionData in conditions) {
                 // if any condition activates, the trigger is activated
@@ -58,28 +60,52 @@ namespace Items {
 
             if (result.activated) {
                 activated = true;
+                
                 // cancelling the event means the creature processing the event wont finish processing its effects
                 // it will still go through the rest of its triggers
                 // this can be used to make a status effect which blocks damage
-                result.cancelled = cancelEvent;
+                result.cancelMode = cancelMode;
 
                 // now its the duty of a class extending trigger to do something based on the current context and the owner of the trigger status effect
-                Activate(context, owner);
+                if (cancelMode != CancelMode.Replace) {
+                    owner.AddTriggerToActivate(this);
+                } else {
+                    Activate(context, owner);
+                }
             }
 
             return result;
         }
 
         public void EventFinished() {
+            AllowActivations();
+        }
+
+        public void AllowActivations() {
             activated = false;
         }
 
-        protected abstract void Activate(Context context, Creature owner);
+        public abstract void Activate(Context context, Creature owner);
 
         public class Result {
             public bool activated = false;
             public bool ended = false;
-            public bool cancelled = false;
+            public CancelMode cancelMode = CancelMode.None;
+        }
+
+        [System.Serializable]
+        public enum CancelMode {
+            None,
+            Cancel,
+            Replace
+        }
+
+        public static CancelMode GetDominantCancelMode(CancelMode a, CancelMode b) {
+            if (a == CancelMode.Replace) return a;
+            if (b == CancelMode.Replace) return b;
+            if (a == CancelMode.Cancel) return a;
+            if (b == CancelMode.Cancel) return b;
+            return a;
         }
     }
 }
