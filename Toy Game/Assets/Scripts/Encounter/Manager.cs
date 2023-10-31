@@ -177,7 +177,9 @@ namespace Encounter {
 
         public void CreatureDied(Creature owner, Creature source) {
             // this is called once a creature is definately dead and cant be saved
-            AddEventToProcess(new Context(Action.AnyDeath, owner, source, owner.health));
+            Context context = new Context(Action.AnyDeath, source, owner, owner.health);
+            owner.OnEvent(context);
+            AddEventToProcess(context);
             if (playerEnemies.Contains(owner)) {
                 // killed enemies is used to generate item rewards
                 killedEnemies.Add(owner);
