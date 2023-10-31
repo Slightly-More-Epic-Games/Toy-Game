@@ -19,6 +19,8 @@ namespace Encounter {
 
         protected virtual void Update() {
             if (usingItem) {
+                // update the item throw animation
+                // once it hits, use the item and destroy
                 currentVisual.position = Vector3.MoveTowards(currentVisual.position, targetVisual.position, Time.deltaTime*itemUseSpeed);
                 if (Vector3.Distance(currentVisual.position, targetVisual.position) < 1f) {
                     onComplete.Invoke();

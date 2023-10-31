@@ -5,10 +5,17 @@ using UnityEngine;
 namespace Encounter {
     public class Context
     {
+        // a context is a single event in the game, and it gets passed around in a lot of functions (usually along with a "Creature owner")
+        // it has a type:
         public Action action;
+        // a source:
         public Creature source;
+        // a target:
         public Creature target;
+        // and a value:
         public int value;
+
+        // these 4 properties are enough to allow for some complex interactions
 
         public Context(Action action, Creature source, Creature target, int value) {
             this.action = action;
@@ -19,6 +26,10 @@ namespace Encounter {
 
         public List<Creature> GetTargets(Target targetType, Creature owner) {
             List<Creature> targets = new List<Creature>();
+
+            // from a context there are some relevant concepts of related targets relative to an owner
+            // this is what allows for context overriding to change the source and target of an event
+            // the overall switch statement here is massive, but intuitive enough
 
             switch (targetType) {
                 case Target.Source:
@@ -63,6 +74,7 @@ namespace Encounter {
                     break;
             };
 
+            // all "multiple target" targets have random variants, which can all be handled in a single case to reduce duplicated code
             if (targetType == Target.NotSelfRandom || targetType == Target.OpponentsRandom || targetType == Target.AlliesRandom || targetType == Target.Random) {
                 return new List<Creature>(){targets[Random.Range(0, targets.Count)]};
             }
