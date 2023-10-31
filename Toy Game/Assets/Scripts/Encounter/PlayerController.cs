@@ -15,12 +15,16 @@ namespace Encounter {
 
         protected override void Update() {
             base.Update();
+            // buffer item use if an item is currently being used - this means the players inputs dont get ignored
             if (!usingItem && index != -1 && target != null) {
                 UseItem(index, target);
             }
+            // likewise buffer turn end
             if (!usingItem && bufferedEnd) {
                 EndTurn();
             }
+
+            // if nothing is selected when the item has finished being used, clear the current selection marker
             if (!usingItem && index == -1) {
                 itemTab.Select(-1);
             }
@@ -28,9 +32,13 @@ namespace Encounter {
 
         public override void OnTurnStart(Creature owner) {
             turnActive = true;
+            
+            // items unselect over turns, creatures dont
             this.index = -1;
+
             itemTab.SetInteractable(owner, true);
             itemTab.SetFlipTarget(0);
+
             if (target != null) {
                 target.creatureVisual.SetTargeted(true, 1f);
             }
@@ -40,6 +48,8 @@ namespace Encounter {
             itemTab.SetInteractable(owner, true);
             itemTab.SetFlipTarget(1);
             itemTab.Select(-1);
+
+            // if a target is selected make the selection box semi-transparent
             if (target != null) {
                 target.creatureVisual.SetTargeted(true, 0.5f);
             }
@@ -76,8 +86,10 @@ namespace Encounter {
         public void SelectCreature(Creature target) {
             if (!turnActive) return;
             if (this.target != null) {
+                // clear previous target
                 this.target.creatureVisual.SetTargeted(false, 1f);
                 if (this.target == target) {
+                    // if the previous target is the new target, then we just want to unselect the current target and not select a new ne
                     this.target = null;
                     return;
                 }

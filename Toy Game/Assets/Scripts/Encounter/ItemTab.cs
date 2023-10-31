@@ -26,6 +26,7 @@ namespace Encounter {
         [SerializeField] private SpriteAnimation selectedAnimation;
 
         private void Update() {
+            //update end turn button, since it has a fun little animation
             currentFlip = Mathf.MoveTowards(currentFlip, flipTarget, Time.deltaTime/flipDuration);
             endTurn.image.sprite = flipSprites[Mathf.RoundToInt(currentFlip*(flipSprites.Length-1))];
 
@@ -37,12 +38,15 @@ namespace Encounter {
         }
 
         public void Init(Creature owner, PlayerController playerController) {
+            // set up the buttons for selecting items
             items = new HoverableUI[owner.items.Count];
             for (int i = 0; i < items.Length; i++) {
                 HoverableUI button = Instantiate(buttonPrefab, transform);
                 int i2 = new int();
                 i2 = i;
                 ItemSlot itemSlot = owner.items[i];
+                // passive items (eg Teddy Bear) cant be used, but graying them out would be weird
+                // disabling the button with button.enabled = false would make hover info not work
                 if (itemSlot.IsPassive()) {
                     button.transition = Selectable.Transition.None;
                 } else {
@@ -58,6 +62,7 @@ namespace Encounter {
         }
 
         public void SetInteractable(Creature owner, bool interactable) {
+            // i dont think this is really used properly - its supposed to be to disable the items when its not your turn
             if (!interactable) {
                 foreach (HoverableUI hoverableUI in items) {
                     hoverableUI.interactable = false;
@@ -68,6 +73,7 @@ namespace Encounter {
         }
 
         public void UpdateAllIcons(Creature owner) {
+            // updates if items are usable and the current imagination text
             for (int i = 0; i < items.Length; i++) {
                 UpdateItemIcon(owner, i);
             }
@@ -81,6 +87,7 @@ namespace Encounter {
         }
 
         public void Select(int index) {
+            // move selection marker
             if (index == -1) {
                 selectedMarker.gameObject.SetActive(false);
                 return;

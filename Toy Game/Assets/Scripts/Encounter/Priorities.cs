@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Encounter {
+    // priorities are a set of values that inform auto controllers
+    // on creatures most priorities should be 1 - it represents how much the creature "cares" about the specific metric
+    // on items the priorities should be how good the item is at doing things given the intended target
+    // so if an item deals 3 damage at the cost of 1 health, it is good at dealing damge (so a enemy damage of 1) - and it is alright at damaging self (so a self damage of 0.5)
+    // and then the current turns priority is how much each metric is needed - if an ally is on low health then "ally damage" might have a priority of -1 - so if an item is good at dealing ally damage when used on its intended target, it will get scored badly
+
+    // the actual data structure is simple though, and doesnt really need commenting
+
     [System.Serializable]
     public class Priorities
     {
