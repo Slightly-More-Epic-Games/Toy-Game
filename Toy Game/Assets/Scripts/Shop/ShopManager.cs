@@ -18,6 +18,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Button continueButton;
 
     private List<ShopItem> shopItems = new List<ShopItem>();
+    private List<ShopItem> playerItems = new List<ShopItem>();
 
     private void Start() {
         ShopNode node = (ShopNode)Manager.instance.currentNode;
@@ -42,17 +43,23 @@ public class ShopManager : MonoBehaviour
         button.FlipOffset();
         ShopItem shopItem = new ShopItem(button, itemSlot, isPlayer);
         button.onClick.AddListener(delegate {SwitchItem(shopItem);});
-        shopItems.Add(shopItem);
+        if (isPlayer) {
+            playerItems.Add(shopItem);
+        } else {
+            shopItems.Add(shopItem);
+        }
     }
 
     public void SwitchItem(ShopItem shopItem) {
-        if (shopItem.playerOwned) {
-            shopItem.playerOwned = false;
+        if (playerItems.Contains(shopItem)) {
             shopItem.hoverableUI.transform.SetParent(shopParent);
+            playerItems.Remove(shopItem);
+            shopItems.Add(shopItem);
             ChangeHealth(10);
         } else {
-            shopItem.playerOwned = true;
             shopItem.hoverableUI.transform.SetParent(playerParent);
+            playerItems.Add(shopItem);
+            shopItems.Remove(shopItem);
             ChangeHealth(-10);
         }
     }
@@ -60,17 +67,23 @@ public class ShopManager : MonoBehaviour
     private void ChangeHealth(int delta) {
         Creature playerCreature = Game.instance.player;
         playerCreature.health += delta;
-        health.text = "Health: "+Mathf.Clamp(playerCreature.health, 0, playerCreature.maxHealth);
+
+        string text = "Health: "+Mathf.Clamp(playerCreature.health, 0, playerCreature.maxHealth);
+        if (playerCreature.health < 0) {
+            text += " ("+playerCreature.health+")";
+        } else if (playerCreature.health > playerCreature.maxHealth) {
+            text += " (+"+(playerCreature.health-playerCreature.maxHealth)+")";
+        }
+        health.text = text;
+
         continueButton.interactable = playerCreature.health > 0;
     }
 
     public void Continue() {
         Game.instance.player.items.Clear();
-        foreach (ShopItem shopItem in shopItems) {
-            if (shopItem.playerOwned) {
-                ItemSlot itemSlot = shopItem.newItem ? shopItem.itemSlot.Copy() : shopItem.itemSlot;
-                Game.instance.player.items.Add(itemSlot);
-            }
+        foreach (ShopItem shopItem in playerItems) {
+            ItemSlot itemSlot = shopItem.newItem ? shopItem.itemSlot.Copy() : shopItem.itemSlot;
+            Game.instance.player.items.Add(itemSlot);
         }
         Game.instance.player.health = Mathf.Clamp(Game.instance.player.health, 0, Game.instance.player.maxHealth);
 
@@ -81,13 +94,11 @@ public class ShopManager : MonoBehaviour
         public ShopItem(HoverableUI hoverableUI, ItemSlot itemSlot, bool playerOwned) {
             this.hoverableUI = hoverableUI;
             this.itemSlot = itemSlot;
-            this.playerOwned = playerOwned;
             this.newItem = !playerOwned;
         }
 
         public HoverableUI hoverableUI;
         public ItemSlot itemSlot;
-        public bool playerOwned;
         public bool newItem;
     }
 }
