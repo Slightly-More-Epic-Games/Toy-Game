@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +38,8 @@ namespace Map {
         [SerializeField] private SpriteAnimation empty;
 
         [SerializeField] private AudioClip mapMusic;
+
+        [SerializeField] private TextMeshProUGUI health;
 
 
         private void Awake() {
@@ -154,6 +157,10 @@ namespace Map {
             if (nextConnections != null && nextConnections.Count == 0) {
                 Game.instance.player.health = Game.instance.player.maxHealth;
                 CreateMap();
+            }
+
+            if (currentLevel > 0 || bossesKilled > 0) {
+                health.text = "Health: "+Game.instance.player.health;
             }
 
             Game.instance.Play(mapMusic);
