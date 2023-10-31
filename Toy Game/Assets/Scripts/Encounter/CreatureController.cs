@@ -43,6 +43,7 @@ namespace Encounter {
         public virtual void OnEventsFinished(Creature owner) {}
 
         public void UseItemPhysically(ItemSlot itemSlot, Creature source, Creature target, int index) {
+            // create the throwing animation
             usingItem = true;
             onComplete = delegate {
                 itemSlot.Use(source, target, index);
@@ -55,7 +56,9 @@ namespace Encounter {
                 currentVisual.position -= new Vector3(Mathf.Sign(currentVisual.position.x)*24, 0, 0);
             }
             targetVisual = target.creatureVisual.transform;
+            // the speed it travels is proportional to distance so it always takes itemUseTime to arrive
             itemUseSpeed = Vector3.Distance(currentVisual.position, targetVisual.position)/itemUseTime;
+            // ...unless doing so would make it move too slowly
             itemUseSpeed = Mathf.Max(itemUseSpeed, minUseSpeed);
         }
     }

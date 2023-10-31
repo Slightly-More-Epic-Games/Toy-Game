@@ -37,7 +37,7 @@ MonoBehaviour:
       debuff: 0
   targetWeights:
     self: 1
-    ally: 1
+    ally: 0.5
     enemy: 0
   refresh: 1
   triggers:

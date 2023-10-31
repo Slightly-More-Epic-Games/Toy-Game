@@ -55,7 +55,7 @@ MonoBehaviour:
       debuff: 1
     enemies:
       heal: 1
-      damage: 1
+      damage: 1.15
       buff: 1
       debuff: 1
   dropPool:
