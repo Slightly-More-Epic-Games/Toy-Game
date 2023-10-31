@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui:
     name: Corrosion
-    description: Every time damage is taken, take 1 extra damage
+    description: Every time this creature is attacked, they take 1 extra damage
     icon: {fileID: 21300000, guid: 09c6e3ca57fe9a0418f3a1269f30a7a9, type: 3}
   activateOn: 0
   target: 1
   conditions:
-  - actionMatch: 4
+  - actionMatch: 2
     ownerMatch: 2
     condition: {fileID: 0}
     parameters: 
     resultOnSuccess: 2
   cancelMode: 2
   overrides:
-  - action: 4
+  - action: 2
     source: 0
     target: 1
     valueOverride: x+1
