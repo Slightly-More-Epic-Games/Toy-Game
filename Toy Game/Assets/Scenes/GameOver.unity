@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b7cc9a610ddf5438fd2a4f4e8a1a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMusic: {fileID: 8300000, guid: 8525d03d9647784429a20478bcb1494d, type: 3}
 --- !u!1 &1293178852
 GameObject:
   m_ObjectHideFlags: 0
