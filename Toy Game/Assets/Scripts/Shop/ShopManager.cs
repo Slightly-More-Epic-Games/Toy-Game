@@ -21,12 +21,15 @@ public class ShopManager : MonoBehaviour
     private List<ShopItem> playerItems = new List<ShopItem>();
 
     private void Start() {
+        //get current node
         ShopNode node = (ShopNode)Manager.instance.currentNode;
 
+        //create player items
         foreach (ItemSlot itemSlot in Game.instance.player.items) {
             CreateShopItem(itemSlot, true);
         }
 
+        //create shop items
         foreach (Item item in node.GetItems()) {
             item.ui.SetItem(item);
             CreateShopItem(new ItemSlot(item), false);
@@ -36,13 +39,17 @@ public class ShopManager : MonoBehaviour
     }
 
     private void CreateShopItem(ItemSlot itemSlot, bool isPlayer) {
+        //create the button for the item
         HoverableUI button = Instantiate(buttonPrefab, isPlayer ? playerParent : shopParent);
         ItemUI itemUI = itemSlot.GetItemUI();
+        //set up the hover info
         button.SetInfo(itemUI);
         button.image.sprite = itemUI.icon;
         button.FlipOffset();
+        //make ShopItem reference, which keeps track of what the item is and what its corresponding buttton is
         ShopItem shopItem = new ShopItem(button, itemSlot, isPlayer);
         button.onClick.AddListener(delegate {SwitchItem(shopItem);});
+        //add to correct item list
         if (isPlayer) {
             playerItems.Add(shopItem);
         } else {
@@ -51,6 +58,7 @@ public class ShopManager : MonoBehaviour
     }
 
     public void SwitchItem(ShopItem shopItem) {
+        //switch the list of the clicked item and update health
         if (playerItems.Contains(shopItem)) {
             shopItem.hoverableUI.transform.SetParent(shopParent);
             playerItems.Remove(shopItem);
@@ -65,10 +73,13 @@ public class ShopManager : MonoBehaviour
     }
 
     private void ChangeHealth(int delta) {
+        //update health
         Creature playerCreature = Game.instance.player;
         playerCreature.health += delta;
 
+        //update health text, this is limited between 0 and 25, but the players actual health isnt, since otherwise selling an item while on high health then buying a new one would make you lose health overall
         string text = "Health: "+Mathf.Clamp(playerCreature.health, 0, playerCreature.maxHealth);
+        //any extra health is indicated in brackets
         if (playerCreature.health < 0) {
             text += " ("+playerCreature.health+")";
         } else if (playerCreature.health > playerCreature.maxHealth) {
@@ -76,15 +87,19 @@ public class ShopManager : MonoBehaviour
         }
         health.text = text;
 
+        //dont let the player continue if they over spent
         continueButton.interactable = playerCreature.health > 0;
     }
 
     public void Continue() {
+        //clear players inventory then re fill it with whatever items are in the playerItems list
         Game.instance.player.items.Clear();
         foreach (ShopItem shopItem in playerItems) {
+            //shop items arent properly instanced until this point, but player items already are
             ItemSlot itemSlot = shopItem.newItem ? shopItem.itemSlot.Copy() : shopItem.itemSlot;
             Game.instance.player.items.Add(itemSlot);
         }
+        //limit players health, since now the purchases have been confirmed
         Game.instance.player.health = Mathf.Clamp(Game.instance.player.health, 0, Game.instance.player.maxHealth);
 
         Game.instance.LoadGameScene(Game.GameScene.Map);
